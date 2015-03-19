@@ -5,7 +5,6 @@ if(isset($_SESSION['name'])){
 header("location: main.php");
 }
 ?>
-<!--hrll-->
 <html>
 <head>
     <link rel="stylesheet" href="css/materialize.min.css">
