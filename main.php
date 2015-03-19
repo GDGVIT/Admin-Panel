@@ -35,7 +35,7 @@ $status=$_SESSION["status"];
         
         #over:hover{background-color:#e75457;}
           
-        .bakra{color:#5E5B5B;position:absolute;right:20px;font-size:17px;}
+        .bakra{color:#5E5B5B;position:fixed;right:20px;font-size:17px;}
         .jaadu{position:fixed;right:20px;width:150px;color:white;height:80px;background-color:#55555a;display:block;display:none;
             z-index:9999;line-height:40px;}
         .bakra:hover .jaadu{display:block;}
@@ -47,6 +47,7 @@ $status=$_SESSION["status"];
   <body ng-app>
     <header>
         <!--Top NavBar Begin-->
+        <div class="navbar-fixed" style="outline-offset: 0px;">
         <nav class="top-nav horizontal" style="box-shadow:#847777 4px 0.5px 4px;">
             
              <?php
@@ -64,18 +65,18 @@ $status=$_SESSION["status"];
 					}
              ?>
             <span class="bakra">
-                <a class='dropdown-button btn' href='#' data-activates='dropdown1'>
+                <a class='dropdown-button btn white blue-grey-text' href='#' data-activates='dropdown1'>
                 <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" style="width:20px;height:20px;" alt="..."/>&nbsp;
                 <?php echo"$name"; ?>
                 </a>
                 
-                 <ul id='dropdown1' class='dropdown-content white-text'>
+                 <ul id='dropdown1' class='dropdown-content'>
     <li><a onclick="self_profile()">Profile</a></li>
     <li><a href="#!">Settings</a></li>
     <li><a href="logout.php">Logout</a></li>
   </ul>
             </span>
-        </nav>        
+            </nav>   </div>     
         <!--Top NavBar End-->
         <!--Side NavBar Begin-->
         <!--Icon When NavBar is Hidden-->

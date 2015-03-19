@@ -50,7 +50,7 @@ function view_event_member() {
 		    document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		  }
 	    }
-	    xmlhttp.open("GET","event_user/view_event.php",true);
+	    xmlhttp.open("GET","event_admin/view_event.php",true);
 	    xmlhttp.send();
 }
 
@@ -438,6 +438,8 @@ function create_event_admin() {
 }
 
 function create_event_ad() {
+    
+    alert("below");
 	var name = document.getElementById("e_name").value;
 	var club_id = document.getElementById("club_id").value;
 	var date = document.getElementById("event_date").value;
@@ -451,14 +453,16 @@ function create_event_ad() {
     }
 	else 
     {
-		xmlhttp.onreadystatechange = function() {
-		//	document.getElementById("main_content").innerHTML = "";
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("main_content").innerHTML = xmlhttp.responseText;
-			}
+		xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
-		xmlhttp.open("GET", "event_admin/store_event.php?cid="+club_id+"&d="+date+"&t="+time+"&pl="+place+"&pu="+purpose+"&det="+details+"&da="+dt_added+"&name="+name, true);
+	  }
+		xmlhttp.open("GET", "store_event.php?cid="+club_id+"&d="+date+"&t="+time+"&pl="+place+"&pu="+purpose+"&det="+details+"&da="+dt_added+"&name="+name, true);
 		xmlhttp.send();
+    alert("out");
 	}
 }
 
