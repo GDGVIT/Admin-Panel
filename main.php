@@ -29,6 +29,8 @@ $status=$_SESSION["status"];
       <style type="text/css">
         body{background-image:url(img/alb.jpg);background-attachment:fixed;}
         .horizontal{background-color:white;}
+        .profile-button{background-color:#e75457;color:white;}
+        .profile-button:hover{background-color:white;color:black;}
         .tabs{width:50%;height:40px;float:left;background-color:#e75457}
         .tabs:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
