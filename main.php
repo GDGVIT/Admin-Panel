@@ -399,7 +399,6 @@ $status=$_SESSION["status"];
 <div id="self_profile" class="modal">
     <div class="modal-content">
     	<?php
-		session_start();
 		if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
 			{
 			require("sql_con.php");

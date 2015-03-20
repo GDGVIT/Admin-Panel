@@ -51,7 +51,7 @@ echo	'<div class="row" style="margin-top:10px;">
 												{
 											    
 												 echo '<tr>';
-												 echo '<td class="text-center">';echo $row['details'];echo '</td>';
+												 echo '<td class="text-center">';echo $row['name'];echo '</td>';
 											     echo '<td class="text-center">';
 													  $id=$row['id'];
 												   ?>

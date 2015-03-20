@@ -45,7 +45,7 @@ $club_id=$_SESSION['cid'];
 												{
 											    
 												 echo '<tr>';
-												 echo '<td>';echo $row['purpose']; echo '</td>';
+												 echo '<td>';echo $row['name']; echo '</td>';
                                                  echo '<td>';echo $row['date']; echo '</td>';
 											     echo '<td class="text-center">';
 													  $id=$row['id'];
