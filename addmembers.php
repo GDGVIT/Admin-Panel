@@ -10,12 +10,20 @@
 ?>
 
 <div>
-       <form>
-              <div align="center"><h3 class="paddh">Member Details</h3></div>
+       <!-- <form> -->
+            <div align="center"><h3 class="paddh">Member Details</h3></div>
             <div class="col-lg-10 paddl" style="width:500px; margin:0 auto;"><br>
+
+              <div id="errorBox"></div>
             
- 
-             
+              <div class="padds">           
+              <select name="department" id="department" class="browser-default" >
+              <option selected value="" disabled selected><b>Department :</B></option>     
+              <option  value="technical">Technical</option>
+              <option  value="management">Management</option>
+              <option  value="design">Design</option>     
+              </select>
+              </div>
                
               <div class="input-field col s12">
               <label>Member Name</label>
@@ -27,9 +35,9 @@
               <input id="reg_no" name="reg_no" type="text">
               </div>
               <label style="padding-left:10px;"><font size="3">Gender</font></label>&nbsp;&nbsp;&nbsp;
-              <input name="group1" type="radio" id="male" />
+              <input name="group1" type="radio" id="male" value="male" />
               <label for="male">Male</label>
-              <input name="group1" type="radio" id="female" />
+              <input name="group1" type="radio" id="female" value="female" />
               <label for="female">Female</label>
                <br>
                
@@ -51,15 +59,15 @@
               <label>Hostel Block</label>
               <input id="hblock" name="hblock" type="text" class="validate">
               </div>
-              <div class="btn">
+        <!--      <div class="btn">
               <input type="file" /><span>Profile Pic</span>
-              </div>
+              </div> -->
                 
               <div align="center" style="margin-top:20px;"> 
-              <a href="#" onclick="add_exec.php"><button type="button" class="btn btn-s-md btn-info">Add Member</button></a>
-                    </div>
-           </div>
- </form> 
+              <a href='#'><button class="btn btn-s-md btn-info" onclick="change_password2()">Add Member</button></a>
+              </div>
+          </div>
+      <!-- </form>  -->
 </div>     
 
 <?php

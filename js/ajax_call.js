@@ -86,7 +86,7 @@ function add_members() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","addmembers.php",true);
+	xmlhttp.open("POST","addmembers.php",true);
 	xmlhttp.send();
 }
 
@@ -283,28 +283,28 @@ function change_password1(x) {//task status change
 }
 
 function change_password2() {//add_members
-   var phone=document.getElementById("phone").value;
-   var name=document.getElementById("name").value;
-   var email=document.getElementById("email").value;
-   var ddob=document.getElementById("ddob").value;
-   var mdob=document.getElementById("mdob").value;
-   var ydob=document.getElementById("ydob").value;
-   var add=document.getElementById("add").value;
-   var regno=document.getElementById("regno").value;
-   var sex=document.getElementById("gender").value;
-   
+   var department = document.getElementById("department").value;
+   var phone=document.getElementById("mobno").value;
+   var name=document.getElementById("m_name").value;
+   var email=document.getElementById("emailid").value;
+   var date=document.getElementById("dob").value;
+   var hroom=document.getElementById("hroom").value;
+   var hblock=document.getElementById("hblock").value;
+   var add=""+hblock+"-"+hroom;
+   var regno=document.getElementById("reg_no").value;
+   var sexarr=document.getElementsByName("group1");
+   for(var i=0; i<sexarr.length; i++) {
+   		if(sexarr[i].checked)
+			var sex = sexarr[i].value; 
+   }
    if (name==null || name=="") {
-		document.form.name.focus() ;
-		document.getElementById("errorBox").innerHTML = "Enter the first name";
-    	return false;
+		toast('Please provide correct name.', 3000, '#f44336 red');
   	}
 
 	var pattern = /^[0-1]{1}[0-9]{1}[a-zA-Z]{3}[0-9]{4}$/;
 	if(!regno.match(pattern))
 	{
-		document.form.registration.focus() ;
-		document.getElementById("errorBox").innerHTML = "Enter a valid registration number";
-    	return false;
+		toast('Please provide correct regno.', 3000, '#f44336 red');
 	}
 	xmlhttp.onreadystatechange=function()
 	  {
@@ -313,7 +313,7 @@ function change_password2() {//add_members
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","add_exec.php?name="+name+"&email="+email+"&ddob="+ddob+"&mdob="+mdob+"&ydob="+ydob+"&phone="+phone+"&add="+add+"&sex="+sex+"&regno="+regno,true);
+	xmlhttp.open("POST","add_exec.php?name="+name+"&email="+email+"&dob="+date+"&phone="+phone+"&add="+add+"&sex="+sex+"&regno="+regno+"&department="+department,true);
 	xmlhttp.send();
 }
 
