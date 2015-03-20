@@ -27,15 +27,7 @@ echo '
 			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button>
 						
 						   
-									<table class="hoverable centered"  ng-show="tab===1" id="1">
-										<thead>
-										  <tr>
-											<th data-field="id" style="color:grey">Members</th>
-											
-											
-										  </tr>
-										</thead>
-										<tbody>';
+									<div class="hoverable centered"  ng-show="tab===1" id="1">';
 										  
                                                 
 												$mysql_tb = 'club_'.$club_id.'_members';
@@ -48,18 +40,17 @@ echo '
             $id=$rows['id'];
 
            
-            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
+            ?> <div><a onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
                         <a   href="#"  class="auto">                                                        
                        <?php echo '   
                            <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                             </td></tr>
+                             </a></div>
                           </a>';
                      
                        }
 					
                                          
-									  echo ' </tbody>
-								   </table>
+									  echo ' </div>
                                    
                                    
 									<table class="hoverable hidemeeting" id="2" ng-show="tab===2">
