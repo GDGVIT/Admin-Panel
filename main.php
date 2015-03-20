@@ -395,6 +395,97 @@ $status=$_SESSION["status"];
         </div>
     </div>
 </main> 
+
+
+
+<!--Self Profile begins-->
+
+<div id="self_profile" class="modal">
+    <div class="modal-content">
+      <?php
+    session_start();
+    if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
+      {
+      require("sql_con.php");
+      $regno=$_SESSION['name'];
+      $status=$_SESSION['status'];
+      $club_id=$_SESSION['cid'];
+
+      $id1=$regno;
+      $mysql_tb = 'club_'.$club_id.'_members';
+      $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$id1'";
+        $res = mysqli_query($mysqli,$sql);
+
+        while($row=mysqli_fetch_array($res))//selecting the events
+          {
+              $name=$row['name'];
+          $regno=$row["regno"];
+          $date=$row["dob"];
+          $email=$row["email"];
+          $address=$row["address"];
+          $phone=$row["mobno"];
+          $gender=$row["gender"];
+          $photo=$row["photo"];
+          $status=$row['status'];
+        }
+    
+    
+    ?>
+
+    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
+        <span class="card-title">
+             <h3>
+                <?php echo"$name"; ?>
+             </h3>
+        </span>
+        <span class="card-title grey-text text-darken-4"><h5>Registraion Number</h5></span><p><?php echo"$regno"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Email-ID</h5></span><p><?php echo"$email"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Gender</h5></span><p><?php echo"$gender"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Birthday</h5></span><p><?php echo"$date"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Address</h5></span><p><?php echo"$address"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Phone Number</h5></span><p><?php echo"$phone"; ?></p>
+    </div>
+    <div class="card-action" align="center">
+        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
+        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
+    </div>
+                  
+    <?php
+mysqli_close($mysqli);
+  }
+  else
+  {
+    session_unset();
+    session_destroy();
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Location:signin.php");
+  }       
+?>
+
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-action modal-close profile-button">Close</a>
+    </div>
+  </div> 
+
+  <!--Profile Ends-->
+
+  <!--Ajax View Files-->
+  <!--The following block contains the code of those ajax files which were being used for viewing things..Like view events view attendance,view meetings....Had to do it inorder to improve the ux-->
+  <!--P.S: Sorry for all the troubles caused but as of now we do not have an option-->
+  <!--Club Members-->
+<main ng-show="option===1">
+    <div class="container" ng-init="tab=1">
+    <!--  Outer row  -->
+        <div class="row card" id="main_content1">
+            <!--Icon and Header-->
+            
+        </div>
+    </div>
+</main>
+   <!--Club members end-->
+   <!--Ajax view files end-->
+
         
 
 
