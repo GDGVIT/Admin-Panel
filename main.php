@@ -96,7 +96,7 @@ $status=$_SESSION["status"];
                   <img src="img/logo.png" style="padding-top:10px;width:180px;height:50px;">
               </a>
           </li>
-          <li style="height:40px;"></li>
+          <li style="height:20px;"></li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
               <a href="main.php" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
                   Overview
