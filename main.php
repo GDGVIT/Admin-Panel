@@ -327,7 +327,7 @@ $status=$_SESSION["status"];
                 <table class="hoverable centered" ng-show="tab===1">
                     <thead>
                         <tr>
-                            <th data-field="id" >Event</th>
+                            <th data-field="id" >Event Name</th>
                             <th data-field="id" >Scheduled Date</th>
                             <th data-field="name">Details</th>
                         </tr>
@@ -379,8 +379,8 @@ $status=$_SESSION["status"];
                         ?>  
                         <tr>
                             <td style="max-width:100px;overflow:auto"><?php echo $row['details'] ?></td>
-                            <td><?php echo $row['date']; echo $row['time']; ?></td>
-                            <td><?php echo $row['details'] ?></td>
+                            <td><?php echo $row['date']; echo ", "; echo $row['time']; ?></td>
+                            <td><?php echo $row['place'] ?></td>
                         <?php
                             }
                         ?>
