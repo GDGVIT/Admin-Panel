@@ -24,14 +24,93 @@ echo '
 					   echo '<div id="materialdesign" class="section paddl">
 								<button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
 			                    <button class="waves-effect waves-light btn tabs" onclick="show2();">Management</button>
-			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button>
+			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button>';
 						
-						   
-									<div class="hoverable centered"  ng-show="tab===1" id="1">';
-										  
-                                                
-												$mysql_tb = 'club_'.$club_id.'_members';
+						  
+
+		$mysql_tb = 'club_'.$club_id.'_members';
+        $sql1 = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='technical'";
+        $sql2 = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='management'";
+        $sql3 = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='design'";
+
+        $res1 = mysqli_query($mysqli,$sql1) or die("sql1 error");
+        $res2 = mysqli_query($mysqli,$sql2) or die("sql2 error");
+        $res3 = mysqli_query($mysqli,$sql3) or die("sql3 error");
+
+        while($row1 = mysqli_fetch_array($res1)) {
+
+        	$name=$row1['name'];
+            $id=$row1['id'];
+
+            echo "<div>
+            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
+                    <a href='#'  class='auto'>   
+                        <span id='".$id."'>".$name."</span>
+                    </a>
+                    </a>
+                    </div>";
+        }
+
+        echo "<br><br><br>";
+
+        while($row2 = mysqli_fetch_array($res2)) {
+
+        	$name=$row2['name'];
+            $id=$row2['id'];
+
+            echo "<div>
+            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
+                    <a href='#'  class='auto'>   
+                        <span id='".$id."'>".$name."</span>
+                    </a>
+                    </a>
+                    </div>";
+        }
+
+        echo "<br><br><br>";
+
+        while($row3 = mysqli_fetch_array($res3)) {
+
+        	$name=$row3['name'];
+            $id=$row3['id'];
+
+            echo "<div>
+            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
+                    <a href='#'  class='auto'>   
+                        <span id='".$id."'>".$name."</span>
+                    </a>
+                    </a>
+                    </div>";
+        }
+
+
+
+	}				  
+ /*                                               
+			$mysql_tb = 'club_'.$club_id.'_members';
             $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='technical'" ;
+            $res = mysqli_query($mysqli,$sql);
+            
+            while($rows=mysqli_fetch_array($res))//selecting the events
+            {
+
+            $name=$rows['name'];
+            $id=$rows['id'];
+
+           
+            ?> <div><a onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
+                        <a   href="#"  class="auto">                                                        
+                       <?php echo '   
+                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
+                             </a>
+                          </a></div>';
+                     
+            }
+
+            echo "</div>";
+
+			$mysql_tb = 'club_'.$club_id.'_members';
+            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='management'" ;
             $res = mysqli_query($mysqli,$sql);
             
             while($rows=mysqli_fetch_array($res))//selecting the events
@@ -44,39 +123,8 @@ echo '
                         <a   href="#"  class="auto">                                                        
                        <?php echo '   
                            <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                             </a></div>
-                          </a>';
-                     
-                       }
-					
-                                         
-									  echo ' </div>
-                                   
-                                   
-									<table class="hoverable hidemeeting" id="2" ng-show="tab===2">
-										<thead>
-										  <tr>
-											<th class="attendance-club text-center">Members</th>
-											
-										  </tr>
-										</thead>
-										<tbody>';
-$mysql_tb = 'club_'.$club_id.'_members';
-            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='management'" ;
-            $res = mysqli_query($mysqli,$sql);
-            
-            while($rows=mysqli_fetch_array($res))//selecting the events
-            {
-            $name=$rows['name'];
-            $id=$rows['id'];
-
-           
-            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
-                        <a   href="#"  class="auto">                                                        
-                       <?php echo '   
-                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                             </td></tr>
-                          </a>';
+                          </a>
+                          </a></div>';
                      
                        }
 												 
@@ -113,6 +161,6 @@ $mysql_tb = 'club_'.$club_id.'_members';
 								   </table>
 						      </div>';
 						
-					    }
+					    }*/
 						mysqli_close($mysqli);				
 ?>
