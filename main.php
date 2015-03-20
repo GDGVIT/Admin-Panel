@@ -46,7 +46,7 @@ $status=$_SESSION["status"];
     </style>      
       
   </head>
-  <body ng-app>
+  <body ng-app ng-init="option=0">
     <header>
         <!--Top NavBar Begin-->
         <div class="navbar-fixed" style="outline-offset: 0px;">
@@ -98,17 +98,21 @@ $status=$_SESSION["status"];
           </li>
           <li style="height:40px;"></li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
-              <a href="main.php" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
+              <a href="main.php" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=0">
                   Overview
               </a>
           </li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
+<<<<<<< HEAD
               <a href="#modal1" class="waves-effect  modal-trigger" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
                   Modal Check
               </a>
           </li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
               <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="members_list()">
+=======
+              <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=1">
+>>>>>>> origin/work
                   Club Members
               </a>
           </li>
@@ -120,7 +124,7 @@ $status=$_SESSION["status"];
              <div class="collapsible-body" style="background-color:#000000">
                 <ul>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_task()">
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=0" onclick="view_task()">
                           View Tasks
                       </a>
                   </li>
@@ -128,12 +132,12 @@ $status=$_SESSION["status"];
 					  if($_SESSION['status']==1)
 					  echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                            <a href='' onclick='add_task()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                            <a href='' onclick='add_task()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0'>
                                 Assign Task
                             </a>
                         </li>
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                            <a href='' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                            <a href='' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0'>
                                 Modify Task Status
                             </a>
                         </li>";
@@ -142,7 +146,7 @@ $status=$_SESSION["status"];
               </div>
           </li>
           <li id="over">
-              <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header">
+              <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header" ng-click="option=0">
                   Attendance
               </a>                    
               <div class="collapsible-body" style="background-color:#000000">
@@ -151,7 +155,7 @@ $status=$_SESSION["status"];
 					  {
 				   ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_member_attendance();">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_member_attendance();" ng-click="option=0">
                           View Attendance
                       </a>
                   </li>
@@ -162,7 +166,7 @@ $status=$_SESSION["status"];
 					  {
 					 ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_admin_attendance();">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_admin_attendance();" ng-click="option=0">
                           View Attendance
                       </a>
                   </li>
@@ -174,7 +178,7 @@ $status=$_SESSION["status"];
 					  {
 				   ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" onclick="modify_admin_attendance();" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
+                      <a href="" onclick="modify_admin_attendance();" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=0">
                           Modify Attendance
                       </a>
                   </li>
@@ -185,7 +189,7 @@ $status=$_SESSION["status"];
               </div>
           </li>
           <li id="over">
-              <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header">
+              <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header" ng-click="option=0">
                   Events
               </a>
                 <div class="collapsible-body" style="background-color:#000000">
@@ -195,7 +199,7 @@ $status=$_SESSION["status"];
 					  {
 				   ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_member()">
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_member()" ng-click="option=0">
                           View Events
                       </a>
                   </li>
@@ -207,7 +211,7 @@ $status=$_SESSION["status"];
 					  {
 				  ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_member()">
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_member()" ng-click="option=0">
                           View Events
                       </a>
                   </li>
@@ -220,7 +224,7 @@ $status=$_SESSION["status"];
 					  {
 				  ?>    
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" onclick="create_event_admin()" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
+                      <a href="" onclick="create_event_admin()" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=0">
                           Create Event
                       </a>
                   </li>
@@ -241,7 +245,7 @@ $status=$_SESSION["status"];
 					      {
                   ?>       
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_meeting_member()">View                         Meetings
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=0" onclick="view_meeting_member()">View Meetings
                       </a>
                   </li>
                   <?php
@@ -252,7 +256,7 @@ $status=$_SESSION["status"];
 					      {
 						  ?>  
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_meeting_member()">View                         Meetings
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_meeting_member()" ng-click="option=0">View Meetings
                       </a>
                   </li>  
                   <?php
@@ -263,7 +267,7 @@ $status=$_SESSION["status"];
 					  {
 						?>    
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="create_meeting_admin()">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="create_meeting_admin()" ng-click="option=0">
                           Add Meetings
                       </a>
                   </li>
@@ -277,7 +281,7 @@ $status=$_SESSION["status"];
             if($_SESSION['status']==1)
                 echo"
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='add_members();' class='collapsible-header'>
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='add_members();' class='collapsible-header' ng-click='option=0'>
                             Add Members
                     </a>             
                     </li>";
@@ -287,7 +291,7 @@ $status=$_SESSION["status"];
             if($_SESSION['status']==1)
                 echo"
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='report();' class='collapsible-header'>
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='report();' class='collapsible-header' ng-click='option=0'>
                             Reports
                     </a>             
                     </li>";
@@ -298,7 +302,7 @@ $status=$_SESSION["status"];
             if($_SESSION['status']==1)
                 echo"
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='all_threads();' class='collapsible-header'>
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='all_threads();' class='collapsible-header' ng-click='option=0'>
                             Discussion Forum
                     </a>             
                     </li>";
@@ -311,7 +315,7 @@ $status=$_SESSION["status"];
     
 
       
-<main>
+<main ng-show="option===0">
     <div class="container" ng-init="tab=1">
     <!--  Outer row  -->
         <div class="row card" id="main_content">
@@ -398,10 +402,16 @@ $status=$_SESSION["status"];
     </div>
 </main> 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/work
 <!--Self Profile begins-->
 
 <div id="self_profile" class="modal">
     <div class="modal-content">
+<<<<<<< HEAD
     	<?php
 		session_start();
 		if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
@@ -436,6 +446,42 @@ $status=$_SESSION["status"];
         <span class="card-title">
              <h3>
               	<?php echo"$name"; ?>
+=======
+      <?php
+    session_start();
+    if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
+      {
+      require("sql_con.php");
+      $regno=$_SESSION['name'];
+      $status=$_SESSION['status'];
+      $club_id=$_SESSION['cid'];
+
+      $id1=$regno;
+      $mysql_tb = 'club_'.$club_id.'_members';
+      $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$id1'";
+        $res = mysqli_query($mysqli,$sql);
+
+        while($row=mysqli_fetch_array($res))//selecting the events
+          {
+              $name=$row['name'];
+          $regno=$row["regno"];
+          $date=$row["dob"];
+          $email=$row["email"];
+          $address=$row["address"];
+          $phone=$row["mobno"];
+          $gender=$row["gender"];
+          $photo=$row["photo"];
+          $status=$row['status'];
+        }
+    
+    
+    ?>
+
+    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
+        <span class="card-title">
+             <h3>
+                <?php echo"$name"; ?>
+>>>>>>> origin/work
              </h3>
         </span>
         <span class="card-title grey-text text-darken-4"><h5>Registraion Number</h5></span><p><?php echo"$regno"; ?></p>
@@ -446,6 +492,7 @@ $status=$_SESSION["status"];
         <span class="card-title grey-text text-darken-4"><h5>Phone Number</h5></span><p><?php echo"$phone"; ?></p>
     </div>
     <div class="card-action" align="center">
+<<<<<<< HEAD
         <a data-toggle="modal" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" onclick="update_forms1()">Modify</a>&nbsp&nbsp
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
     </div>
@@ -461,6 +508,23 @@ mysqli_close($mysqli);
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 		header("Location:signin.php");
 	}			  
+=======
+        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
+        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
+    </div>
+                  
+    <?php
+mysqli_close($mysqli);
+  }
+  else
+  {
+    session_unset();
+    session_destroy();
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Location:signin.php");
+  }       
+>>>>>>> origin/work
 ?>
 
     <div class="modal-footer">
@@ -469,6 +533,156 @@ mysqli_close($mysqli);
   </div> 
 
   <!--Profile Ends-->
+<<<<<<< HEAD
+=======
+
+  <!--Ajax View Files-->
+  <!--The following block contains the code of those ajax files which were being used for viewing things..Like view events view attendance,view meetings....Had to do it inorder to improve the ux-->
+  <!--P.S: Sorry for all the troubles caused but as of now we do not have an option-->
+  <!--Club Members-->
+<main ng-show="option===1">
+    <div class="container" ng-init="tab=1">
+    <!--  Outer row  -->
+        <div class="row card" id="main_content1">
+            <?php
+session_start();
+  if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
+  {
+  require("sql_con.php");
+$regno=$_SESSION['name'];
+$status=$_SESSION['status'];
+$club_id=$_SESSION['cid'];
+echo '
+    <div class="row" style="margin-top:10px;">
+       <div class="col-md-11" style="padding-left:10px;">
+            <h3 class="paddh">Club Members</h3>
+        </div>                  
+    </div>';
+             
+                 if($status==1)
+              {
+            
+             echo '<div id="materialdesign" class="section paddl">
+                <button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
+                          <button class="waves-effect waves-light btn tabs" onclick="show2();">Management</button>
+                          <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button>
+            
+               
+                  <table class="hoverable centered"  ng-show="tab===1" id="1">
+                    <thead>
+                      <tr>
+                      <th data-field="id" style="color:grey">Members</th>
+                      
+                      
+                      </tr>
+                    </thead>
+                    <tbody>';
+                      
+                                                
+                        $mysql_tb = 'club_'.$club_id.'_members';
+            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='technical'" ;
+            $res = mysqli_query($mysqli,$sql);
+            
+            while($rows=mysqli_fetch_array($res))//selecting the events
+            {
+            $name=$rows['name'];
+            $id=$rows['id'];
+
+           
+            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
+                        <a   href="#"  class="auto">                                                        
+                       <?php echo '   
+                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
+                             </td></tr>
+                          </a>';
+                     
+                       }
+          
+                                         
+                    echo ' </tbody>
+                   </table>
+                                   
+                                   
+                  <table class="hoverable hidemeeting" id="2" ng-show="tab===2">
+                    <thead>
+                      <tr>
+                      <th class="attendance-club text-center">Members</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody>';
+$mysql_tb = 'club_'.$club_id.'_members';
+            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='management'" ;
+            $res = mysqli_query($mysqli,$sql);
+            
+            while($rows=mysqli_fetch_array($res))//selecting the events
+            {
+            $name=$rows['name'];
+            $id=$rows['id'];
+
+           
+            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
+                        <a   href="#"  class="auto">                                                        
+                       <?php echo '   
+                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
+                             </td></tr>
+                          </a>';
+                     
+                       }
+                         
+                     echo '</tbody>
+                   </table>
+                   <table class="hoverable hidemeeting" id="3" ng-show="tab===2">
+                    <thead>
+                      <tr>
+                      <th class="attendance-club text-center">Members</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody>';
+$mysql_tb = 'club_'.$club_id.'_members';
+            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='design'" ;
+            $res = mysqli_query($mysqli,$sql);
+            
+            while($rows=mysqli_fetch_array($res))//selecting the events
+            {
+            $name=$rows['name'];
+            $id=$rows['id'];
+
+           
+            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
+                        <a   href="#"  class="auto">                                                        
+                       <?php echo '   
+                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
+                             </td></tr>
+                          </a>';
+                     
+                       }
+                         
+                     echo '</tbody>
+                   </table>
+                  </div>';
+            
+              }
+            mysqli_close($mysqli);
+  }
+  else
+  {
+    session_unset();
+    session_destroy();
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Location:signin.php");
+  }
+            
+?>            
+        </div>
+    </div>
+</main>
+   <!--Club members end-->
+   <!--Ajax view files end-->
+
+>>>>>>> origin/work
         
 
 
