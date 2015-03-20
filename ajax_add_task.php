@@ -26,7 +26,7 @@ $club_id=$_SESSION['cid'];
           {
         
            $name=$rows['name'];
-           $id=$rows['id'];
+           $id=$rows['regno'];
            echo" <option  value='$id'>$name</option>";
           }
           ?>

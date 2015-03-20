@@ -5,7 +5,6 @@
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];
   $club_id=$_SESSION['cid'];
-  }
   $id1=$_GET["id"];
   echo $id1;
   $mysql_tb = 'club_'.$club_id.'_members';
