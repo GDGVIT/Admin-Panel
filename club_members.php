@@ -24,7 +24,7 @@ echo '
 					   echo '<div id="materialdesign" class="section paddl">
 								<button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
 			                    <button class="waves-effect waves-light btn tabs" onclick="show2();">Management</button>
-			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button>';
+			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button></div>';
 						
 						  
 
@@ -43,10 +43,8 @@ echo '
             $id=$row1['id'];
 
             echo "<div>
-            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
-                    <a href='#'  class='auto'>   
+            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
                         <span id='".$id."'>".$name."</span>
-                    </a>
                     </a>
                     </div>";
         }
@@ -59,10 +57,8 @@ echo '
             $id=$row2['id'];
 
             echo "<div>
-            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
-                    <a href='#'  class='auto'>   
+            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>  
                         <span id='".$id."'>".$name."</span>
-                    </a>
                     </a>
                     </div>";
         }
@@ -75,10 +71,8 @@ echo '
             $id=$row3['id'];
 
             echo "<div>
-            		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
-                    <a href='#'  class='auto'>   
+            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
                         <span id='".$id."'>".$name."</span>
-                    </a>
                     </a>
                     </div>";
         }
