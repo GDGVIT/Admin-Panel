@@ -26,6 +26,7 @@ $club_id=$_SESSION['cid'];
          <label>Event Time</label><br><br> 
          <input id="meeting_time" type="time" class="timepicker" required>  
          <hr><br>
+         <input type="hidden" id="club_id" value="<?php echo $club_id;?>">
          <div align="center"> 
       <a href="#" onclick="create_meeting_ad()"><button type="button" class="btn btn-s-md btn-info">Create Meeting</button></a>
     </div>

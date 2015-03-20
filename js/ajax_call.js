@@ -553,13 +553,12 @@ function create_meeting_admin() {
 
 function create_meeting_ad() {
 	var club_id = document.getElementById("club_id").value;
-	var date = document.getElementById("date").value;
-	var time = document.getElementById("time").value;
-	var place = document.getElementById("place").value;
+	var date = document.getElementById("meeting_date").value;
+	var time = document.getElementById("meeting_time").value;
+	var place = document.getElementById("venue").value;
 	var details = document.getElementById("details").value;
-	var dt_added = ""+y+"-"+m+"-"+d;
 	if (date=="" || time=="" || place=="" || details=="")
-		alert("Please provide all the details correctly...");
+		toast('Please provide all the details.', 3000, '#f44336 red');
 	else {
 		xmlHttp.onreadystatechange = function() {
 		//	document.getElementById("main_content").innerHTML = "";
