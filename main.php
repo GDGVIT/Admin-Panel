@@ -71,7 +71,7 @@ $status=$_SESSION["status"];
                 </a>
                 
                  <ul id='dropdown1' class='dropdown-content'>
-    <li><a onclick="self_profile()">Profile</a></li>
+    <li><a class="modal-trigger" href="#self_profile">Profile</a></li>
     <li><a href="#!">Settings</a></li>
     <li><a href="logout.php">Logout</a></li>
   </ul>
@@ -478,8 +478,7 @@ mysqli_close($mysqli);
     <div class="container" ng-init="tab=1">
     <!--  Outer row  -->
         <div class="row card" id="main_content1">
-            <!--Icon and Header-->
-            
+                        
         </div>
     </div>
 </main>
