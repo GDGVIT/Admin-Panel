@@ -72,7 +72,7 @@ echo '
         while($row3 = mysqli_fetch_array($res3)) {
 
         	$name=$row3['name'];
-            $id=$row3	['id'];
+            $id=$row3['id'];
 
             echo "<div>
             		<a onclick='view_members_profile(<?php echo $id; ?>)' class='attendance-club text-center'>
