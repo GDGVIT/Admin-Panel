@@ -288,7 +288,7 @@ $status=$_SESSION["status"];
                     </li>";
           ?>
           
-
+<!--
 <?php
             if($_SESSION['status']==1)
                 echo"
@@ -298,7 +298,7 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
-
+-->
         </ul>
       </ul>
         <!--Menu Ends-->
