@@ -63,7 +63,7 @@ function view_event_member() {
 		    document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		  }
 	    }
-	    xmlhttp.open("GET","event_admin/view_event.php",true);
+	    xmlhttp.open("GET","event_user/view_event.php",true);
 	    xmlhttp.send();
 }
 

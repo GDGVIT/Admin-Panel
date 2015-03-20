@@ -190,7 +190,7 @@ $status=$_SESSION["status"];
 					  {
 				   ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_member()">
+                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="view_event_admin()">
                           View Events
                       </a>
                   </li>
