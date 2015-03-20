@@ -1,6 +1,6 @@
 <?php
-session_start();
 include('sql_con.php');
+session_start();
 $club_id = $_SESSION["cid"];
 $name=$_SESSION["name"];
 $status=$_SESSION["status"];
@@ -103,20 +103,7 @@ $status=$_SESSION["status"];
               </a>
           </li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <a href="#modal1" class="waves-effect  modal-trigger" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
-                  Modal Check
-              </a>
-          </li>
-          <li class="waves-effect waves-light" id="over" style="width:240px;">
               <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="members_list()">
-=======
-              <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=1">
->>>>>>> origin/work
-=======
-              <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="members_list()">
->>>>>>> 6e3a7feaf69de0ca79c2bc6086de842ac615d0d1
                   Club Members
               </a>
           </li>
@@ -402,20 +389,15 @@ $status=$_SESSION["status"];
                 </table>
     <!--Meetings Table End-->
             </div>
+
         </div>
     </div>
 </main> 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/work
 <!--Self Profile begins-->
 
 <div id="self_profile" class="modal">
     <div class="modal-content">
-<<<<<<< HEAD
     	<?php
 		session_start();
 		if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
@@ -450,42 +432,6 @@ $status=$_SESSION["status"];
         <span class="card-title">
              <h3>
               	<?php echo"$name"; ?>
-=======
-      <?php
-    session_start();
-    if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-      {
-      require("sql_con.php");
-      $regno=$_SESSION['name'];
-      $status=$_SESSION['status'];
-      $club_id=$_SESSION['cid'];
-
-      $id1=$regno;
-      $mysql_tb = 'club_'.$club_id.'_members';
-      $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$id1'";
-        $res = mysqli_query($mysqli,$sql);
-
-        while($row=mysqli_fetch_array($res))//selecting the events
-          {
-              $name=$row['name'];
-          $regno=$row["regno"];
-          $date=$row["dob"];
-          $email=$row["email"];
-          $address=$row["address"];
-          $phone=$row["mobno"];
-          $gender=$row["gender"];
-          $photo=$row["photo"];
-          $status=$row['status'];
-        }
-    
-    
-    ?>
-
-    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
-        <span class="card-title">
-             <h3>
-                <?php echo"$name"; ?>
->>>>>>> origin/work
              </h3>
         </span>
         <span class="card-title grey-text text-darken-4"><h5>Registraion Number</h5></span><p><?php echo"$regno"; ?></p>
@@ -496,8 +442,7 @@ $status=$_SESSION["status"];
         <span class="card-title grey-text text-darken-4"><h5>Phone Number</h5></span><p><?php echo"$phone"; ?></p>
     </div>
     <div class="card-action" align="center">
-<<<<<<< HEAD
-        <a data-toggle="modal" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" onclick="update_forms1()">Modify</a>&nbsp&nbsp
+        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
     </div>
           				
@@ -512,23 +457,6 @@ mysqli_close($mysqli);
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 		header("Location:signin.php");
 	}			  
-=======
-        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
-        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
-    </div>
-                  
-    <?php
-mysqli_close($mysqli);
-  }
-  else
-  {
-    session_unset();
-    session_destroy();
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-    header("Location:signin.php");
-  }       
->>>>>>> origin/work
 ?>
 
     <div class="modal-footer">
@@ -537,8 +465,6 @@ mysqli_close($mysqli);
   </div> 
 
   <!--Profile Ends-->
-<<<<<<< HEAD
-=======
 
   <!--Ajax View Files-->
   <!--The following block contains the code of those ajax files which were being used for viewing things..Like view events view attendance,view meetings....Had to do it inorder to improve the ux-->
@@ -548,16 +474,13 @@ mysqli_close($mysqli);
     <div class="container" ng-init="tab=1">
     <!--  Outer row  -->
         <div class="row card" id="main_content1">
-                        
+            <!--Icon and Header-->
+            
         </div>
     </div>
 </main>
    <!--Club members end-->
    <!--Ajax view files end-->
-
->>>>>>> origin/work
-        
-
 
     
     <!--  Scripts-->
