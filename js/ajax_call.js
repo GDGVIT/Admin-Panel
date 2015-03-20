@@ -4,6 +4,7 @@ var dt = new Date();
 var d = dt.getDate();
 var m = dt.getMonth()+1;
 var y = dt.getFullYear();
+var dt_added = ""+y+"-"+m+"-"+d;
 var inter ="";
 
 function createXmlHttpRequestObject() {
@@ -40,6 +41,18 @@ function showme() {
 function showev() {
     document.getElementById('meeting').className="hidemeeting";
     document.getElementById('event').className="showevent";
+}
+
+function show1() {
+	alert("Beta ye h show 1, okay");
+}
+
+function show2() {
+	alert("tumhe fn call krna hi nhi aata, ye show2 hai");
+}
+
+function show3() {
+	alert("tum rehne do, tumse na ho paayega");
 }
 
 function view_event_member() {
@@ -442,8 +455,6 @@ function create_event_admin() {
 }
 
 function create_event_ad() {
-    
-    alert("below");
 	var name = document.getElementById("e_name").value;
 	var club_id = document.getElementById("club_id").value;
 	var date = document.getElementById("event_date").value;
@@ -464,9 +475,8 @@ function create_event_ad() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-		xmlhttp.open("GET", "store_event.php?cid="+club_id+"&d="+date+"&t="+time+"&pl="+place+"&pu="+purpose+"&det="+details+"&da="+dt_added+"&name="+name, true);
+		xmlhttp.open("GET", "event_admin/store_event.php?cid="+club_id+"&d="+date+"&t="+time+"&pl="+place+"&pu="+purpose+"&det="+details+"&da="+dt_added+"&name="+name, true);
 		xmlhttp.send();
-    alert("out");
 	}
 }
 
