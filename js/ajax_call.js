@@ -116,7 +116,6 @@ function self_profile() {
 }
 
 function  view_members_profile(x) {
-	alert(x);
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
