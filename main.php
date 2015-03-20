@@ -282,7 +282,7 @@ $status=$_SESSION["status"];
             if($_SESSION['status']==1)
                 echo"
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='report();' class='collapsible-header'>
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='report_start()' class='collapsible-header'>
                             Reports
                     </a>             
                     </li>";

@@ -758,7 +758,7 @@ function filter_update_task_status() {
 	xmlhttp.send();
 }
 
-function  report(x) {
+function  report_start() {
   xmlhttp.onreadystatechange=function()
     {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -766,8 +766,24 @@ function  report(x) {
     document.getElementById("main_content").innerHTML=xmlhttp.responseText;
     }
     }
-  xmlhttp.open("GET","ajax_report.php?id="+x,true);
+  xmlhttp.open("GET","ajax_report_start.php",true);
   xmlhttp.send();
+}
+
+function  report() {
+	var rep_id = document.getElementById("member_selected").value;
+	if(rep_id == "") {
+		toast('Please provide correct name', 3000, '#f44336 red');
+	}
+	else {
+  		xmlhttp.onreadystatechange=function() {
+    		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    			document.getElementById("reportDiv").innerHTML=xmlhttp.responseText;
+    		}
+    	}
+  		xmlhttp.open("GET","ajax_report.php?id="+rep_id,true);
+  		xmlhttp.send();
+  	}
 }
 
 //Adding a new thread in the database
