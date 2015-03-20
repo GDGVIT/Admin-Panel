@@ -22,7 +22,6 @@ echo '
 						
 					   echo '<div id="materialdesign" class="section paddl">
 								<button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
-			                    <button class="waves-effect waves-light btn tabs" onclick="show2();">Management</button>
 			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button></div>';
 						
 						  
@@ -41,10 +40,12 @@ echo '
         	$name=$row1['name'];
             $id=$row1['id'];
 
-            echo "<div>
-            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
+            echo "<div  class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
+            		<div class='card-content'>
+            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
                         <span id='".$id."'>".$name."</span>
                     </a>
+                    </div>
                     </div>";
         }
 
@@ -55,10 +56,12 @@ echo '
         	$name=$row2['name'];
             $id=$row2['id'];
 
-            echo "<div>
-            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>  
+            echo "<div class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
+            		<div class='card-content'>
+            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>  
                         <span id='".$id."'>".$name."</span>
                     </a>
+                    </div>
                     </div>";
         }
 
@@ -69,10 +72,12 @@ echo '
         	$name=$row3['name'];
             $id=$row3['id'];
 
-            echo "<div>
-            		<a onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
+            echo "<div class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
+            		<div class='card-content'>
+            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
                         <span id='".$id."'>".$name."</span>
                     </a>
+                    </div>
                     </div>";
         }
 
