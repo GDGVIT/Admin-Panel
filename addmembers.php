@@ -1,8 +1,6 @@
-
-    <?php
+<?php
 	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
 	$regno=$_SESSION['name'];
 	$status=$_SESSION['status'];
@@ -13,8 +11,6 @@
        <!-- <form> -->
             <div align="center"><h3 class="paddh">Member Details</h3></div>
             <div class="col-lg-10 paddl" style="width:500px; margin:0 auto;"><br>
-
-              <div id="errorBox"></div>
             
               <div class="padds">           
               <select name="department" id="department" class="browser-default" >
@@ -72,14 +68,4 @@
 
 <?php
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
-
 ?>

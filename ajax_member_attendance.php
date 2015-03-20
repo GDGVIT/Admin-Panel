@@ -5,9 +5,8 @@
     .showevent{display:block;width:100%}
 </style>
 <?php
-session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+	session_start();
+	require("session_check.php");
 	require("sql_con.php");
 	
 
@@ -120,15 +119,4 @@ echo '<div class="row" style="margin-top:10px;">
 			
 
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
-
-
 ?>

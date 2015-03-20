@@ -1,7 +1,6 @@
 <?php
 session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 require("sql_con.php");
 $id = $_REQUEST["id"];
 $sql = "SELECT * FROM `thread_list` WHERE `id` = $id";
@@ -16,13 +15,4 @@ while($arr_1 = mysqli_fetch_array($res_1))
 {
 	echo "<br><h3>".$arr_1['message']."<br></h3><I style='text-align:right'>By ".$arr_1['sender']." at ". $arr_1['time']."</I>";
 }
-}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
 ?>

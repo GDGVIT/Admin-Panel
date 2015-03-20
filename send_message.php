@@ -1,7 +1,6 @@
 <?php
 session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+	require("session_check.php");
 require("sql_con.php");
 $id = $_REQUEST["id"];
 $msg = $_REQUEST["msg"];
@@ -20,13 +19,4 @@ while($arr = mysqli_fetch_array($res))
 }
 echo "<br><input type='text' id='msg' name='msg' autocomplete='off' ><input type='button' id=$id onClick='send_message(this.id)' value='Send'>";
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
 ?>

@@ -1,7 +1,6 @@
 <?php
 session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
@@ -26,101 +25,107 @@ $id1=$regno;
 		$gender=$row["gender"];
 		$photo=$row["photo"];
 		 $status=$row['status'];
-		
+      $department=$row['department'];
+     if(empty($name))
+{
+  $name="Not Available";
+}
+	if(empty($department))
+{
+  $department="Not Available";
+}
+  if(empty($regno))
+{
+  $regno="Not Available";
+}	
+if(empty($email))
+{
+  $email="Not Available";
+}
+if(empty($address))
+{
+  $address="Not Available";
+}
+if(empty($phone))
+{
+  $phone="Not Available";
+}
+if(empty($gender))
+{
+  $gender="Not Available";
+}
+if(empty($photo))
+{
+  $photo="Not Available";
+}
 		}
+
 		
 		
 		?>
             
-                          <div class="panel-body paddl">
+                          <div class="panel-body">
+                            <div class="row m-t-xl">
                               
+                              <div class="col-xs-6 text-right">
+                                <div class="inline">
+
+                                 <a href="#" <div class="easypiechart" data-percent="75" data-line-width="6" data-bar-color="#fff" data-track-Color="#2796de" data-scale-Color="false" data-size="140" data-line-cap='butt' data-animate="1000">
+                                    <div  class="thumb-lg avatar ">
+<img  onclick="change_photo()" src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker"  height="200px" width="150px"/>
+                                      
+                                 
+                                    </div>
+                                  </div></a>
+                               
+                                  <b><small class="text-muted m-b"><h3><?php echo"$name"; ?></h3></small></b>
+                                </div>
+
+                              </div>
                               
+                            </div>
+                            <div class="wrapper m-t-xl m-b">
+                              <div class="row m-t-xl">
+                                
+                                <div class="col-xs-2">
+                                  <small>Registration no. :</small>
+                                  <div class="text-lt font-bold"><?php echo"$regno"; ?></div>
+                                </div>
+                                <div class="col-xs-2">
+                                  <small>Phone No. :</small>
+                                  <div class="text-lt font-bold"><?php echo"$phone"; ?></div>
+                                </div>
+                                <div class="col-xs-2">
+                                  <small>Address :</small>
+                                  <div class="text-lt font-bold"><?php echo"$address"; ?></div>
+                                </div>
+                                <div class="col-xs-2">
+                                  <small>Sex :</small>
+                                  <div class="text-lt font-bold"><?php echo"$gender"; ?></div>
+                                </div>
+                                 <div class="col-xs-2">
+                                  <small>Department :</small>
+                                  <div class="text-lt font-bold"><?php echo"$department"; ?></div>
+                                </div>
+                                <div class="col-xs-2">
+                                  <small>Email-id :</small>
+                                  <div class="text-lt font-bold"><?php echo"$email"; ?></div>
+                                </div>
+                                 <div class="col-xs-2">
+                                  <small>Birthday :</small>
+                                  <div class="text-lt font-bold"><?php echo"$date"; ?></div>
+                                </div>
+
+                              </div>
                               
+                              </div>
+                              <button  type="button" onclick="update_forms1()" class="btn btn-s-md btn-success">
+			Modify
+	 </button> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a onclick="change_password()"><button class="btn btn-s-md btn-success" >
+      Change Password
+    </button> </a>
+        
                               
-                              <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <div class="thumb-lg avatar">
-<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker"  />
-              <span class="card-title"><h3><?php echo"$name"; ?></h3></span>
-              <p>Registraion Number : <?php echo"$regno"; ?></p>
-              <p>Email-ID : <?php echo"$email"; ?></p>
-              <p>Gender : <?php echo"$gender"; ?></p>
-              <p>Birthday : <?php echo"$date"; ?></p>
-              <p>Address : <?php echo"$address"; ?></p>
-              <p>Phone Number : <?php echo"$phone"; ?></p>
-                <br><br>
-            </div>
-            <div class="card-action" align="center">
-              <a data-toggle="modal" data-target="#modify" class="showlink">Modify</a>
-              <a onclick="change_password()" class="showlink">Change Password</a>
-            </div>
-          </div>
-        </div>
-      </div>
-                                  
-    <div class="modal fade" id="modify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="modifyLabel">Profile</h4>
-				</div>
-				<div class="modal-body"  id="email">
-					<form name="modify" action="self_update_exec.php?id=<?php echo "$id1"; ?>"   method="post" enctype="multipart/form-data>
-						<div class="form-group">
-			  		
-			  			<div class="col-lg-6">
-                        <label for "name"><strong>Name :</strong></label>
-			  			<br><h5 style="color:black"><?php echo"$name"; ?></h5>
-              <input class="form-control" type="hidden" name="name" id="name" value="<?php echo"$name"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-			  <div class="col-lg-6">
-			  	<label for "email"><strong>Email-id :</strong></label>		<input type="text" name="email" id="email"  value="<?php echo"$email"; ?>" class="form-control" style="margin-bottom:10px">
-                </div>
-			  			<div class="col-lg-6">
-                        <label for "regno"><strong>Registration No.:</strong></label>
-			  				<br><h5 style="color:black"><?php echo"$regno"; ?></h5>
-                <input class="form-control" type="hidden" name="regno" id="regno" value="<?php echo"$regno"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-          	  		<div class="col-lg-6">
-                        <label for "phone"><strong>Mobile No. :</strong></label>
-			  				<input class="form-control" type="text" name="phone" id="phone" value="<?php echo"$phone"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-			  			
-			  		<div class="col-lg-6">
-                        <label for "project"><strong>Sex:</strong></label>
-			  				<input class="form-control" type="text" name="gender" id="project" value="<?php echo"$gender"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-          	  		<div class="col-lg-6">
-                        <label for "address"><strong>Address :</strong></label>
-			  				<input class="form-control" type="text" name="address" id="address" value="<?php echo"$address"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-                        
-						
-					<div class="col-lg-6">
-                        <label for "dob"><strong>Date of Birth :</strong></label>
-			  				<input class="form-control" type="text" name="dob" id="dob" value="<?php echo"$date"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-                       <br>
-                       <br>
-						
-									<button type="submit" name="submit" class="btn btn-success" style="margin-top:100px ">Update</button>	
-						<button type="button" class="btn btn-default" data-dismiss="modal" style="margin-top:100px ">Cancel
-                        </button>
-                       
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>		
-	
-                         </div>
-                          </div>
-                          
-                         
                          
      <!-------->                   </section> 
    
@@ -129,14 +134,5 @@ $id1=$regno;
                     </section>
                   </section>
 <?php
-mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}			  
+mysqli_close($mysqli);		  
 ?>

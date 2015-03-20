@@ -297,15 +297,18 @@ function change_password2() {//add_members
    		if(sexarr[i].checked)
 			var sex = sexarr[i].value; 
    }
+
+
+	var pattern = /^[0-1]{1}[0-9]{1}[a-zA-Z]{3}[0-9]{4}$/;
    if (name==null || name=="") {
 		toast('Please provide correct name.', 3000, '#f44336 red');
   	}
 
-	var pattern = /^[0-1]{1}[0-9]{1}[a-zA-Z]{3}[0-9]{4}$/;
-	if(!regno.match(pattern))
+	else if(!regno.match(pattern))
 	{
 		toast('Please provide correct regno.', 3000, '#f44336 red');
 	}
+	else {
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -315,6 +318,7 @@ function change_password2() {//add_members
 	  }
 	xmlhttp.open("POST","add_exec.php?name="+name+"&email="+email+"&dob="+date+"&phone="+phone+"&add="+add+"&sex="+sex+"&regno="+regno+"&department="+department,true);
 	xmlhttp.send();
+	}
 }
 
 function spotlight() {

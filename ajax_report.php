@@ -1,7 +1,6 @@
 <?php
 	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];

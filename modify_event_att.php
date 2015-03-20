@@ -1,8 +1,6 @@
 <?php
 session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
-	require("sql_con.php");
+	require("session_check.php");
 	$r=$_REQUEST["r"];
 	$m=$_REQUEST["m"];
 	$mysql_tbl=$_SESSION["cid"].'_event_attendance';
@@ -22,13 +20,4 @@ session_start();
 	else
 		echo "<h4 class='paddl text-danger'>Modify Failed.</h4>";
 	mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
 ?>

@@ -1,6 +1,6 @@
 <?php
-include('sql_con.php');
 session_start();
+include('sql_con.php');
 $club_id = $_SESSION["cid"];
 $name=$_SESSION["name"];
 $status=$_SESSION["status"];
@@ -29,6 +29,8 @@ $status=$_SESSION["status"];
       <style type="text/css">
         body{background-image:url(img/alb.jpg);background-attachment:fixed;}
         .horizontal{background-color:white;}
+        .profile-button{background-color:#e75457;color:white;}
+        .profile-button:hover{background-color:white;color:black;}
         .tabs{width:50%;height:40px;float:left;background-color:#e75457}
         .tabs:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
@@ -64,6 +66,7 @@ $status=$_SESSION["status"];
 					  $name=$arr['name'];
 					}
              ?>
+
             <span class="bakra">
                 <a class='dropdown-button btn white blue-grey-text' href='#' data-activates='dropdown1'>
                 <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" style="width:20px;height:20px;" alt="..."/>&nbsp;
@@ -71,7 +74,7 @@ $status=$_SESSION["status"];
                 </a>
                 
                  <ul id='dropdown1' class='dropdown-content'>
-    <li><a onclick="self_profile()">Profile</a></li>
+    <li><a class="modal-trigger" href="#self_profile">Profile</a></li>
     <li><a href="#!">Settings</a></li>
     <li><a href="logout.php">Logout</a></li>
   </ul>
@@ -97,6 +100,11 @@ $status=$_SESSION["status"];
           <li class="waves-effect waves-light" id="over" style="width:240px;">
               <a href="main.php" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
                   Overview
+              </a>
+          </li>
+          <li class="waves-effect waves-light" id="over" style="width:240px;">
+              <a href="#modal1" class="waves-effect  modal-trigger" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
+                  Modal Check
               </a>
           </li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
@@ -301,13 +309,7 @@ $status=$_SESSION["status"];
         <!--Menu Ends-->
     </header>
     
-<div id="modal1" class="modal">
-    <div class="modal-content">
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
-  </div> 
+
       
 <main>
     <div class="container" ng-init="tab=1">
@@ -395,12 +397,85 @@ $status=$_SESSION["status"];
         </div>
     </div>
 </main> 
+
+<!--Self Profile begins-->
+
+<div id="self_profile" class="modal">
+    <div class="modal-content">
+    	<?php
+		session_start();
+		if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
+			{
+			require("sql_con.php");
+			$regno=$_SESSION['name'];
+			$status=$_SESSION['status'];
+			$club_id=$_SESSION['cid'];
+
+			$id1=$regno;
+ 			$mysql_tb = 'club_'.$club_id.'_members';
+ 			$sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$id1'";
+    		$res = mysqli_query($mysqli,$sql);
+
+    		while($row=mysqli_fetch_array($res))//selecting the events
+    			{
+      				$name=$row['name'];
+					$regno=$row["regno"];
+					$date=$row["dob"];
+					$email=$row["email"];
+					$address=$row["address"];
+					$phone=$row["mobno"];
+					$gender=$row["gender"];
+					$photo=$row["photo"];
+		 			$status=$row['status'];
+				}
+		
+		
+		?>
+
+		<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
+        <span class="card-title">
+             <h3>
+              	<?php echo"$name"; ?>
+             </h3>
+        </span>
+        <span class="card-title grey-text text-darken-4"><h5>Registraion Number</h5></span><p><?php echo"$regno"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Email-ID</h5></span><p><?php echo"$email"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Gender</h5></span><p><?php echo"$gender"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Birthday</h5></span><p><?php echo"$date"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Address</h5></span><p><?php echo"$address"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5>Phone Number</h5></span><p><?php echo"$phone"; ?></p>
+    </div>
+    <div class="card-action" align="center">
+        <a data-toggle="modal" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" onclick="update_forms1()">Modify</a>&nbsp&nbsp
+        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
+    </div>
+          				
+    <?php
+mysqli_close($mysqli);
+	}
+	else
+	{
+		session_unset();
+		session_destroy();
+		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+		header("Location:signin.php");
+	}			  
+?>
+
+    <div class="modal-footer">
+      <a href="#" class="waves-effect btn-flat modal-action modal-close profile-button">Close</a>
+    </div>
+  </div> 
+
+  <!--Profile Ends-->
         
 
 
     
     <!--  Scripts-->
     <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/materialize.min.js"></script>
     <script src="js/jquery.timeago.min.js"></script> 
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script src="js/prism.js"></script>
