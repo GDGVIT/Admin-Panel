@@ -33,6 +33,8 @@ $status=$_SESSION["status"];
         .profile-button:hover{background-color:white;color:black;}
         .tabs{width:50%;height:40px;float:left;background-color:#e75457}
         .tabs:hover{background-color:white;color:grey;}
+        .tab{width:32%;height:40px;float:left;background-color:#e75457}
+        .tab:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
         
         #over:hover{background-color:#e75457;}
@@ -429,21 +431,20 @@ $status=$_SESSION["status"];
 
 		<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
         <span class="card-title">
-             <h3>
+             <h4>
               	<?php echo"$name"; ?>
-             </h3>
-        </span>
-        <span class="card-title grey-text text-darken-4"><h5>Registraion Number</h5></span><p><?php echo"$regno"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5>Email-ID</h5></span><p><?php echo"$email"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5>Gender</h5></span><p><?php echo"$gender"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5>Birthday</h5></span><p><?php echo"$date"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5>Address</h5></span><p><?php echo"$address"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5>Phone Number</h5></span><p><?php echo"$phone"; ?></p>
-    </div>
+             </h4>
+        </span><br>
+        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Registration Number</h5></span><p style="font-size:18px;"><?php echo"$regno"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Email-ID</h5></span><p style="font-size:18px;"><?php echo"$email"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Birthday</h5></span><p style="font-size:18px;"><?php echo"$date"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Address</h5></span><p style="font-size:18px;"><?php echo"$address"; ?></p>
+        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Phone Number</h5></span><p style="font-size:18px;"><?php echo"$phone"; ?></p>
+    
     <div class="card-action" align="center">
         <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
-    </div>
+    </div></div>
           				
     <?php
 mysqli_close($mysqli);
@@ -459,7 +460,7 @@ mysqli_close($mysqli);
 ?>
 
     <div class="modal-footer">
-      <a href="#" class="waves-effect btn-flat modal-action modal-close profile-button">Close</a>
+     <a href="#" style="float:right;" class="waves-effect btn-flat modal-action modal-close profile-button">Close</a>
     </div>
   </div> 
 

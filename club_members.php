@@ -3,6 +3,13 @@
     .showmeeting{display:block;width:1000px;}
     .hideevent{display:block;display:none;}
     .showevent{display:block;width:1000px;}
+
+    .hidetech{display: block;display:none;}
+    .hidemanage{display: block;display:none;}
+    .hidedes{display: block;display:none;}
+    .showtech{display:block;}
+    .showmanage{display:block;}
+    .showdes{display:block;}
 </style>
 <?php
 session_start();
@@ -21,8 +28,9 @@ echo '
        		      
 						
 					   echo '<div id="materialdesign" class="section paddl">
-								<button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
-			                    <button class="waves-effect waves-light btn tabs" onclick="show3();">Design</button></div>';
+								<button class="waves-effect waves-light btn tab" onclick="show1();">Technical</button>
+								<button class="waves-effect waves-light btn tab" onclick="show2();">Management</button>
+			                    <button class="waves-effect waves-light btn tab" onclick="show3();">Design</button></div>';
 						
 						  
 
@@ -34,53 +42,52 @@ echo '
         $res1 = mysqli_query($mysqli,$sql1) or die("sql1 error");
         $res2 = mysqli_query($mysqli,$sql2) or die("sql2 error");
         $res3 = mysqli_query($mysqli,$sql3) or die("sql3 error");
-
+        echo "<div id='technical' class='showtech'>";
         while($row1 = mysqli_fetch_array($res1)) {
 
         	$name=$row1['name'];
             $id=$row1['id'];
 
-            echo "<div  class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
-            		<div class='card-content'>
-            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
-                        <span id='".$id."'>".$name."</span>
-                    </a>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
+            <div  class='card' >
+            		<div class='card-content'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
+                    
                     </div>
-                    </div>";
+                    </div></a>";
         }
 
-        echo "<br><br><br>";
-
+        echo "</div><br><br><br>";
+        echo "<div class='hidemanage' id='management'>";
         while($row2 = mysqli_fetch_array($res2)) {
 
         	$name=$row2['name'];
             $id=$row2['id'];
 
-            echo "<div class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
-            		<div class='card-content'>
-            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>  
-                        <span id='".$id."'>".$name."</span>
-                    </a>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'> 
+            <div class='card' >
+            		<div class='card-content'> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
                     </div>
-                    </div>";
+                    </div></a>";
         }
 
-        echo "<br><br><br>";
-
+        echo "</div><br><br><br>";
+        echo "<div class='hidedes' id='design'>";
         while($row3 = mysqli_fetch_array($res3)) {
 
         	$name=$row3['name'];
             $id=$row3['id'];
 
-            echo "<div class='card' style='float:left;width:250px;box-shadow:2px 2px 0px #c7c7c7;;margin:5px;'>
-            		<div class='card-content'>
-            		<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center'>
-                        <span id='".$id."'>".$name."</span>
-                    </a>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
+            <div class='card' >
+            		<div class='card-content'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
+                    
                     </div>
-                    </div>";
+                    </div></a>";
         }
-
+        echo "</div>";
 
 
 					  

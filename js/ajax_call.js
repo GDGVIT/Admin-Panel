@@ -44,15 +44,21 @@ function showev() {
 }
 
 function show1() {
-	alert("Beta ye h show 1, okay");
+	document.getElementById('technical').className="showtech";
+	document.getElementById('management').className="hidemanage";
+	document.getElementById('design').className="hidedes";
 }
 
 function show2() {
-	alert("tumhe fn call krna hi nhi aata, ye show2 hai");
+	document.getElementById('technical').className="hidetech";
+	document.getElementById('management').className="showmanage";
+	document.getElementById('design').className="hidedes";
 }
 
 function show3() {
-	alert("tum rehne do, tumse na ho paayega");
+	document.getElementById('technical').className="hidetech";
+	document.getElementById('management').className="hidemanage";
+	document.getElementById('design').className="showdes";
 }
 
 function view_event_member() {

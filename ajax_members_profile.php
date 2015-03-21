@@ -64,68 +64,53 @@ if(empty($gender))
     
     ?>
             
-                          <div class="panel-card paddl">
-                            <div class="row m-t-xl">
-                              
-                              <div class="col-xs-6">
-                                <div class="inline">
-                                  <div class="easypiechart" data-percent="75" data-line-width="6" data-bar-color="#fff" data-track-Color="#2796de" data-scale-Color="false" data-size="140" data-line-cap='butt' data-animate="1000">
-                                    <div class="thumb-lg avatar">
-<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>"  alt=" Not Available" class="dker"  />
-
+              <div  class='card' style='float:left;width:250px;margin:5px;'>
+                <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>"  alt=" Not Available" class="dker" style="width:200px;height:170px;" />
+              </div>
                                       
-                                 
-                                    </div>
-                                  </div>
-                                  <div class="h4 m-t m-b-xs font-bold text-lt"> </div>
-                                  <b><small class="text-muted m-b"><h3><?php echo"$name"; ?></h3></small></b>
-                                </div>
-                              </div>
-                              
-                            </div>
-                            <div class="wrapper m-t-xl m-b">
-                              <div class="row m-t-xl">
-                                
-                                <div class="col-xs-2">
-                                    <b>Registration Number : </b><?php echo"$regno"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                    <b>Phone Number :</b> <?php echo"$phone"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Address :</b> <?php echo"$address"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Gender :</b> <?php echo"$gender"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Email-ID :</b> <?php echo"$email"; ?>
-                                </div>
-                                 <div class="col-xs-2">
-                                  <b>Birthday :</b> <?php echo"$date"; ?>
-                                </div>
-                              </div>
-                              
-                              </div>
-                               <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
-                               <?php
+              <b><small class="text-muted m-b"><h3><?php echo"$name"; ?></h3></small></b>
+              <div class='card' style='float:left;width:250px;margin:5px;'>  
+                <div class="col-xs-2">
+                   <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Registration Number</h5></span><p style="font-size:18px;"><?php echo"$regno"; ?>
+                </div>
+                <div class="col-xs-2">
+                   <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Phone Number</h5></span><p style="font-size:18px;"><?php echo"$phone"; ?>
+                </div>
+                <div class="col-xs-2">
+                    <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Address</h5></span><p style="font-size:18px;"><?php echo"$address"; ?>
+                </div>
+                <div class="col-xs-2">
+                     <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Gender</h5></span><p style="font-size:18px;"><?php echo"$gender"; ?>
+                </div>
+                <div class="col-xs-2">
+                      <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Email-ID</h5></span><p style="font-size:18px;"><?php echo"$email"; ?>
+                </div>
+                <div class="col-xs-2">
+                      <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Birthday</h5></span><p style="font-size:18px;"><?php echo"$date"; ?>
+                </div>
+              </div>
+               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
+              <?php
             if($_SESSION['status']==1)
             {$id1 = $_GET['id'];
-         
-              echo' 
-                               <div class="col-lg-2" style="display: inline;"><input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success"></input> 
-    </div>'; 
+            echo' <div class="col-lg-2" style="display: inline;">
+                  <input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success">
+                  </input> 
+                   </div>'; 
 
-    echo' <div class="col-lg-2" style="display: inline;"><button class="btn btn-s-md btn-danger" onclick="inactive()">
-      Delete
-    </button>  
-    </div>'; 
+             echo' <div class="col-lg-2" style="display: inline;">
+                    <button class="btn btn-s-md btn-danger" onclick="inactive()">
+                      Delete
+                    </button>  
+                  </div>'; 
     }  
     ?>
        
   
-                         </div>
-                          </div>
+                         
                           
 <?php
 mysqli_close($mysqli);
