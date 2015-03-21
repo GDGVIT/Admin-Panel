@@ -1,6 +1,7 @@
 <?php
-include('sql_con.php');
 session_start();
+include('sql_con.php');
+require("session_check.php");
 $club_id = $_SESSION["cid"];
 $name=$_SESSION["name"];
 $status=$_SESSION["status"];
