@@ -18,8 +18,7 @@ echo '
         </div>							    
     </div>';
 			       
-       		       if($status==1)
-					    {
+       		      
 						
 					   echo '<div id="materialdesign" class="section paddl">
 								<button class="waves-effect waves-light btn tabs" onclick="show1();">Technical</button>
@@ -79,7 +78,7 @@ echo '
 
 
 
-	}				  
+					  
  /*                                               
 			$mysql_tb = 'club_'.$club_id.'_members';
             $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='technical'" ;
