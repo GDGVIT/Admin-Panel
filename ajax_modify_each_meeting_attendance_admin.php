@@ -58,7 +58,7 @@ $name=$rows1['name'];}
 																		   if($status==1)
 																				  {
 																				  
-																			   echo'<select  id="'; echo"$r_no";echo'" class="select-style gender" name="status" required >
+																			   echo'<select  id="'; echo"$r_no";echo'" class="browser-default" name="status" required >
             
             <option value="1" selected>Present</option>
             <option value="0" >Absent</option>
@@ -69,7 +69,7 @@ $name=$rows1['name'];}
 																				  
 																			  if($status==0)
 																			 {
-																			 echo'<select  id="'; echo"$r_no";echo'" class="select-style gender" name="status" required>
+																			 echo'<select  id="'; echo"$r_no";echo'" class="browser-default" name="status" required>
             
             <option value="1">Present</option>
             <option value="0" selected >Absent</option>

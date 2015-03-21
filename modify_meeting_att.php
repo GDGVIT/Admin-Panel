@@ -22,9 +22,9 @@ session_start();
 $mysql_tbl=$_SESSION["cid"].'_meeting_attendance';
 	$sql="UPDATE `$mysql_tbl` SET `$m`=$s WHERE regno ='$r1'";
 	
-	$r1=mysqli_query($mysqli,$sql);
+	$r2=mysqli_query($mysqli,$sql);
 }
-	if($r1)
+	if($r2)
 		echo "Update Successful";
 	else
 		echo"Update Failed";

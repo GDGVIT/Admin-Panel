@@ -376,6 +376,7 @@ function modify_event_att(r)
   var reg = m.split(",");
   var len=reg.length;
 var atten = [];    
+alert(r);
  for(var i=0; i< reg.length ;i++)
  {
   
@@ -407,6 +408,8 @@ function modify_meeting_att(r)
   var m=document.getElementById("arr").value;
   var reg = m.split(",");
   var len=reg.length;
+  
+
 var atten = [];    
  for(var i=0; i< reg.length ;i++)
  {
@@ -430,7 +433,7 @@ var atten = [];
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","modify_event_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
+	xmlhttp.open("GET","modify_meeting_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
 	xmlhttp.send();
 }
 
