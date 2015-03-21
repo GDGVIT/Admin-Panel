@@ -47,43 +47,44 @@ echo '
 
         	$name=$row1['name'];
             $id=$row1['id'];
+            $photo = $row1['photo'];
 
             echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
             <div  class='card' >
-            		<div class='card-content'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
-                    
+            		<div class='card-content'>
+                       <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
         }
 
-        echo "</div><br><br><br>";
+        echo "</div>";
         echo "<div class='hidemanage' id='management'>";
         while($row2 = mysqli_fetch_array($res2)) {
 
         	$name=$row2['name'];
             $id=$row2['id'];
+            $photo = $row2['photo'];
 
             echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'> 
             <div class='card' >
-            		<div class='card-content'> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
+            		<div class='card-content'>
+                    <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
         }
 
-        echo "</div><br><br><br>";
+        echo "</div>";
         echo "<div class='hidedes' id='design'>";
         while($row3 = mysqli_fetch_array($res3)) {
 
         	$name=$row3['name'];
             $id=$row3['id'];
+            $photo = $row3['photo'];
 
             echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
             <div class='card' >
-            		<div class='card-content'>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp<span id='".$id."'>".$name."</span>
-                    
+            		<div class='card-content'>
+                    <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
         }
