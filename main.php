@@ -128,7 +128,7 @@ $status=$_SESSION["status"];
                             </a>
                         </li>
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                            <a href='' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                            <a href='' onclick='update_task_status()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
                                 Modify Task Status
                             </a>
                         </li>";

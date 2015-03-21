@@ -369,6 +369,71 @@ function modify_admin_attendance() {
 	xmlhttp.open("GET","ajax_modify_attendance_admin.php",true);
 	xmlhttp.send();
 }
+function modify_event_att(r)
+{
+	var xmlhttp;
+  var m=document.getElementById("arr").value;
+  var reg = m.split(",");
+  var len=reg.length;
+var atten = [];    
+ for(var i=0; i< reg.length ;i++)
+ {
+  
+  var at=document.getElementById(reg[i]).value;
+  atten.push(at);
+ }
+ 
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","modify_event_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
+	xmlhttp.send();
+}
+function modify_meeting_att(r)
+{
+	var xmlhttp;
+  var m=document.getElementById("arr").value;
+  var reg = m.split(",");
+  var len=reg.length;
+var atten = [];    
+ for(var i=0; i< reg.length ;i++)
+ {
+  
+  var at=document.getElementById(reg[i]).value;
+  atten.push(at);
+ }
+ 
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","modify_event_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
+	xmlhttp.send();
+}
+
 
 function view_member_attendance() {
 	xmlhttp.onreadystatechange=function()
@@ -390,7 +455,8 @@ function view_each_event_attendance(event_id) {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_view_each_event_attendance_admin.php?id=event_"+event_id,true);
+	  xmlhttp.open("GET","modify_attendance.php?id="+event_id,true);
+	
 	xmlhttp.send();
 }
 
@@ -418,17 +484,7 @@ function modify_each_event_attendance(event_id) {
 	xmlhttp.send();
 }
 
-function modify_event_att(r,m) {
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
-		}
-	  }
-	xmlhttp.open("GET","modify_event_att.php?r="+r+"&m="+m,true);
-	xmlhttp.send();
-}
+
 
 function modify_each_meeting_attendance(meeting_id) {
 	xmlhttp.onreadystatechange=function()
