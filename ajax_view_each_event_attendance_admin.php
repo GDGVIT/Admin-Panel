@@ -15,8 +15,9 @@ echo '<div class="row" style="margin-top:10px;">
                                     <h3 style="color:grey">Attendance</h3>
                                 </div>							    
 						  </div>';
-										      $event_id=$_GET['id'];
-                                              $mysql_tbl=$club_id.'_event_attendance';
+										     $event_id=$_GET['id']; 
+										      $mysql_tbl=$club_id.'_event_attendance';
+											  $event_id="event_".$event_id;
                                               $sql = "SELECT  regno,`" . $event_id . "` FROM `" . $mysql_tbl . "`";
                                               $result = mysqli_query($mysqli,$sql);
                                              if(!$result)

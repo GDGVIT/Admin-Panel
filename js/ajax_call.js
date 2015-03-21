@@ -458,7 +458,7 @@ function view_each_event_attendance(event_id) {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	  xmlhttp.open("GET","modify_attendance.php?id="+event_id,true);
+	  xmlhttp.open("GET","ajax_view_each_event_attendance_admin.php?id="+event_id,true);
 	
 	xmlhttp.send();
 }
