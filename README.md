@@ -1,6 +1,6 @@
 # Admin-Panel
 
-<b>To implement further :</b>
+<b>To implement further :</b> 
     
     Important Fix (Need to be done ASAP) : The hover style of sidenav and main tabs totally screwed.
      1. Fix Sidebar for mobile.
