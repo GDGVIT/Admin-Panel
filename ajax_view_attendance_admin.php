@@ -14,15 +14,14 @@ $club_id=$_SESSION['cid'];
 
                     echo '<div><div class="row" style="margin-top:10px;">
                                 <div class="col-md-11">
-                                    <h3 class="paddh" style="color:grey">Attendance</h3>
+                                    <h3 class="paddh">Attendance</h3>
                                 </div>							    
 						  </div>
                        <div id="materialdesign" class="section paddl">
 			                    <button class="waves-effect waves-light btn tabs" onclick="showev();">Events</button>
 			                    <button class="waves-effect waves-light btn tabs" onclick="showme();">Meetings</button>
-						
-                              
-                        <table class="hoverable showevent centered" id="event" style="margin-top:10px;padding-left: 400px;min-width:200px;">
+						  
+                        <table class="hoverable centered" id="event">
 				            <thead class="centered">
                                 <tr>
 								    <th class="attendance-club">Event</th>
@@ -65,7 +64,7 @@ $club_id=$_SESSION['cid'];
 								       echo ' </tbody>
 								</table>
 							 
-							<table class="hoverable hidemeeting centered" id="meeting" style="margin-top:10px;padding-left: 400px;min-width:200px;">
+							<table class="hoverable hidemeeting centered" id="meeting" style="margin-top:10px;">
 									<thead class="centered">
 										  <tr>
 					                        <th class="attendance-club">Meeting</th>

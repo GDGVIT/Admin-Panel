@@ -30,7 +30,7 @@ echo '
 										<thead>
 										  <tr>
 											<th data-field="id">Event</th>
-											<th data-field="id"> Scheduled Date</th>
+											<th data-field="id">Scheduled Date</th>
 											<th data-field="name">Details</th>
 											
 										  </tr>

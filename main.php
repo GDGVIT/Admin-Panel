@@ -50,6 +50,9 @@ $status=$_SESSION["status"];
       
   </head>
   <body ng-app>
+  <script type="text/javascript"> $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });</script>
     <header>
         <!--Top NavBar Begin-->
         <div class="navbar-fixed" style="outline-offset: 0px;">
@@ -318,16 +321,22 @@ $status=$_SESSION["status"];
                 <i class="fa fa-bookmark-o fa-5x pull-right"></i>
             </div>
 	        <div class="col-md-11">
-                <h3 class="paddl" style="color:grey">Spotlight</h3>
+                <h3 class="paddh">Spotlight</h3>
             </div>
             <!--Icon and header End-->
     <!--  Material Design -->
             <div id="materialdesign" class="section paddl">
-                <button class="waves-effect waves-light btn tabs" ng-click="tab=1">Events</button>
-                <button class="waves-effect waves-light btn tabs" ng-click="tab=2">Meetings</button>
-    <br>
+                <div class="row">
+                <div class="col s12">
+                  <ul class="tabs">
+                    <li class="tab l s3"><a href="#tab1">Events</a></li>
+                    <li class="tab col s3"><a href="#tab2">Meetings</a></li>
+                  </ul>
+                </div>
+    <br><br><br>
     <!--Events Table-->
-                <table class="hoverable centered" ng-show="tab===1">
+    <div id="tab1" class="col s12">
+                <table class="hoverable centered">
                     <thead>
                         <tr>
                             <th data-field="id" >Event Name</th>
@@ -359,9 +368,11 @@ $status=$_SESSION["status"];
                         </tr>
                     </tbody>
                 </table>
+                </div>
     <!--Events Table End-->
     <!--Meetings Table Begin-->
-                <table class="hoverable centered" ng-show="tab===2">
+    <div id="tab2" class="col s12">
+                <table class="hoverable centered">
                     <thead>
                         <tr>
                             <th data-field="id">Meeting</th>
@@ -389,7 +400,7 @@ $status=$_SESSION["status"];
                         ?>
                         </tr>
                     </tbody>
-                </table>
+                </table></div>
     <!--Meetings Table End-->
             </div>
 
