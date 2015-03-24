@@ -55,20 +55,20 @@ $status=$_SESSION["status"];
         <div class="navbar-fixed" style="outline-offset: 0px;">
         <nav class="top-nav horizontal" style="box-shadow:#847777 4px 0.5px 4px;">
             
-             <?php
-                   require("sql_con.php");
+        <?php
+           require("sql_con.php");
 				   $id1=$_SESSION['name'];
 				   $mysql_tb = 'club_'.$club_id.'_members';
-                   $sql = "SELECT * FROM `" . $mysql_tb . "` where regno= '$id1'";
+           $sql = "SELECT * FROM `" . $mysql_tb . "` where regno= '$id1'";
 				   $res = mysqli_query($mysqli,$sql);
 				   $name="";
 				   $photo="";
 				   while($arr=mysqli_fetch_array($res))//selecting the events
-                  	{
+            {
 				      $photo=$arr["photo"];
-					  $name=$arr['name'];
-					}
-             ?>
+					    $name=$arr['name'];
+					  }
+        ?>
 
             <span class="bakra">
                 <a class='dropdown-button btn white blue-grey-text' href='#' data-activates='dropdown1'>
