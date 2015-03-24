@@ -50,6 +50,7 @@ $status=$_SESSION["status"];
       
   </head>
   <body ng-app>
+  <script src="js/jquery-2.1.3.min.js" type="text/javascript"></script>
   <script type="text/javascript"> $(document).ready(function(){
     $('ul.tabs').tabs();
   });</script>
@@ -410,7 +411,7 @@ $status=$_SESSION["status"];
 
 <!--Self Profile begins-->
 
-<div id="self_profile" class="modal">
+<div id="self_profile" class="modal modal-fixed-footer">
     <div class="modal-content">
     	<?php
 		if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
@@ -428,54 +429,90 @@ $status=$_SESSION["status"];
     		while($row=mysqli_fetch_array($res))//selecting the events
     			{
       				$name=$row['name'];
-					$regno=$row["regno"];
-					$date=$row["dob"];
-					$email=$row["email"];
-					$address=$row["address"];
-					$phone=$row["mobno"];
-					$gender=$row["gender"];
-					$photo=$row["photo"];
-		 			$status=$row['status'];
+					    $regno=$row["regno"];
+					    $date=$row["dob"];
+					    $email=$row["email"];
+					    $address=$row["address"];
+					    $phone=$row["mobno"];
+					    $gender=$row["gender"];
+					    $photo=$row["photo"];
+		 			    $status=$row['status'];
+              if(empty($name))
+              {
+                $name="Not Available";
+              }
+                if(empty($department))
+              {
+                $department="Not Available";
+              }
+                if(empty($regno))
+              {
+                $regno="Not Available";
+              } 
+              if(empty($email))
+              {
+                $email="Not Available";
+              }
+              if(empty($address))
+              {
+                $address="Not Available";
+              }
+              if(empty($phone))
+              {
+                $phone="Not Available";
+              }
+              if(empty($gender))
+              {
+                $gender="Not Available";
+              }
+              if(empty($photo))
+              {
+                $photo="Not Available";
+              }
 				}
 		
 		
 		?>
-
-		<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;float:right;border-radius:50%;" />
+    <div style="width:250px;float:right;">
+		<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
+    </div>
+    <div style="float:left;">
         <span class="card-title">
              <h4>
               	<?php echo"$name"; ?>
              </h4>
-        </span><br>
-        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Registration Number</h5></span><p style="font-size:18px;"><?php echo"$regno"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Email-ID</h5></span><p style="font-size:18px;"><?php echo"$email"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Birthday</h5></span><p style="font-size:18px;"><?php echo"$date"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Address</h5></span><p style="font-size:18px;"><?php echo"$address"; ?></p>
-        <span class="card-title grey-text text-darken-4"><h5 style="font-size:20px;">Phone Number</h5></span><p style="font-size:18px;"><?php echo"$phone"; ?></p>
-    
+        </span>
+        <hr>
+        <br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;"><?php echo"$regno"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;"><?php echo"$email"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;"><?php echo"$date"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;"><?php echo"$address"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;"><?php echo"$phone"; ?></span><br><br>
+
     <div class="card-action" align="center">
-        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button">Modify</a>&nbsp&nbsp
+        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
-    </div></div>
-          				
-    <?php
-mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}			  
-?>
+    </div></div></div>
+    
 
     <div class="modal-footer">
-     <a href="#" style="float:right;" class="waves-effect btn-flat modal-action modal-close profile-button">Close</a>
+     <a href="#" style="float:right;" class="waves-effect btn-flat modal-action modal-close profile-button"><i class="mdi-navigation-close"></i></a>
     </div>
   </div> 
 
+<?php
+mysqli_close($mysqli);
+  }
+  else
+  {
+    session_unset();
+    session_destroy();
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+    header("Location:signin.php");
+  }       
+?>
   <!--Profile Ends-->
 
   <!--Ajax View Files-->
@@ -497,9 +534,8 @@ mysqli_close($mysqli);
     
     <!--  Scripts-->
     <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/materialize.min.js"></script>
     <script src="js/jquery.timeago.min.js"></script> 
-    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <script src="js/prism.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/init.js"></script>
