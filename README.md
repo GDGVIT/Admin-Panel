@@ -13,4 +13,7 @@
      8. Improve UI for profile view and modify profile view.
      9. Develop Settings modal.
      10. Re-develop the Sign-In Page.
-     11. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters.
+     11. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters. 
+     12.Improve the backend of the task section. 
+     13.Improve the UI of change password and modify profile. 
+     14.Add modals for view task, view events and view meetings. 
