@@ -98,12 +98,12 @@ $status=$_SESSION["status"];
         <!--Icon When NavBar is Hidden-->
         <!--Menu-->
       <ul id="nav-mobile" class="side-nav fixed" style="width:240px;background-color:#12131a">
-          <li style="background-color:white;height:60px;">
+          <li style="background-color:white;height:60px;position:fixed;z-index:9999;">
               <a>
                   <img src="img/logo.png" style="padding-top:10px;width:180px;height:50px;">
               </a>
           </li>
-          <li style="height:20px;"></li>
+          <li style="height:20px;padding-top:60px;"></li>
           <li class="waves-effect waves-light" id="over" style="width:240px;">
               <a href="main.php" style="color:#C6C6C6;font-weight:bold;font-size:13px;">
                   Overview
@@ -295,7 +295,7 @@ $status=$_SESSION["status"];
                     </li>";
           ?>
           
-<!--
+
 <?php
             if($_SESSION['status']==1)
                 echo"
@@ -305,7 +305,7 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
--->
+
         </ul>
       </ul>
         <!--Menu Ends-->
