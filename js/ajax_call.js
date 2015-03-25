@@ -825,20 +825,6 @@ function new_thread() {
   xmlhttp.send();
 }
 
-function all_threads() {
-  	clearInterval(inter);
-    xmlhttp.onreadystatechange=function()
-    {
-      if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-      document.getElementById("main_content").innerHTML=xmlhttp.responseText;  
-    }
-    }
-  xmlhttp.open("POST","all_threads.php",true);
-  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  xmlhttp.send(); 
-}
-
 //Displaying each threads individually
 function thread_details(id) {
   	//Remaining thread details
