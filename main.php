@@ -491,7 +491,7 @@ $status=$_SESSION["status"];
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;"><?php echo"$phone"; ?></span><br><br>
 
     <div class="card-action" align="center">
-        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
+        <a onclick="update_forms()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
     </div></div></div>
     

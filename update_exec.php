@@ -1,12 +1,12 @@
 <?php
 session_start();
-  require("session_check.php");
-	require("sql_con.php");
+require("session_check.php");
+require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
 $club_id=$_SESSION['cid'];
 
- $id=$_GET['id'];
+$id=$_GET['id'];
 $name=$_GET['name'];
 $email=$_GET['email'];
 $regno=$_GET['regno'];
@@ -39,11 +39,10 @@ $address=$_GET['add'];
     }
 
 mysqli_close($mysqli);
-if( $up)
+
+if($up)
 {
 	echo "<h4 class='paddl'>Profile updated successfully !</h4>";
-
-
 }
 	
 ?>

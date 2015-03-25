@@ -33,7 +33,7 @@ require("sql_con.php");
 }
 if($up)
 {
-	echo"Member deleted successfully !";
+	echo"<h4 class='paddl'>Member deleted successfully !</h4>";
 
 }
 	

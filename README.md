@@ -16,7 +16,7 @@
      12.Improve the backend of the task section (Remove task when done). 
      13.Improve the UI and backend of change password and modify profile. 
      14.Add modals for view task, view events and view meetings.
-	15. 
+	15. Update_exec.php has a prob.
 	16. Backend change to modify club member details(Date).
 	17. View task status change.
 	18. check alignment in modify attendance, create event, create meeting.

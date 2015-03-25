@@ -5,26 +5,25 @@
 	$regno=$_SESSION['name'];
 	$status=$_SESSION['status'];
 	$club_id=$_SESSION['cid'];
-	  $id1 = $_GET['id'];
-	  require("sql_con.php");
+	$id1 = $regno;
+	
      $mysql_tb = 'club_'.$club_id.'_members';
     
-    $sql = "SELECT * FROM `" . $mysql_tb . "` where id=$id1";
+    $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$regno'";
     $res = mysqli_query($mysqli,$sql);
 
     while($row=mysqli_fetch_array($res))//selecting the events
     {
         
             
-            $name=$row['name'];
-    $regno=$row["regno"];
-    $date=$row["dob"];
-    $email=$row["email"];
-    $address=$row["address"];
-    $phone=$row["mobno"];
-    $gender=$row["gender"];
-    $photo=$row["photo"];
-     $status=$row['status'];
+        $name=$row['name'];
+        $regno=$row["regno"];
+        $date=$row["dob"];
+        $email=$row["email"];
+        $address=$row["address"];
+        $phone=$row["mobno"];
+        $gender=$row["gender"];
+        $status=$row['status'];
     
     }
     
@@ -38,7 +37,7 @@
     <div class="modal-dialog">
       <div class="modal-content paddl" style="width:500px; margin:0 auto;">
         <div class="modal-header" align="center">
-          <h4 class="modal-title" id="modifyLabel">Profile</h4>
+          <h3 class="paddh">Profile</h3>
         </div>
         <div class="modal-body"  id="email1">
            <form name="modify" >

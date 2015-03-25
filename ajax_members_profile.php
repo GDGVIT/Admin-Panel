@@ -1,7 +1,7 @@
 <?php
-	session_start();
+  session_start();
   require("session_check.php");
-	require("sql_con.php");
+  require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
 $club_id=$_SESSION['cid'];
@@ -67,7 +67,7 @@ if(empty($gender))
      <div style="width:250px;float:right;">
     <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
     </div>
-    <div style="float:left;">
+    <div style="width:500px;float:left;">
         <span class="card-title">
              <h4 class="blue-grey-text">
                 <?php echo"$name"; ?>
@@ -75,35 +75,28 @@ if(empty($gender))
         </span>
         <hr>
         <br>
-        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;"><?php echo"$regno"; ?></span><br><br>
-        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;"><?php echo"$email"; ?></span><br><br>
-        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;"><?php echo"$date"; ?></span><br><br>
-        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;"><?php echo"$address"; ?></span><br><br>
-        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;"><?php echo"$phone"; ?></span><br><br>
-
-    <div class="card-action" align="center">
-        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
-        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
-    </div>
-    </div>
-    </div>
-              
-            <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
-<?php
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;font-size:20px"><?php echo"$regno"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;font-size:20px"><?php echo"$email"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;font-size:20px"><?php echo"$date"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;font-size:20px"><?php echo"$address"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;font-size:20px"><?php echo"$phone"; ?></span><br><br><br>
+        <?php
 if($_SESSION['status']==1)
 {$id1 = $_GET['id'];
-echo' <div class="col-lg-2" style="display: inline;">
-      <input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success">
-      </input> 
+echo '<div class="col-lg-2" style="display: inline;">
+      <a onclick="update_forms()" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;">Modify</a>
       </div>'; 
 
- echo' <div class="col-lg-2" style="display: inline;">
-       <button class="btn btn-s-md btn-danger" onclick="inactive()">
-         Delete
-       </button>  
+echo '<div class="col-lg-2" style="display: inline;"> 
+       <a onclick="inactive()" class="waves-effect waves-light btn white-text">Delete</a> 
        </div>'; 
     }  
     ?>
+    </div>
+    </div>
+              
+     <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
+
        
   
                          

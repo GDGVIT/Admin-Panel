@@ -1,30 +1,27 @@
 <?php
-session_start();
+  session_start();
   require("session_check.php");
-	require("sql_con.php");
-$regno=$_SESSION['name'];
-$status=$_SESSION['status'];
-$club_id=$_SESSION['cid'];
-
- 
-$id1=$regno;
- $mysql_tb = 'club_'.$club_id.'_members';
- $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$regno'";
+  require("sql_con.php");
+  $regno=$_SESSION['name'];
+  $status=$_SESSION['status'];
+  $club_id=$_SESSION['cid'];
+   
+  $id1=$regno;
+  $mysql_tb = 'club_'.$club_id.'_members';
+  $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$regno'";
     $res = mysqli_query($mysqli,$sql);
-
     while($row=mysqli_fetch_array($res))//selecting the events
     {
       
             
-            $name=$row['name'];
+        $name=$row['name'];
 		$regno=$row["regno"];
 		$date=$row["dob"];
 		$email=$row["email"];
 		$address=$row["address"];
 		$phone=$row["mobno"];
 		$gender=$row["gender"];
-		//$photo=$row["photo"];
-		 $status=$row['status'];
+		$status=$row['status'];
 		
 		}
 		
