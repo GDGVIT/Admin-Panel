@@ -67,3 +67,7 @@
 .showlink{
     cursor: pointer;
 }
+.chover a:hover{
+    background: #263238;
+    color: #eceff1;
+}

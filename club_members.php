@@ -29,7 +29,8 @@ echo '
              echo '<div id="materialdesign" class="section paddl">
                 <button class="waves-effect waves-light btn tab" onclick="show1();">Technical</button>
                 <button class="waves-effect waves-light btn tab" onclick="show2();">Management</button>
-                          <button class="waves-effect waves-light btn tab" onclick="show3();">Design</button></div>';
+                          <button class="waves-effect waves-light btn tab" onclick="show3();">Design</button></div>
+                          <div class="paddl" style="text-align:center;">';
             
               
     $mysql_tb = 'club_'.$club_id.'_members';
@@ -44,9 +45,9 @@ echo '
           $name=$row1['name'];
             $id=$row1['id'];
             $photo = $row1['photo'];
-            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
-            <div  class='card' >
-                <div class='card-content'>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' style='float:left;width:250px;margin-right:50px;''>
+            <div  class='card #eceff1 blue-grey lighten-5'>
+                <div class='card-content blue-grey-text'>
                        <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
@@ -57,10 +58,10 @@ echo '
           $name=$row2['name'];
             $id=$row2['id'];
             $photo = $row2['photo'];
-            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'> 
-            <div class='card' >
-                <div class='card-content'>
-                    <span id='".$id."'>".$name."</span>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' style='float:left;width:250px;margin-right:50px;''>
+            <div  class='card #eceff1 blue-grey lighten-5'>
+                <div class='card-content blue-grey-text'>
+                       <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
         }
@@ -70,84 +71,15 @@ echo '
           $name=$row3['name'];
             $id=$row3['id'];
             $photo = $row3['photo'];
-            echo "<a href='#' onclick='view_members_profile(".$id.")' class='attendance-club text-center' style='float:left;width:250px;margin:5px;'>
-            <div class='card' >
-                <div class='card-content'>
-                    <span id='".$id."'>".$name."</span>
+            echo "<a href='#' onclick='view_members_profile(".$id.")' style='float:left;width:250px;margin-right:50px;''>
+            <div  class='card #eceff1 blue-grey lighten-5'>
+                <div class='card-content blue-grey-text'>
+                       <span id='".$id."'>".$name."</span>
                     </div>
                     </div></a>";
         }
-        echo "</div>";
+        echo "</div></div>";
             
- /*                                               
-      $mysql_tb = 'club_'.$club_id.'_members';
-            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='technical'" ;
-            $res = mysqli_query($mysqli,$sql);
-            
-            while($rows=mysqli_fetch_array($res))//selecting the events
-            {
-            $name=$rows['name'];
-            $id=$rows['id'];
-           
-            ?> <div><a onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
-                        <a   href="#"  class="auto">                                                        
-                       <?php echo '   
-                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                             </a>
-                          </a></div>';
-                     
-            }
-            echo "</div>";
-      $mysql_tb = 'club_'.$club_id.'_members';
-            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='management'" ;
-            $res = mysqli_query($mysqli,$sql);
-            
-            while($rows=mysqli_fetch_array($res))//selecting the events
-            {
-            $name=$rows['name'];
-            $id=$rows['id'];
-           
-            ?> <div><a onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
-                        <a   href="#"  class="auto">                                                        
-                       <?php echo '   
-                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                          </a>
-                          </a></div>';
-                     
-                       }
-                         
-                     echo '</tbody>
-                   </table>
-                   <table class="hoverable hidemeeting" id="3" ng-show="tab===2">
-                    <thead>
-                      <tr>
-                      <th class="attendance-club text-center">Members</th>
-                      
-                      </tr>
-                    </thead>
-                    <tbody>';
-$mysql_tb = 'club_'.$club_id.'_members';
-            $sql = "SELECT * FROM `" . $mysql_tb . "` where status= 'active' and department='design'" ;
-            $res = mysqli_query($mysqli,$sql);
-            
-            while($rows=mysqli_fetch_array($res))//selecting the events
-            {
-            $name=$rows['name'];
-            $id=$rows['id'];
-           
-            ?> <tr><td   onclick="view_members_profile(<?php echo $id; ?>)" class="attendance-club text-center">
-                        <a   href="#"  class="auto">                                                        
-                       <?php echo '   
-                           <span $id='.$rows['id'].';>'.$name. '<br/>' . ''.'</span>
-                             </td></tr>
-                          </a>';
-                     
-                       }
-                         
-                     echo '</tbody>
-                   </table>
-                  </div>';
-            
-              }*/
-            mysqli_close($mysqli);        
+ 
+mysqli_close($mysqli);        
 ?>
