@@ -32,72 +32,65 @@ $id1=$regno;
 		?>
             
                 
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					
-					<h4 class="modal-title" id="modifyLabel">Profile</h4>
-				</div>
-				<div class="modal-body"  id="email">
-					<form name="modify"    method="post" enctype="multipart/form-data">
-						<div class="form-group">
-			  		
-			  			<div class="col-lg-6">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">		
+			<h4 class="modal-title" id="modifyLabel">Profile</h4>
+		</div>
+		<div class="modal-body"  id="email">
+			<form name="modify"    method="post" enctype="multipart/form-data">
+				<div class="form-group">
+			  		<div class="col-lg-6">
                         <label for "name"><strong>Name :</strong></label>
-			  			<br><h5 style="color:black"><?php echo"$name"; ?></h5>
-              <input class="form-control" type="hidden" name="name" id="name" value="<?php echo"$name"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
-			  <div class="col-lg-6">
-			  	<label for "email"><strong>Email-id :</strong></label>		<input type="text" name="email" id="email"  value="<?php echo"$email"; ?>" class="form-control" style="margin-bottom:10px">
-                </div>
-			  			<div class="col-lg-6">
+			  			<br>
+			  			<h5 style="color:black"><?php echo"$name"; ?></h5>
+              			<input class="form-control" type="hidden" name="name" id="name" value="<?php echo"$name"; ?>"  style="margin-bottom:10px;margin-right:0px">
+			  		</div>
+			  		<div class="col-lg-6">
+			  			<label for "email">
+			  				<strong>Email-id :</strong>
+			  			</label>
+			  			<input type="text" name="email" id="email"  value="<?php echo"$email"; ?>" class="form-control" style="margin-bottom:10px">
+                	</div>
+			  		<div class="col-lg-6">
                         <label for "regno"><strong>Registration No.:</strong></label>
 			  				<br><h5 style="color:black"><?php echo"$regno"; ?></h5>
-                <input class="form-control" type="hidden" name="regno" id="regno" value="<?php echo"$regno"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
+                		<input class="form-control" type="hidden" name="regno" id="regno" value="<?php echo"$regno"; ?>"  style="margin-bottom:10px;margin-right:0px">
+			  		</div>
           	  		<div class="col-lg-6">
                         <label for "phone"><strong>Mobile No. :</strong></label>
 			  				<input class="form-control" type="text" name="phone" id="phone" value="<?php echo"$phone"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
+			  		</div>
 			  			
 			  		<div class="col-lg-6">
                         <label for "project"><strong>Sex:</strong></label>
 			  				<input class="form-control" type="text" name="gender" id="sex" value="<?php echo"$gender"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
+			  		</div>
+
           	  		<div class="col-lg-6">
                         <label for "address"><strong>Address :</strong></label>
 			  				<input class="form-control" type="text" name="address" id="address" value="<?php echo"$address"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
+			  		</div>
                         
 						
 					<div class="col-lg-6">
                         <label for "dob"><strong>Date of Birth :</strong></label>
 			  				<input class="form-control" type="text" name="dob" id="dob" value="<?php echo"$date"; ?>"  style="margin-bottom:10px;margin-right:0px">
-			  			</div>
+			  		</div>
                
               
                        <br>
                        <br>
 						
-									<button type="button"  onclick="update_self_profile()"   name="submit" class="btn btn-success" style="margin-top:100px "> Update
-                        </button>
+					<button onclick="update_self_profile()" name="submit" class="btn btn-success" style="margin-top:100px ">
+						Update
+                    </button>
                        
-					</form>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
-	</div>		
-	
-                         </div>
-                          </div>
-                             
-     <!-------->                   </section> 
-   
-                        
-                      </div>
-                    </section>
-                  </section>
+</div>	
 <?php
 mysqli_close($mysqli);		  
 ?>
