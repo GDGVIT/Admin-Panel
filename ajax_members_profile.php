@@ -63,49 +63,45 @@ if(empty($gender))
     
     
     ?>
-            
-              <div  class='card' style='float:left;width:250px;margin:5px;'>
-                <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>"  alt=" Not Available" class="dker" style="width:200px;height:170px;" />
-              </div>
-                                      
-              <b><small class="text-muted m-b"><h3><?php echo"$name"; ?></h3></small></b>
-              <div class='card' style='float:left;width:250px;margin:5px;'>  
-                <div class="col-xs-2">
-                   <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Registration Number</h5></span><p style="font-size:18px;"><?php echo"$regno"; ?>
-                </div>
-                <div class="col-xs-2">
-                   <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Phone Number</h5></span><p style="font-size:18px;"><?php echo"$phone"; ?>
-                </div>
-                <div class="col-xs-2">
-                    <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Address</h5></span><p style="font-size:18px;"><?php echo"$address"; ?>
-                </div>
-                <div class="col-xs-2">
-                     <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Gender</h5></span><p style="font-size:18px;"><?php echo"$gender"; ?>
-                </div>
-                <div class="col-xs-2">
-                      <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Email-ID</h5></span><p style="font-size:18px;"><?php echo"$email"; ?>
-                </div>
-                <div class="col-xs-2">
-                      <span class="card-title grey-text text-darken-4"><h5 style="font-size:17px;">Birthday</h5></span><p style="font-size:18px;"><?php echo"$date"; ?>
-                </div>
-              </div>
-               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
-              <?php
-            if($_SESSION['status']==1)
-            {$id1 = $_GET['id'];
-            echo' <div class="col-lg-2" style="display: inline;">
-                  <input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success">
-                  </input> 
-                   </div>'; 
+    <div class="paddl">
+     <div style="width:250px;float:right;">
+    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
+    </div>
+    <div style="float:left;">
+        <span class="card-title">
+             <h4 class="blue-grey-text">
+                <?php echo"$name"; ?>
+             </h4>
+        </span>
+        <hr>
+        <br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;"><?php echo"$regno"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;"><?php echo"$email"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;"><?php echo"$date"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;"><?php echo"$address"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;"><?php echo"$phone"; ?></span><br><br>
 
-             echo' <div class="col-lg-2" style="display: inline;">
-                    <button class="btn btn-s-md btn-danger" onclick="inactive()">
-                      Delete
-                    </button>  
-                  </div>'; 
+    <div class="card-action" align="center">
+        <a data-toggle="modal" onclick="update_forms1()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
+        <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
+    </div>
+    </div>
+    </div>
+              
+            <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
+<?php
+if($_SESSION['status']==1)
+{$id1 = $_GET['id'];
+echo' <div class="col-lg-2" style="display: inline;">
+      <input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success">
+      </input> 
+      </div>'; 
+
+ echo' <div class="col-lg-2" style="display: inline;">
+       <button class="btn btn-s-md btn-danger" onclick="inactive()">
+         Delete
+       </button>  
+       </div>'; 
     }  
     ?>
        
