@@ -12,7 +12,7 @@ session_start();
            <div align="center"><h3 class="paddh">Modify Task Details</h3></div>
             <div class="col-lg-4 paddl" style="margin-top:10px">
              <select  id="Ultra" onchange="filter_update_task_status()"  class="browser-default">  
-              <option value="1" selected>Select Task category</option>
+              <option value="1">Select Task category</option>
             <?php
     $sql = "SELECT * FROM task";
     $res = mysqli_query($mysqli,$sql);
@@ -24,7 +24,7 @@ $t_name=$rows['task'];
 $t_id=$rows['id'];
 
            ?> 
-            <?php echo'<option value="'; echo "$t_id"; echo '"   > '; ?><?php echo"$t_name"; ?> <?php echo '</option>'; ?>
+            <?php echo'<option value="'; echo "$t_id"; echo '"> '; ?><?php echo"$t_name"; ?> <?php echo '</option>'; ?>
 
            <?php }
           
