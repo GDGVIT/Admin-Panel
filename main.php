@@ -15,7 +15,7 @@ $status=$_SESSION["status"];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Admin portal for managing members and assigning tasks efficiently">
-    <title>Admin Panel</title>
+    <title>Admin Panel | Spotlight</title>
 
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
