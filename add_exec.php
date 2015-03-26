@@ -38,7 +38,7 @@ $second=mysqli_query($mysqli,"INSERT INTO panel (reg_no,club_id, pass) VALUES ('
   } 
 if($up && $second) 
   {
-  	echo"Member added successfully !";
+  	echo"<h4 class='paddl'>Member added successfully !</h4>";
 
   } 
 ?>
