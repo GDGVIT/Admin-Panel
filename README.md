@@ -4,6 +4,7 @@
     
     Backend : Modify Profile Problem.
               User View Attendance Syntax Error (Absent/Present Check).
+              View Tasks need to display name of the person who is assigned the task, not Reg no.
 
 
       
