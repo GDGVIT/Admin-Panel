@@ -2,7 +2,9 @@
 
 <b>To implement further :</b> 
     
-    Sourabh : Update_exec.php has a problem. View Attendance has a problem.
+    Backend : Update_exec.php has a problem. 
+              View Attendance has a problem.
+              Add Members has a problem.
 
      1. Fix Sidebar for mobile.
      2. Organize club member view better.
