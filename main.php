@@ -481,7 +481,7 @@ $status=$_SESSION["status"];
              </h4>
         </span>
         <hr>
-        <br>
+      
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;"><?php echo"$regno"; ?></span><br><br>
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;"><?php echo"$email"; ?></span><br><br>
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;"><?php echo"$date"; ?></span><br><br>
