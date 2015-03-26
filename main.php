@@ -32,8 +32,7 @@ $status=$_SESSION["status"];
         .horizontal{background-color:white;}
         .profile-button{background-color:#e75457;color:white;}
         .profile-button:hover{background-color:white;color:black;}
-        .tabs{width:50%;height:40px;float:left;background-color:#e75457}
-        .tabs:hover{background-color:white;color:grey;}
+        .tab1:hover{box-shadow: #bab6b6 2px 2px 1px;}
         .tab{width:32%;height:40px;float:left;background-color:#e75457}
         .tab:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
@@ -328,8 +327,8 @@ $status=$_SESSION["status"];
                 <div class="row">
                 <div class="col s12">
                   <ul class="tabs">
-                    <li class="tab l s3"><a href="#tab1">Events</a></li>
-                    <li class="tab col s3"><a href="#tab2">Meetings</a></li>
+                    <li class="tab l s3 tab1"><a href="#tab1">Events</a></li>
+                    <li class="tab col s3 tab1"><a href="#tab2">Meetings</a></li>
                   </ul>
                 </div>
     <br><br><br>
