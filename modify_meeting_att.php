@@ -1,27 +1,35 @@
+
 <?php
 session_start();
 	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
 	{
 	require("sql_con.php");
-	$r=$_REQUEST["r"];
-	$m=$_REQUEST["m"];
-	$mysql_tbl=$_SESSION["cid"].'_meeting_attendance';
-	$q1 = "SELECT * FROM `$mysql_tbl` WHERE regno = '$r'";
-	$rs=mysqli_query($mysqli,$q1);
-	$res = mysqli_fetch_array($rs);
-	$s=0;
-	if($res[$m]==0)	
-		$s=1;
-	else
-		$s=0;
+	$m=$_GET['r'];
+
+	$reg=json_decode($_GET['reg'],true);
 	
-	$sql="UPDATE `$mysql_tbl` SET `$m`=$s WHERE regno ='$r'";
-	$r1=mysqli_query($mysqli,$sql);
-	if($r1)
+	$atten=json_decode($_GET['atten'],true);
+	
+	$len=$_REQUEST["len"];
+	for ($k = 0; $k < $len; $k++) {
+	
+
+	
+
+	$s=$atten[$k];
+	$r1=$reg[$k];
+
+$mysql_tbl=$_SESSION["cid"].'_meeting_attendance';
+	$sql="UPDATE `$mysql_tbl` SET `$m`=$s WHERE regno ='$r1'";
+	
+	$r2=mysqli_query($mysqli,$sql);
+}
+	if($r2)
 		echo "Update Successful";
 	else
 		echo"Update Failed";
-	mysqli_close($mysqli);
+	
+
 	}
 	else
 	{

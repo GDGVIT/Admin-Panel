@@ -7,7 +7,7 @@
 .heading{
     display: inline;
     margin-left: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 .main-body{
     padding-left: 250px;
@@ -46,14 +46,14 @@
     position: relative;
 }
 #main_content{
-    padding-top: 35px;
+    padding-top: 30px;
 }
 .paddl{
     padding: 0px 30px 30px 30px;
 }
 .paddh{
     padding: 0px 30px 0px 30px;
-    color: grey;
+    color: #607d8b;
 }
 .spotlighth{
     padding-left: 30px;
@@ -66,4 +66,8 @@
 }
 .showlink{
     cursor: pointer;
+}
+.chover a:hover{
+    background: #263238;
+    color: #eceff1;
 }

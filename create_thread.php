@@ -1,7 +1,6 @@
 <?php
 	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
 $user_id = $_SESSION['name'];
 $club_id = $_SESSION['cid'];
@@ -44,14 +43,4 @@ if($res_1==true)
 else
 	echo "OOPS! We encountered a problem in creating the thread!";
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
-
 ?>

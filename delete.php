@@ -1,7 +1,6 @@
  <?php
 session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
 
 $regno=$_SESSION['name'];
@@ -34,23 +33,10 @@ require("sql_con.php");
 }
 if($up)
 {
-	echo"Member deleted successfully !";
+	echo"<h4 class='paddl'>Member deleted successfully !</h4>";
 
 }
 	
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
-		
-		
-
-
-	?>
+?>
    

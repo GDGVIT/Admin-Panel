@@ -4,6 +4,7 @@ var dt = new Date();
 var d = dt.getDate();
 var m = dt.getMonth()+1;
 var y = dt.getFullYear();
+var dt_added = ""+y+"-"+m+"-"+d;
 var inter ="";
 
 function createXmlHttpRequestObject() {
@@ -40,6 +41,24 @@ function showme() {
 function showev() {
     document.getElementById('meeting').className="hidemeeting";
     document.getElementById('event').className="showevent";
+}
+
+function show1() {
+	document.getElementById('technical').className="showtech";
+	document.getElementById('management').className="hidemanage";
+	document.getElementById('design').className="hidedes";
+}
+
+function show2() {
+	document.getElementById('technical').className="hidetech";
+	document.getElementById('management').className="showmanage";
+	document.getElementById('design').className="hidedes";
+}
+
+function show3() {
+	document.getElementById('technical').className="hidetech";
+	document.getElementById('management').className="hidemanage";
+	document.getElementById('design').className="showdes";
 }
 
 function view_event_member() {
@@ -86,7 +105,7 @@ function add_members() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","addmembers.php",true);
+	xmlhttp.open("POST","addmembers.php",true);
 	xmlhttp.send();
 }
 
@@ -283,29 +302,32 @@ function change_password1(x) {//task status change
 }
 
 function change_password2() {//add_members
-   var phone=document.getElementById("phone").value;
-   var name=document.getElementById("name").value;
-   var email=document.getElementById("email").value;
-   var ddob=document.getElementById("ddob").value;
-   var mdob=document.getElementById("mdob").value;
-   var ydob=document.getElementById("ydob").value;
-   var add=document.getElementById("add").value;
-   var regno=document.getElementById("regno").value;
-   var sex=document.getElementById("gender").value;
-   
-   if (name==null || name=="") {
-		document.form.name.focus() ;
-		document.getElementById("errorBox").innerHTML = "Enter the first name";
-    	return false;
-  	}
+   var department = document.getElementById("department").value;
+   var phone=document.getElementById("mobno").value;
+   var name=document.getElementById("m_name").value;
+   var email=document.getElementById("emailid").value;
+   var date=document.getElementById("dob").value;
+   var hroom=document.getElementById("hroom").value;
+   var hblock=document.getElementById("hblock").value;
+   var add=""+hblock+"-"+hroom;
+   var regno=document.getElementById("reg_no").value;
+   var sexarr=document.getElementsByName("group1");
+   for(var i=0; i<sexarr.length; i++) {
+   		if(sexarr[i].checked)
+			var sex = sexarr[i].value; 
+   }
+
 
 	var pattern = /^[0-1]{1}[0-9]{1}[a-zA-Z]{3}[0-9]{4}$/;
-	if(!regno.match(pattern))
+   if (name==null || name=="") {
+		toast('Please provide correct name.', 3000, '#f44336 red');
+  	}
+
+	else if(!regno.match(pattern))
 	{
-		document.form.registration.focus() ;
-		document.getElementById("errorBox").innerHTML = "Enter a valid registration number";
-    	return false;
+		toast('Please provide correct regno.', 3000, '#f44336 red');
 	}
+	else {
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -313,8 +335,9 @@ function change_password2() {//add_members
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","add_exec.php?name="+name+"&email="+email+"&ddob="+ddob+"&mdob="+mdob+"&ydob="+ydob+"&phone="+phone+"&add="+add+"&sex="+sex+"&regno="+regno,true);
+	xmlhttp.open("POST","add_exec.php?name="+name+"&email="+email+"&dob="+date+"&phone="+phone+"&add="+add+"&sex="+sex+"&regno="+regno+"&department="+department,true);
 	xmlhttp.send();
+	}
 }
 
 function spotlight() {
@@ -352,6 +375,74 @@ function modify_admin_attendance() {
 	xmlhttp.open("GET","ajax_modify_attendance_admin.php",true);
 	xmlhttp.send();
 }
+function modify_event_att(r)
+{
+	var xmlhttp;
+  var m=document.getElementById("arr").value;
+  var reg = m.split(",");
+  var len=reg.length;
+var atten = [];    
+alert(r);
+ for(var i=0; i< reg.length ;i++)
+ {
+  
+  var at=document.getElementById(reg[i]).value;
+  atten.push(at);
+ }
+ 
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","modify_event_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
+	xmlhttp.send();
+}
+function modify_meeting_att(r)
+{
+	var xmlhttp;
+  var m=document.getElementById("arr").value;
+  var reg = m.split(",");
+  var len=reg.length;
+  
+
+var atten = [];    
+ for(var i=0; i< reg.length ;i++)
+ {
+  
+  var at=document.getElementById(reg[i]).value;
+  atten.push(at);
+ }
+ 
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","modify_meeting_att.php?r="+r+"&reg="+JSON.stringify(reg)+"&atten="+JSON.stringify(atten)+"&len="+len,true);
+	xmlhttp.send();
+}
+
 
 function view_member_attendance() {
 	xmlhttp.onreadystatechange=function()
@@ -373,7 +464,8 @@ function view_each_event_attendance(event_id) {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_view_each_event_attendance_admin.php?id=event_"+event_id,true);
+	  xmlhttp.open("GET","ajax_view_each_event_attendance_admin.php?id="+event_id,true);
+	
 	xmlhttp.send();
 }
 
@@ -401,17 +493,7 @@ function modify_each_event_attendance(event_id) {
 	xmlhttp.send();
 }
 
-function modify_event_att(r,m) {
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
-		}
-	  }
-	xmlhttp.open("GET","modify_event_att.php?r="+r+"&m="+m,true);
-	xmlhttp.send();
-}
+
 
 function modify_each_meeting_attendance(meeting_id) {
 	xmlhttp.onreadystatechange=function()
@@ -451,12 +533,13 @@ function create_event_ad() {
     }
 	else 
     {
-		xmlhttp.onreadystatechange = function() {
-		//	document.getElementById("main_content").innerHTML = "";
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("main_content").innerHTML = xmlhttp.responseText;
-			}
+		xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
+	  }
 		xmlhttp.open("GET", "event_admin/store_event.php?cid="+club_id+"&d="+date+"&t="+time+"&pl="+place+"&pu="+purpose+"&det="+details+"&da="+dt_added+"&name="+name, true);
 		xmlhttp.send();
 	}
@@ -535,13 +618,12 @@ function create_meeting_admin() {
 
 function create_meeting_ad() {
 	var club_id = document.getElementById("club_id").value;
-	var date = document.getElementById("date").value;
-	var time = document.getElementById("time").value;
-	var place = document.getElementById("place").value;
+	var date = document.getElementById("meeting_date").value;
+	var time = document.getElementById("meeting_time").value;
+	var place = document.getElementById("venue").value;
 	var details = document.getElementById("details").value;
-	var dt_added = ""+y+"-"+m+"-"+d;
 	if (date=="" || time=="" || place=="" || details=="")
-		alert("Please provide all the details correctly...");
+		toast('Please provide all the details.', 3000, '#f44336 red');
 	else {
 		xmlHttp.onreadystatechange = function() {
 		//	document.getElementById("main_content").innerHTML = "";
@@ -685,7 +767,7 @@ function filter_update_task_status() {
 	xmlhttp.send();
 }
 
-function  report(x) {
+function  report_start() {
   xmlhttp.onreadystatechange=function()
     {
     if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -693,8 +775,38 @@ function  report(x) {
     document.getElementById("main_content").innerHTML=xmlhttp.responseText;
     }
     }
-  xmlhttp.open("GET","ajax_report.php?id="+x,true);
+  xmlhttp.open("GET","ajax_report_start.php",true);
   xmlhttp.send();
+}
+
+function  report() {
+	var rep_id = document.getElementById("member_selected").value;
+	if(rep_id == "") {
+		toast('Please provide correct name', 3000, '#f44336 red');
+	}
+	else {
+  		xmlhttp.onreadystatechange=function() {
+    		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    			document.getElementById("reportDiv").innerHTML=xmlhttp.responseText;
+    		}
+    	}
+  		xmlhttp.open("GET","ajax_report.php?id="+rep_id,true);
+  		xmlhttp.send();
+  	}
+}
+
+function all_threads() {
+  	clearInterval(inter);
+    xmlhttp.onreadystatechange=function()
+    {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      document.getElementById("main_content").innerHTML=xmlhttp.responseText;  
+    }
+    }
+  xmlhttp.open("POST","all_threads.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(); 
 }
 
 //Adding a new thread in the database
@@ -725,20 +837,6 @@ function new_thread() {
   xmlhttp.open("POST","new_thread.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send();
-}
-
-function all_threads() {
-  	clearInterval(inter);
-    xmlhttp.onreadystatechange=function()
-    {
-      if (xmlhttp.readyState==4 && xmlhttp.status==200)
-      {
-      document.getElementById("main_content").innerHTML=xmlhttp.responseText;  
-    }
-    }
-  xmlhttp.open("POST","all_threads.php",true);
-  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  xmlhttp.send(); 
 }
 
 //Displaying each threads individually
@@ -785,7 +883,6 @@ function send_message(id) {
 }
 
 function update_forms() {
-   var id=document.getElementById("id").value;
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -793,19 +890,7 @@ function update_forms() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_updateform.php?id="+id,true);
-	xmlhttp.send();
-}
-
-function update_forms1() {
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
-		}
-	  }
-	xmlhttp.open("GET","ajax_self_updateform.php?",true);
+	xmlhttp.open("GET","ajax_updateform.php?",true);
 	xmlhttp.send();
 }
 

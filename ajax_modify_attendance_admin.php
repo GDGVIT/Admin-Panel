@@ -5,9 +5,8 @@
     .hidemeeting{display:block;display:none;}
 </style>
 <?php  
-session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+	session_start();
+	require("session_check.php");
 	require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
@@ -52,7 +51,7 @@ echo	'<div class="row" style="margin-top:10px;">
 												{
 											    
 												 echo '<tr>';
-												 echo '<td class="text-center">';echo $row['details'];echo '</td>';
+												 echo '<td class="text-center">';echo $row['name'];echo '</td>';
 											     echo '<td class="text-center">';
 													  $id=$row['id'];
 												   ?>
@@ -112,14 +111,5 @@ echo	'<div class="row" style="margin-top:10px;">
 								  </table>
                                   </div>
 							 ';
-mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}						
+mysqli_close($mysqli);						
 ?>

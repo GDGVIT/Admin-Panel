@@ -1,22 +1,12 @@
 <?php
 	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];
   $club_id=$_SESSION['cid'];
-  }
-  $id1=$_GET["id"];
-  echo $id1;
-  $mysql_tb = 'club_'.$club_id.'_members';
-  $sql = "SELECT * FROM `" . $mysql_tb . "` where id= '$id1'";
-  $result = mysqli_query($mysqli,$sql);
-   while($row = mysqli_fetch_array($result))
-    {
-         $regno1=$row['regno'];
-     }                        
-     echo "<div class='col-lg-6'>";
+  $regno1=$_GET["id"];                       
+  /*   echo "<div class='col-lg-6'>";
      echo '<table class="table table-bordered table responsive admin-attendance-table " style="margin-top:10px">
                   <thead>
                     <tr>
@@ -24,10 +14,53 @@
                             <th class="attendance-date text-center">Attendance</th>
                     </tr>
                   </thead>
-                  <tbody>';
+                  <tbody>';*/
+            echo "EVENT DETAILS<br>";
+            $res1 = mysqli_query($mysqli, "select * from events where club_id=$club_id") or die("q1 error");
+            $tab = $club_id."_event_attendance";
+            $inres1 = mysqli_query($mysqli, "select * from $tab where regno='$regno1'") or die("in q1 error");
+            $inrow1=mysqli_fetch_array($inres1);
+            while($row1=mysqli_fetch_array($res1)) {
+              $event_name = $row1['name'];
+              $event_id = $row1['id'];
+              $col = "event_".$event_id;
+              echo $event_name;
+              if($inrow1["$col"] == 0)
+                echo "    Absent<br>";
+              else
+                echo "    Present<br>";
+            }
+            echo "<br><br><br>";
+
+            echo "MEETING DETAILS<br>";
+            $res2 = mysqli_query($mysqli, "select * from meetings where club_id=$club_id") or die("q2 error");
+            $tab = $club_id."_meeting_attendance";
+            $inres2 = mysqli_query($mysqli, "select * from $tab where regno='$regno1'") or die("in q2 error");
+            $inrow2=mysqli_fetch_array($inres2);
+            while($row2=mysqli_fetch_array($res2)) {
+              $meeting_name = $row2['details'];
+              $meeting_id = $row2['id'];
+              $col = "meeting_".$meeting_id;
+              echo $meeting_name;
+              if($inrow2["$col"] == 0)
+                echo "    Absent<br>";
+              else
+                echo "    Present<br>";
+            }
+            echo "<br><br><br>";
+
+            echo "TASK STATUS<br>";
+            $res3 = mysqli_query($mysqli, "select * from task where club_id=$club_id and regno='$regno1'");
+            while($row3=mysqli_fetch_array($res3)) {
+              echo $row3['task'];
+              if($row3['status'] == 1)
+                echo "   Done<br>";
+              else
+                echo "   Pending";
+            }
                         
                                                 
-                        $mysql_tbl=$club_id.'_event_attendance';
+  /*                      $mysql_tbl=$club_id.'_event_attendance';
                         $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno1'";
                       
                         $result = mysqli_query($mysqli,$sql);

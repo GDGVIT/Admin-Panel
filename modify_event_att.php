@@ -3,25 +3,33 @@ session_start();
 	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
 	{
 	require("sql_con.php");
-	$r=$_REQUEST["r"];
-	$m=$_REQUEST["m"];
-	$mysql_tbl=$_SESSION["cid"].'_event_attendance';
-	$q1 = "SELECT * FROM `$mysql_tbl` WHERE regno = '$r'";
-	$rs=mysqli_query($mysqli,$q1);
-	$res = mysqli_fetch_array($rs);
-	$s=0;
-	if($res[$m]==0)	
-		$s=1;
-	else
-		$s=0;
+	$m=$_GET['r'];
+
+	$reg=json_decode($_GET['reg'],true);
 	
-	$sql="UPDATE `$mysql_tbl` SET `$m`=$s WHERE regno ='$r'";
+	$atten=json_decode($_GET['atten'],true);
+	
+	$len=$_REQUEST["len"];
+	for ($k = 0; $k < $len; $k++) {
+	
+
+	
+
+	$s=$atten[$k];
+	$r1=$reg[$k];
+
+$mysql_tbl=$_SESSION["cid"].'_event_attendance';
+
+	$sql="UPDATE `$mysql_tbl` SET `$m`=$s WHERE regno ='$r1'";
+	
 	$r1=mysqli_query($mysqli,$sql);
+}
 	if($r1)
-		echo "<h4 class='paddl'>Successfully modified.</h4>";
+		echo "Update Successful";
 	else
-		echo "<h4 class='paddl text-danger'>Modify Failed.</h4>";
-	mysqli_close($mysqli);
+		echo"Update Failed";
+	
+
 	}
 	else
 	{

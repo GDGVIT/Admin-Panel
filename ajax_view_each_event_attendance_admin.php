@@ -1,8 +1,7 @@
 <?php
 
 	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
+  require("session_check.php");
 	require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
@@ -16,8 +15,9 @@ echo '<div class="row" style="margin-top:10px;">
                                     <h3 style="color:grey">Attendance</h3>
                                 </div>							    
 						  </div>';
-										      $event_id=$_GET['id'];
-                                              $mysql_tbl=$club_id.'_event_attendance';
+										     $event_id=$_GET['id']; 
+										      $mysql_tbl=$club_id.'_event_attendance';
+											  $event_id="event_".$event_id;
                                               $sql = "SELECT  regno,`" . $event_id . "` FROM `" . $mysql_tbl . "`";
                                               $result = mysqli_query($mysqli,$sql);
                                              if(!$result)
@@ -76,17 +76,4 @@ echo '<div class="row" style="margin-top:10px;">
 
 
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
-
-
-
-
 ?>

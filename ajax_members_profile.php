@@ -1,8 +1,7 @@
 <?php
-	session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
-	require("sql_con.php");
+  session_start();
+  require("session_check.php");
+  require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
 $club_id=$_SESSION['cid'];
@@ -64,81 +63,46 @@ if(empty($gender))
     
     
     ?>
-            
-                          <div class="panel-card paddl">
-                            <div class="row m-t-xl">
-                              
-                              <div class="col-xs-6">
-                                <div class="inline">
-                                  <div class="easypiechart" data-percent="75" data-line-width="6" data-bar-color="#fff" data-track-Color="#2796de" data-scale-Color="false" data-size="140" data-line-cap='butt' data-animate="1000">
-                                    <div class="thumb-lg avatar">
-<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>"  alt=" Not Available" class="dker"  />
+    <div class="paddl">
+     <div style="width:250px;float:right;">
+    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
+    </div>
+    <div style="width:500px;float:left;">
+        <span class="card-title">
+             <h4 class="blue-grey-text">
+                <?php echo"$name"; ?>
+             </h4>
+        </span>
+        <hr>
+        <br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Registration Number</h5><span style="float:right;font-size:20px"><?php echo"$regno"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Email-ID</h5><span style="float:right;font-size:20px"><?php echo"$email"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;font-size:20px"><?php echo"$date"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;font-size:20px"><?php echo"$address"; ?></span><br><br>
+        <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;font-size:20px"><?php echo"$phone"; ?></span><br><br><br>
+        <?php
+if($_SESSION['status']==1)
+{$id1 = $_GET['id'];
+echo '<div class="col-lg-2" style="display: inline;">
+      <a onclick="update_forms()" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;">Modify</a>
+      </div>'; 
 
-                                      
-                                 
-                                    </div>
-                                  </div>
-                                  <div class="h4 m-t m-b-xs font-bold text-lt"> </div>
-                                  <b><small class="text-muted m-b"><h3><?php echo"$name"; ?></h3></small></b>
-                                </div>
-                              </div>
-                              
-                            </div>
-                            <div class="wrapper m-t-xl m-b">
-                              <div class="row m-t-xl">
-                                
-                                <div class="col-xs-2">
-                                    <b>Registration Number : </b><?php echo"$regno"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                    <b>Phone Number :</b> <?php echo"$phone"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Address :</b> <?php echo"$address"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Gender :</b> <?php echo"$gender"; ?>
-                                </div>
-                                <div class="col-xs-2">
-                                  <b>Email-ID :</b> <?php echo"$email"; ?>
-                                </div>
-                                 <div class="col-xs-2">
-                                  <b>Birthday :</b> <?php echo"$date"; ?>
-                                </div>
-                              </div>
-                              
-                              </div>
-                               <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
-                               <?php
-            if($_SESSION['status']==1)
-            {$id1 = $_GET['id'];
-         
-              echo' 
-                               <div class="col-lg-2" style="display: inline;"><input type="button" onclick="update_forms()"  value="modify" class="btn btn-s-md btn-success"></input> 
-    </div>'; 
-
-    echo' <div class="col-lg-2" style="display: inline;"><button class="btn btn-s-md btn-danger" onclick="inactive()">
-      Delete
-    </button>  
-    </div>'; 
+echo '<div class="col-lg-2" style="display: inline;"> 
+       <a onclick="inactive()" class="waves-effect waves-light btn white-text">Delete</a> 
+       </div>'; 
     }  
     ?>
+    </div>
+    </div>
+              
+     <input class="form-control" type="hidden" name="id" id="id" value="<?php echo"$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
+
        
   
-                         </div>
-                          </div>
+                         
                           
 <?php
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:index.php");
-	}
 ?>                         
                           
                    

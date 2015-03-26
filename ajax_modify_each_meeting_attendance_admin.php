@@ -1,85 +1,103 @@
+
 <?php
-session_start();
+	session_start();
 	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
 	{
 	require("sql_con.php");
-
-$regno=$_SESSION['name'];
-$status=$_SESSION['status'];
-$club_id=$_SESSION['cid'];
+	$regno=$_SESSION['name'];
+	$status=$_SESSION['status'];
+	$club_id=$_SESSION['cid'];
 echo 	'<div class="row" style="margin-top:10px;">
-								<div class="col-md-1">
-									<i class="fa fa-calendar fa-5x">
-									</i>
-							    </div>
-							    <div class="col-md-11">
-
-									<h3 class="paddh">Attendance</h3>
+			<div class="col-md-1">
+			<i class="fa fa-calendar fa-5x"></i>
+			</div>
+			    <div class="col-md-11">
+									<h3>Attendance</h3>
 							    </div>							    
-						</div>
-					   
-						 <div class="tab-content attendance-table" style="width:500px; margin:0 auto;">
-								
-								<table class="table table-bordered table responsive attendance-table" style="margin-top:10px;">
-									<thead>
-									  <tr>
-										<th class="attendance-date">Registration Number</th>
-										 <th  class="attendance-date">Status</th> 
-										  <th class="attendance-date text-center">Change</th>
-										
-										
-									  </tr>
-									</thead>
-									<tbody>';
+						</div>			   
+						 <div class="tab-content attendance-table">		
+								 <div class="col-lg-12" style="margin-top:10px">
+     <div class="col-lg-5" style="margin-top:10px">
+              <label><strong>Name</strong></label>
+            </div>
+            <div class="col-lg-5" style="margin-top:10px">
+              <label><strong>Registration no.</strong></label>
+            </div>
+            <div class="col-lg-2" style="margin-top:10px">
+              <label><strong>Attendence</strong></label>
+            </div>';                             $count=0;
+                                                $reg=array();
+                                                $atten=array();
 					                          $meeting_id=$_GET['id']; 
 										      $mysql_tbl=$club_id.'_meeting_attendance';
                                               $sql = "SELECT  regno,`" . $meeting_id . "` FROM `" . $mysql_tbl . "`";
                                               $result = mysqli_query($mysqli,$sql);
-                                              if(!$result)
-                                              {
-                                                 echo '<h4 class="paddl">Attendance not posted yet.</h4>';
-                                              }
-                                             else
-                                             {
-                                              while($row = mysqli_fetch_array($result))
-											  {
-                                        
-										         echo '<tr>
-										         <td>';$r_no= $row['regno']; 
-										         echo $r_no;
-									  			 echo '</td>';	
+                                               while($row = mysqli_fetch_array($result))
+											  {$r_no= $row['regno'];
+											  	$mysql_tb = 'club_'.$club_id.'_members';
+
+$sql1 = "SELECT * FROM `" . $mysql_tb . "` where regno='$r_no' ";
+    $res1 = mysqli_query($mysqli,$sql1);
+
+    while($rows1=mysqli_fetch_array($res1))//selecting the events
+    {
+$name=$rows1['name'];}
+ if($name=="")
+      {
+          $name="Not Available";
+        }
+          echo '<div class="col-lg-5" style="margin-top:2px">';
+             echo' <label>';echo"$name";echo'</label>';
+            echo'</div>';  
+                                       echo '<div class="col-lg-5" style="margin-top:2px">';
+             echo' <label>';echo"$r_no";echo'</label>';
+            echo'</div>';  
+					  echo '<div class="col-lg-2" style="margin-top:2px">';					
+											
 																		  $status= $row[$meeting_id]; 	
 																		   if($status==1)
 																				  {
 																				  
-																				  echo '<td>Present</td>';
+																			   echo'<select  id="'; echo"$r_no";echo'" class="browser-default" name="status" required >
+            
+            <option value="1" selected>Present</option>
+            <option value="0" >Absent</option>
+            
+            </select></div>';
 																				  
 																				  }
 																				  
 																			  if($status==0)
 																			 {
-																			 
-																			echo '<td class="text-danger">Absent </td>';
-											                                 
+																			 echo'<select  id="'; echo"$r_no";echo'" class="browser-default" name="status" required>
+            
+            <option value="1">Present</option>
+            <option value="0" selected >Absent</option>
+											        </select></div>';                           
 																			  }
 																			  
 											                               
-										echo '<td class="text-center">';
+								/*		echo '';
 										      
-		                                    echo "<button type='button' class='btn btn-primary' id='$r_no' name='$meeting_id' onclick='modify_meeting_att(this.id,this.name)'>Modify</button>";
+		                                    echo "<button type='button' class='btn btn-primary' id='$r_no' name='$event_id' onclick='modify_event_att(this.id,this.name)'>Modify</button>";
 											 
-											echo '</td>
+											echo '
                                                                               
 																			
 											                              
-											                              
-										</tr>';
+									';*/
+									echo'<hr ">';
+									array_push($reg, $r_no);
+									
+									//$arr['$count']=$count;
+									$count=$count+1;
 											  }
-								
-                                             }
-									echo '</tbody>
-								  </table>';
-mysqli_close($mysqli);
+										$reg = implode(",", $reg);	
+										
+										echo'<input type="hidden" id="arr" value="'; echo"$reg"; echo'">';
+								 echo '<div class="col-lg-12" style="margin-top:50px;text-align:center"> ';
+								 echo" <input class='btn1' onclick='modify_meeting_att(this.name)'' name='$meeting_id' id='submit' tabindex='5' value='Update!'' type='button'></div>";
+								  mysqli_close($mysqli);
 	}
 	else
 	{
@@ -89,4 +107,6 @@ mysqli_close($mysqli);
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 		header("Location:signin.php");
 	}
+								  
+								  
 								  ?>
