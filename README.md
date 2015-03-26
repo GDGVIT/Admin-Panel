@@ -1,7 +1,9 @@
 # Admin-Panel
 
+
 <b>To implement further :</b> 
-    
+ 
+   
     Sourabh : Update_exec.php has a problem. View Attendance has a problem.
 
      1. Fix Sidebar for mobile.
@@ -22,3 +24,4 @@
 	16. Email address bug in club member.
      17. User UI for view attendance.
 	17. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters. 
+
