@@ -1,0 +1,65 @@
+<?php
+function getAccessToken(){
+        $tokenURL = 'https://accounts.google.com/o/oauth2/token';
+        $postData = array(
+                'client_secret'=>'CkdNcMHAKgFlH_WIfUCoFGWu', #You need to fill these in to match your site.
+                'grant_type'=>'refresh_token',
+                'refresh_token'=>'1/86ZxWe8loR63XzR11ioMJlLk6Qm5SZYKbEa_ITogLKIMEudVrK5jSpoR30zcRFq6', #You need to fill these in to match your site.
+                'client_id'=>'184090086282-ae7eljuh3nrfbmff04sr6e9s6q0j1lje.apps.googleusercontent.com' #You need to fill these in to match your site.
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $tokenURL);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ 
+        $tokenReturn = curl_exec($ch);
+        $token = json_decode($tokenReturn);
+        //var_dump($tokenReturn);
+        $accessToken = $token->access_token;
+        return $accessToken;
+}
+function createPostArgsJSON($date,$starttime,$endtime,$title){
+    $arg_list = func_get_args();
+    foreach($arg_list as $key => $arg){
+        $arg_list[$key] = urlencode($arg);
+    }
+    $postargs = <<<JSON
+{
+ "start": {
+  "dateTime": "{$date}T{$starttime}:00.000-05:30"
+ },
+ "end": {
+  "dateTime": "{$date}T{$endtime}:00.000-05:30"
+ },
+ "summary": "$title",
+ "description": "$title"
+}
+JSON;
+    return $postargs;
+}
+function sendPostRequest($postargs,$token, $cal){
+    global $APIKEY;
+    $request = 'https://www.googleapis.com/calendar/v3/calendars/' . $cal . '/events?pp=1&key=' . $APIKEY;
+     
+    $session = curl_init($request);
+     
+    // Tell curl to use HTTP POST
+    curl_setopt ($session, CURLOPT_POST, true); 
+    // Tell curl that this is the body of the POST
+    curl_setopt ($session, CURLOPT_POSTFIELDS, $postargs); 
+    // Tell curl not to return headers, but do return the response
+    curl_setopt($session, CURLOPT_HEADER, false); 
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+    //curl_setopt($session, CURLOPT_VERBOSE, true);
+    curl_setopt($session, CURLINFO_HEADER_OUT, true);
+    curl_setopt($session, CURLOPT_HTTPHEADER, array('Content-Type:  application/json','Authorization:  Bearer ' . $token,'X-JavaScript-User-Agent:  Mount Pearl Tennis Club Bookings'));
+     
+    $response = curl_exec($session);
+     
+    curl_close($session); 
+    return $response;
+}
+
+
+?>
