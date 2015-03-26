@@ -3,6 +3,8 @@
 <b>To implement further :</b> 
     
     Backend : Modify Profile Problem.
+              User View Attendance (Absent/Present Check).
+
 
       
      1. Increase font size of all tables.
@@ -18,6 +20,5 @@
 	11. View task status change.
 	12. Check alignment in modify attendance, create event, create meeting.
 	13. Email address bug in club member.
-     14. User UI for view attendance.
 	15. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters.
 	16. View attendance UI is not proper (check on second click on event tab).

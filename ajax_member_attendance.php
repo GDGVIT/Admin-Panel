@@ -25,35 +25,28 @@ echo '<div class="row" style="margin-top:10px;">
 				
 				
                                
-					   <table class="hoverable table table-bordered table responsive admin-attendance-table" id="event" style="margin-top:10px">
-										<thead>
+					   <table class="hoverable centered" id="event">
+										<thead class="centered">
 										  <tr>
-										    <th class="attendance-club text-center">Events</th>
-											<th class="attendance-attendance text-center">Attendance</th>
+										    <th class="attendance-club">Event</th>
+											<th class="attendance-attendance">Status</th>
 										  </tr>
 										</thead>
 										<tbody>';
 										  	
                                                 
 												$mysql_tbl=$club_id.'_event_attendance';
-										
-                                                 $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno'";
+										        $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno'";
 												$result = mysqli_query($mysqli,$sql);
-                                             
-                                         
-
-										echo '<tbody>';
-												
-                                              
-                                               
-                                               while($row = mysqli_fetch_array($result))
+                                                while($row = mysqli_fetch_array($result))
 												{
-												$res2 = mysqli_query($mysqli, "select id from events");	 
+												$res2 = mysqli_query($mysqli, "select * from events");	 
 												while($row2 = mysqli_fetch_array($res2)) {
 												echo '<tr>';
-													$ename = "event_".$row2['id'];
+												    $eid = $row2['id'];
+													$ename = $row2['name'];
                                                     echo '<td>'; echo $ename; echo '</td>';
-													if($row[$ename] == 0)
+													if($row[$eid] == 0)
 												      echo '<td> Absent</td>';
 													else
 												      echo '<td> Present</td';
@@ -65,16 +58,13 @@ echo '<div class="row" style="margin-top:10px;">
 
 															 
 										 echo '</tbody>';
-									   echo '</table>
-							</div> ';
-                      echo '
-							   
-								
-							<table class="hoverable table table-bordered table responsive hidemeeting admin-attendance-table " id="meeting" style="margin-top:10px">
+									   echo '</table>';
+                      
+                      echo '<table class="hoverable hidemeeting centered" id="meeting" style="margin-top:10px;">
 									<thead>
 									  <tr>
-										<th class="attendance-club text-center">Meetings</th>
-						                <th class="attendance-date text-center">Attendance</th>
+										<th class="attendance-club text-center">Meeting</th>
+						                <th class="attendance-date text-center">Status</th>
 									  </tr>
 									</thead>
 									<tbody>';
@@ -84,21 +74,15 @@ echo '<div class="row" style="margin-top:10px;">
 										
                                                  $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno'";
 												$result = mysqli_query($mysqli,$sql);
-                                             
-                                         
-
-										echo '<tbody>';
-												
-                                              
-                                               
-                                               while($row = mysqli_fetch_array($result))
+                                                while($row = mysqli_fetch_array($result))
 												{
-												$res2 = mysqli_query($mysqli, "select id from meetings");	 
+												$res2 = mysqli_query($mysqli, "select * from meetings");	 
 												while($row2 = mysqli_fetch_array($res2)) {
 												echo '<tr>';
-													$ename = "meeting_".$row2['id'];
+													$eid = $row2['id'];
+													$ename = $row2['details'];
                                                     echo '<td>'; echo $ename; echo '</td>';
-													if($row[$ename] == 0)
+													if($row[$eid] == 0)
 												      echo '<td> Absent</td>';
 													else
 												      echo '<td> Present</td';
@@ -110,7 +94,7 @@ echo '<div class="row" style="margin-top:10px;">
 
 															 
 										 echo '</tbody>
-								  </table>';
+								  </table></div>';
                   
                
 			
