@@ -5,11 +5,11 @@
 	$regno=$_SESSION['name'];
 	$status=$_SESSION['status'];
 	$club_id=$_SESSION['cid'];
-	$id1 = $regno;
+	$id1 = $_GET['id'];
 	
      $mysql_tb = 'club_'.$club_id.'_members';
     
-    $sql = "SELECT * FROM `" . $mysql_tb . "` where regno='$regno'";
+    $sql = "SELECT * FROM `" . $mysql_tb . "` where id=$id1";
     $res = mysqli_query($mysqli,$sql);
 
     while($row=mysqli_fetch_array($res))//selecting the events

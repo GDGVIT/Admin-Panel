@@ -117,7 +117,7 @@ function self_profile() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_self_profile.php",true);
+	xmlhttp.open("GET","view.php",true);
 	xmlhttp.send();
 }
 
@@ -883,6 +883,7 @@ function send_message(id) {
 }
 
 function update_forms() {
+	var id = document.getElementById("id").value;
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -890,7 +891,7 @@ function update_forms() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_updateform.php?",true);
+	xmlhttp.open("GET","ajax_updateform.php?id="+id,true);
 	xmlhttp.send();
 }
 
