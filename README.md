@@ -7,8 +7,7 @@
               View Tasks need to display name of the person who is assigned the task, not Reg no.
 
 
-      
-     1. Increase font size of all tables.
+     1. View attendance UI is not proper (check on second click on event tab).
      2. Check the UI of the success/failed operation messages.
      3. Complete View Events UI.
      4. Do frontend of Reports Section.
@@ -22,4 +21,3 @@
 	12. Check alignment in modify attendance, create event, create meeting.
 	13. Email address bug in club member.
 	15. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters.
-	16. View attendance UI is not proper (check on second click on event tab).
