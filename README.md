@@ -2,8 +2,7 @@
 
 <b>To implement further :</b> 
     
-    Backend : Update_exec.php has a problem. 
-              View Attendance has a problem.
+    Backend : Update_exec.php has a problem.
               Add Members has a problem.
 
       
@@ -21,4 +20,5 @@
 	12. check alignment in modify attendance, create event, create meeting.
 	13. Email address bug in club member.
      14. User UI for view attendance.
-	15. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters. 
+	15. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters.
+	16. view attendance UI is not proper (check on second click on event tab).
