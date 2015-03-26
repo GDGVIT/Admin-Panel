@@ -294,6 +294,15 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
+          <?php		
+            if($_SESSION['status']==1)		
+                echo"		
+                    <li class='waves-effect waves-light' id='over' style='width:240px;'>		
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='all_threads();' class='collapsible-header'>		
+                            Discussion Forum		
+                    </a>             		
+                    </li>";		
+          ?>
 
         </ul>
       </ul>
