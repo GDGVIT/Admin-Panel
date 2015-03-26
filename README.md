@@ -6,7 +6,7 @@
               View Attendance has a problem.
               Add Members has a problem.
 
-     1. Fix Sidebar for mobile.
+     1. 
      2. Increase font size of all tables.
      3. Check the UI of the success/failed operation messages.
      4. Complete Modify Attendance UI.
