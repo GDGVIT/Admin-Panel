@@ -16,8 +16,9 @@
      10. Improve the backend of the task section (Remove task when done). 
      11. Improve the UI and backend of change password and modify profile. 
      12. Add modals for view task, view events and view meetings.
-	 13. Backend change to modify club member details(Date).
-	 14. View task status change.
-	 15. check alignment in modify attendance, create event, create meeting.
-	 16. Email address bug in club member.
-	 17. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters. 
+	13. Backend change to modify club member details(Date).
+	14. View task status change.
+	15. check alignment in modify attendance, create event, create meeting.
+	16. Email address bug in club member.
+     17. User UI for view attendance.
+	17. Implement and do the required changes in backend and frontend for making it available for all clubs and chapters. 
