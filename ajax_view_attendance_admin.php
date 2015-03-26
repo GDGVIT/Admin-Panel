@@ -21,7 +21,7 @@ $id=$row['id'];
 ?>
 
 
-        <div><div class="row" style="margin-top:10px;">
+        <div class="row" style="margin-top:10px;">
                <div class="col-md-11">
                    <h3 class="paddh">Attendance</h3>
                </div>							    
@@ -85,7 +85,7 @@ $id=$row['id'];
                            }	 
 												
 										 ?>
-										</tbody></table></div></div>
+										</tbody></table></div>
 
 <?php
 mysqli_close($mysqli);

@@ -15,13 +15,10 @@ $status=$_SESSION['status'];
 $club_id=$_SESSION['cid'];
 
 echo '<div class="row" style="margin-top:10px;">
-								<div class="col-md-1">
-                                    <i class="fa fa-bookmark-o fa-5x pull-right"></i>
-                                </div>
                                 <div class="col-md-11">
-                                    <h3 style="color:grey">&nbsp;&nbsp;&nbsp;Attendance</h3>
+                                    <h3 class="paddh">Attendance</h3>
                                 </div>
-	          <div id="materialdesign" class="section scrollspy">
+	          <div id="materialdesign" class="section paddl">
 								
 			                    <button class="waves-effect waves-light btn tabs" onclick="showev();">Events</button>
 			                    <button class="waves-effect waves-light btn tabs" onclick="showme();">Meetings</button>
