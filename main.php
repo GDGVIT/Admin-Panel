@@ -21,7 +21,6 @@ $status=$_SESSION["status"];
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    
     <!-- CSS-->
     <link href="css/prism.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -33,7 +32,9 @@ $status=$_SESSION["status"];
         .horizontal{background-color:white;}
         .profile-button{background-color:#e75457;color:white;}
         .profile-button:hover{background-color:white;color:black;}
-        .tab1:hover{box-shadow: #bab6b6 2px 2px 1px;}
+        .tabs{height:40px;width:49%;background-color:#e75457;color:white;}
+        .tabs:hover{background-color:white;color:#e75457;}
+        .tab1:hover{box-shadow: #bab6b6 2px 2px 10px;}
         .tab{width:32%;height:40px;float:left;background-color:#e75457}
         .tab:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
