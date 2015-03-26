@@ -3,7 +3,7 @@
 <b>To implement further :</b> 
     
     Backend : Modify Profile Problem.
-              User View Attendance (Absent/Present Check).
+              User View Attendance Syntax Error (Absent/Present Check).
 
 
       
