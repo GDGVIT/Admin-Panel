@@ -15,7 +15,7 @@
     
     $mysql_tb = 'task';
    mysqli_query($mysqli,"INSERT INTO `" . $mysql_tb . "`  (regno, club_id, task, assignment_date, completion_date, status,description) VALUES ('$regno1', '$club_id', '$t_name', '$date_assign', '$date_comp','0','$desc') ");
-   echo "Task assigned successfully"; 
+   echo "<h4 class='paddl'>Task assigned successfully</h4>"; 
 mysqli_close($mysqli);
 
 ?>

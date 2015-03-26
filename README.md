@@ -7,7 +7,6 @@
               Add Members has a problem.
 
      1. Fix Sidebar for mobile.
-     2. Organize club member view better.
      3. Increase font size of all tables.
      4. Check the UI of the success/failed operation messages.
      5. Complete Modify Attendance UI.

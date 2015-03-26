@@ -30,7 +30,7 @@ $t_nam1=$_GET['task_id'];
 }
 if($up)
 {
-	echo"Task status updated sucessfully !";
+	echo"<h4 class='paddl'>Task status updated sucessfully !</h4>";
 }
 
 mysqli_close($mysqli);
