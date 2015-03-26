@@ -34,7 +34,7 @@ $status=$_SESSION["status"];
         .profile-button:hover{background-color:white;color:black;}
         .tabs{height:40px;width:49%;background-color:#e75457;color:white;}
         .tabs:hover{background-color:white;color:#e75457;}
-        .tab1:hover{box-shadow: #bab6b6 2px 2px 10px;}
+        .tab1:hover{box-shadow: #bab6b6 2px 2px 18px;}
         .tab{width:32%;height:40px;float:left;background-color:#e75457}
         .tab:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
