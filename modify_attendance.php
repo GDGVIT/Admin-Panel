@@ -26,6 +26,7 @@
               <label><strong>Attendence</strong></label>
             </div>';
 
+            
             $count=0;
             $reg=array();
             $atten=array();
