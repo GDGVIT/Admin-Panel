@@ -1,7 +1,5 @@
 <?php
 include('sql_con.php');
-//include('db_connect.php');
-
 	$q1 = "select * from task";
 	$r1 = mysqli_query($mysqli,$q1) or die("query error");
 	echo "<html><body><div class='paddl'>";
