@@ -317,7 +317,7 @@ function change_password2() {//add_members
 			var sex = sexarr[i].value; 
    }
 
-
+//alert(" "+department+"  "+phone+"  "+name+"  "+email+"  "+date+"  "+add+"   "+regno+"   "+sex);
 	var pattern = /^[0-1]{1}[0-9]{1}[a-zA-Z]{3}[0-9]{4}$/;
    if (name==null || name=="") {
 		toast('Please provide correct name.', 3000, '#f44336 red');

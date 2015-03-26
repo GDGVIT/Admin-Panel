@@ -1,8 +1,6 @@
-
-    <?php
+<?php
   session_start();
-  if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-  {
+  require("session_check.php");
   require("sql_con.php");
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];
@@ -10,7 +8,6 @@
 ?>
     
 <div class="row" style="padding-left:25%;padding-right:25%;">
-  <form class="col s12" action="add_exec.php" method="post" enctype="multipart/form-data">
     <div class="row">
       <h3>Add Members</h3>
       <select name="department" id="department" class="browser-default" style="width:50%;">
@@ -22,55 +19,55 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="name" name="name" tabindex="1" type="text" class="validate" style="min-width:240px;">
-        <label for="first_name" style="min-width:240px;">Name</label>
+        <input id="m_name" name="m_name" tabindex="1" type="text" class="validate" style="min-width:240px;">
+        <label for="m_name" style="min-width:240px;">Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="name" name="registration" type="text" style="min-width:240px;" class="validate">
-        <label style="min-width:240px;" for="regnum">Registration Number</label>
+        <input id="reg_no" name="reg_no" type="text" style="min-width:240px;" class="validate">
+        <label style="min-width:240px;" for="reg_no">Registration Number</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="birthday" type="text" style="min-width:240px;" class="validate">
-        <label for="birthday" style="min-width:240px;">Birthday</label>
+        <input id="dob" type="text" style="min-width:240px;" class="validate">
+        <label for="dob" style="min-width:240px;">Birthday</label>
       </div>
     </div>
     <div class="row">
     <div class="input-field col s6">
       <h6 style="color:grey">I Am </h6>
       <p>
-        <input name="group1" class="with-gap" type="radio" id="test1" />
+        <input name="group1" class="with-gap" type="radio" id="test1" value="male" />
         <label for="test1">Male</label>
-        <input name="group1" class="with-gap" style="color:red;background-color:red;" type="radio" id="test2" />
+        <input name="group1" class="with-gap" style="color:red;background-color:red;" type="radio" id="test2" value="female" />
         <label for="test2">Female</label>
       </p>
     </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="email" style="min-width:240px;" name="email" type="email" class="validate">
-        <label style="min-width:240px;" for="email">E-Mail</label>
+        <input id="emailid" style="min-width:240px;" name="emailid" type="email" class="validate">
+        <label style="min-width:240px;" for="emailid">E-Mail</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="phone" style="min-width:240px;" name="phone" type="text" class="validate">
-        <label style="min-width:240px;" for="contact">Contact</label>
+        <input id="mobno" style="min-width:240px;" name="mobno" type="text" class="validate">
+        <label style="min-width:240px;" for="mobno">Contact</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="name" style="min-width:240px;" name="address" type="text" class="validate">
-        <label style="min-width:240px;" for="block">Block</label>
+        <input id="hblock" style="min-width:240px;" name="hblock" type="text" class="validate">
+        <label style="min-width:240px;" for="hblock">Block</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input style="min-width:240px;" id="room" type="text" class="validate">
-        <label style="min-width:240px;" for="room">Room</label>
+        <input style="min-width:240px;" id="hroom" type="text" class="validate">
+        <label style="min-width:240px;" for="hroom">Room</label>
       </div>
     </div>
     <div class="row">
@@ -80,23 +77,12 @@
     </div>
     <div class="row">
     <div class="input-field col s6">
-        <button name="submit" id="submit" tabindex="5" style="height:42px;background-color:rgba(0,0,0,0);border:none;">
+        <button onclick="change_password2()" tabindex="5" style="height:42px;background-color:rgba(0,0,0,0);border:none;">
             <a class="waves-effect waves-light btn" style="background-color:#e75457;color:white;">
             Sign Up</a></button>
       </div>
     </div>
-  </form>
 </div>
-    <?php
-mysqli_close($mysqli);
-  }
-  else
-  {
-    session_unset();
-    session_destroy();
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-    header("Location:signin.php");
-  }
-
+<?php
+  mysqli_close($mysqli);
 ?>

@@ -45,9 +45,10 @@ $id=$row['id'];
                                echo '<td>'.$row['date'].'</td>';
                                echo '<td class="text-center">';echo '<a href="#" onclick="view_each_event_attendance('.$id.')">
                                      <button type="button" class="btn btn-s-md btn-info">View</button></a>';
+                               echo "</td></tr>";
+                           }
 
-				            ?>
-							  </td></tr>		  	 
+				            ?>		  	 
                               </tbody>                 
 								</table>
 							 
@@ -80,10 +81,11 @@ $id=$row['id'];
                                                  echo '<td>'.$row['date'].'</td>';
 											     echo '<td class="text-center">'; echo '<a href="#" onclick="view_each_meeting_attendance('.$id.')">
 											           <button type="button" class="btn btn-s-md btn-info">View</button></a>';
-													 
+												echo "</td></tr>";
+                           }	 
 												
 										 ?>
-										</td></tr></tbody></table></div></div>
+										</tbody></table></div></div>
 
 <?php
 mysqli_close($mysqli);
