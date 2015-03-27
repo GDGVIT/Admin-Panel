@@ -10,7 +10,7 @@
      $mysql_tb = 'club_'.$club_id.'_members';
     
     $sql = "SELECT * FROM `" . $mysql_tb . "` where id=$id1";
-    $res = mysqli_query($mysqli,$sql);
+    $res = mysqli_query($mysqli,$sql) or die("qerr");
 
     while($row=mysqli_fetch_array($res))//selecting the events
     {

@@ -478,7 +478,13 @@ $status=$_SESSION["status"];
     <div style="float:left;">
         <span class="card-title">
              <h4>
-              	<?php echo"$name"; ?>
+              	<?php 
+                echo"$name";
+                $mysql_tb = 'club_'.$club_id.'_members';
+                $res1 = mysqli_query($mysqli, "select id from $mysql_tb where regno='$regno'") or die("quer error");
+                $r = mysqli_fetch_array($res1);
+                $id1 = $r['id'];
+                ?>
              </h4>
         </span>
         <hr>
@@ -490,7 +496,7 @@ $status=$_SESSION["status"];
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;"><?php echo"$phone"; ?></span><br><br>
 
     <div class="card-action" align="center">
-        <a onclick="update_forms()" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
+        <a onclick="update_forms(<?php echo $id1;?>)" data-target="#modify" class="waves-effect btn-flat modal-action modal-close profile-button" style="margin-right:5px;">Modify</a>
         <a onclick="change_password()" class="waves-effect btn-flat modal-action modal-close profile-button">Change Password</a>
     </div></div></div>
     

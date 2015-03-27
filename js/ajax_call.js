@@ -882,8 +882,7 @@ function send_message(id) {
   xmlhttp.send("id="+id+"&msg="+msg);
 }
 
-function update_forms() {
-	var id = document.getElementById("id").value;
+function update_forms(x) {
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -891,7 +890,7 @@ function update_forms() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_updateform.php?id="+id,true);
+	xmlhttp.open("GET","ajax_updateform.php?id="+x,true);
 	xmlhttp.send();
 }
 

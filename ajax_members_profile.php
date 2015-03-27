@@ -74,13 +74,12 @@ if(empty($gender))
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Birthday</h5><span style="float:right;font-size:20px"><?php echo"$date"; ?></span><br><br>
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Address</h5><span style="float:right;font-size:20px"><?php echo"$address"; ?></span><br><br>
         <h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">Phone Number</h5><span style="float:right;font-size:20px"><?php echo"$phone"; ?></span><br><br><br>
-        <input class="form-control" type="hidden" name="id" id="id" value="<?php echo "$id1"; ?>"  style="margin-bottom:10px;margin-right:0px">
 
         <?php
 if($_SESSION['status']==1)
 {
 echo '<div class="col-lg-2" style="display: inline;">
-      <a onclick="update_forms()" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;">Modify</a>
+      <a onclick="update_forms('.$id1.')" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;">Modify</a>
       </div>'; 
 
 echo '<div class="col-lg-2" style="display: inline;"> 
