@@ -66,43 +66,9 @@
 									echo"Enter a valid Email ID!";
 								}
 							}
-			
-		}
-		else if($email!=$arr["email"])
-		{
-		 $up=$mysqli->query("UPDATE `" . $mysql_tb . "` SET 
-                                `name` = '$name',
-                                `mobno` = '$phone',
-                                `gender` = '$gender',
-                                `regno` = '$regno', 
-								`dob` = '$dob',
-								`address` = '$address'
-                             WHERE `regno` = '$regno'");
-							 
-							$hash = md5( rand(0,1000) ); // Generate random 32 character hash and assign it to a local variable.
-							$q2="INSERT INTO `email_confirmation` VALUES ('$regno','$email','hash')";
-							if(mysqli_query($mysqli,$q2))
-							{
-								$to= $email; //Send email to our user
-								$subject = 'GDG Email | Verification'; // Give the email a subject 
-								$message = '
-									Your account has been verified, you can login with your credentials after you have activated your account by following the URL below.
-
-										Please click this link to activate your account:
-										http://www.gdgvitvellore.com/admin_panel/verify.php?email='.$email.'&hash='.$hash.'&tb='.$mysql_tb.'
-								';
-								if(mail($to,$subject,$message))
-								{
-									echo"Check your mail, and confirm your new mail ID!";
-								}
-								else
-								{
-									$q3="DELETE FROM `email_confirmation` WHERE `$regno`='$regno AND `$hash`='hash')";
-									mysqli_query($mysqli,$q3);
-									echo"Enter a valid Email ID!";
-								}
-							}
-							$vkey = rand(1000,9000);
+							else
+								echo "Problem in generating random password";
+				$vkey = rand(1000,9000);
 				//Your authentication key
 			$authKey = "70362A9VyN8Yco53da83a9";
 
@@ -144,6 +110,41 @@
 $output = curl_exec($ch);
 
 curl_close($ch);
+		}
+		else if($email!=$arr["email"])
+		{
+		 $up=$mysqli->query("UPDATE `" . $mysql_tb . "` SET 
+                                `name` = '$name',
+                                `mobno` = '$phone',
+                                `gender` = '$gender',
+                                `regno` = '$regno', 
+								`dob` = '$dob',
+								`address` = '$address'
+                             WHERE `regno` = '$regno'");
+							 
+							$hash = md5( rand(0,1000) ); // Generate random 32 character hash and assign it to a local variable.
+							$q2="INSERT INTO `email_confirmation` VALUES ('$regno','$email','hash')";
+							if(mysqli_query($mysqli,$q2))
+							{
+								$to= $email; //Send email to our user
+								$subject = 'GDG Email | Verification'; // Give the email a subject 
+								$message = '
+									Your account has been verified, you can login with your credentials after you have activated your account by following the URL below.
+
+										Please click this link to activate your account:
+										http://www.gdgvitvellore.com/admin_panel/verify.php?email='.$email.'&hash='.$hash.'&tb='.$mysql_tb.'
+								';
+								if(mail($to,$subject,$message))
+								{
+									echo"Check your mail, and confirm your new mail ID!";
+								}
+								else
+								{
+									$q3="DELETE FROM `email_confirmation` WHERE `$regno`='$regno AND `$hash`='hash')";
+									mysqli_query($mysqli,$q3);
+									echo"Enter a valid Email ID!";
+								}
+							}
 			
 		}
 		else if($phone!=$arr["mobno"])
