@@ -2,7 +2,7 @@
 
 <b>To implement further :</b> 
     
-    Backend : User View Attendance Syntax Error (Absent/Present Check).
+    Backend : User View Attendance Syntax Error (Absent/Present Check) (sorry, I can't it. I think it's correct only).
               View Tasks need to display name of the person who is assigned the task, not Reg no.
 
 
