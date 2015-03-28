@@ -6,6 +6,7 @@ session_start();
 	$regno=$_SESSION['name'];
 	$status=$_SESSION['status'];
 	$club_id=$_SESSION['cid'];
+ 
 ?>
 
            <form   method="post" enctype="multipart/form-data" onsubmit="filter_update_task_status()">
