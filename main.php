@@ -297,7 +297,7 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
-          <?php		
+    <!--     <?php		
             if($_SESSION['status']==1)		
                 echo"		
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>		
@@ -305,7 +305,7 @@ $status=$_SESSION["status"];
                             Discussion Forum		
                     </a>             		
                     </li>";		
-          ?>
+          ?>-->
 
         </ul>
       </ul>
@@ -416,7 +416,6 @@ $status=$_SESSION["status"];
     <!--  Outer row  -->
         <div class="row card" id="main_content">
           <?php
-  include("db_connect.php");
   $club_id = $_SESSION['cid'];
   $q1 = "select * from events";
   $r1 = mysqli_query($mysqli, $q1) or die("query error");
