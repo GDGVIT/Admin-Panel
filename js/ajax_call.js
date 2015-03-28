@@ -1175,3 +1175,42 @@ function view_meetings_member_ajax(grp_id) {
 	xmlHttp.open("GET", "group_member/view_meeting.php?grp_id="+grp_id, true);
 	xmlHttp.send();
 }
+
+//feedback
+function feedback() {
+	xmlhttp.onreadystatechange=function()
+	{
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","feedback.php",true);
+	xmlhttp.send();
+}
+
+function view_feedback() {
+
+	xmlhttp.onreadystatechange=function()
+	{
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","view_feedback.php",true);
+	xmlhttp.send();
+}
+
+function add_feedback() {
+	var feedback=document.getElementById("feedback").value;
+	xmlhttp.onreadystatechange=function()
+	{
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","add_feedback.php?feedback="+feedback,true);
+	xmlhttp.send();
+}

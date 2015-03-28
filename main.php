@@ -305,7 +305,26 @@ $status=$_SESSION["status"];
                             Discussion Forum		
                     </a>             		
                     </li>";		
-          ?>-->
+          ?>  -->
+
+          <?php
+            if($_SESSION['status']==0)
+            echo"
+                        <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                                Feedback
+                            </a>
+                        </li>
+                        ";
+            if($_SESSION['status']==1)
+            echo"
+                        <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                               view Feedbacks
+                            </a>
+                        </li>
+                        ";
+          ?>
 
         </ul>
       </ul>
