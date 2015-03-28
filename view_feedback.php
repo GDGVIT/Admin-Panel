@@ -32,7 +32,7 @@ $sql1 = "SELECT * FROM  `" . $mysql_tb . "` where regno='$regno' ";
 
 	}
   
-      echo'<fieldset><legend>';echo"$name";echo'</legend>';
+      echo'<fieldset ><legend>';echo"$name";echo'</legend>';
      echo"$feedback"; echo' </fieldset><br><br>';
            }     
             ?>
