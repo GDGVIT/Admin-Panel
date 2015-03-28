@@ -439,7 +439,7 @@ $status=$_SESSION["status"];
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[5]</td>";
-    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' value='$row[0]' onclick='modify_ad(this.value)'>MODIFY</a></td>";
+    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' style='background-color:#e75457;color:white' value='$row[0]' onclick='modify_ad(this.value)'>Details</a></td>";
     /*echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";*/
     echo "</tr>";
   }
@@ -589,7 +589,7 @@ session_start();
         {
         echo'Not Done';
         } 
-        echo '</td><td><a class="btn modal-trigger" href="#task_detail_modal">Details</a></td></tr>';
+        echo '</td><td><a class="btn modal-trigger" style="background-color:#e75457;color:white" href="#task_detail_modal">Details</a></td></tr>';
       }
 
     ?>
