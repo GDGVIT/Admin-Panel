@@ -7,23 +7,9 @@ session_start();
 	$status=$_SESSION['status'];
 	$club_id=$_SESSION['cid'];
 ?>
-    
-                      <div class="container">
-      <!-- freshdesignweb top bar -->
-            <div class="freshdesignweb-top">
-               
-                <div class="clr"></div>
-            </div><!--/ freshdesignweb top bar -->
-      <header>
-        
-            </header> 
-           <div class="col-lg-8" style="margin-top:10px">
-            <legend align="center"> All assigned Tasks</legend></div>
-           
-            
-     
-             <table>
-             <tr><th>Task Name </th><th>Description </th><th>Assigned Member</th><th>Assignment Date</th><th>completion Date</th><th>Task current Status</th></tr>
+  <table class="hoverable">
+    <thead>
+      <tr><th>Task Name </th><th>Description </th><th>Assigned Member</th><th>Assignment Date</th><th>completion Date</th><th>Task current Status</th></tr></thead><tbody>
 
  <?php   
  $mysql_tb = 'club_'.$club_id.'_members'; 
@@ -66,37 +52,26 @@ session_start();
       }
       //Selecting the member name from club member table
      
-      
- 
-            echo '<tr>';
-             echo'<td>';echo"$t_name";echo'</td>';
-             echo'<td>';echo"$desc";echo'</td>';
-             echo'<td>';echo"$name";echo'</td>';
-            echo'<td>';echo"$TAD";echo'</td>';
-           echo'<td>';echo"$TAC";echo'</td';
-             echo'<td>';
-          if($status==1)
-          {
-            echo" Done";
-          }
-          else
-           {
-             echo'Not Done';
-            } 
-             echo '</td></tr>';
-          }
+      echo '<tr>';
+      echo'<td>';echo"$t_name";echo'</td>';
+      echo'<td>';echo"$desc";echo'</td>';
+      echo'<td>';echo"$name";echo'</td>';
+      echo'<td>';echo"$TAD";echo'</td>';
+      echo'<td>';echo"$TAC";echo'</td';
+      echo'<td>';
+      if($status==1)
+        {
+        echo" Done";
+        }
+      else
+        {
+        echo'Not Done';
+        } 
+        echo '</td></tr>';
+      }
 
-            ?>
- </table> 
-
-
-                         
-     <!-------->                   </section> 
-   
-                        
-                      </div>
-                    </section>
-                  </section>
+    ?>
+ </tbody></table> 
 <?php
 mysqli_close($mysqli);
 	}
