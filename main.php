@@ -38,6 +38,8 @@ $status=$_SESSION["status"];
         .tab{width:32%;height:40px;float:left;background-color:#e75457}
         .tab:hover{background-color:white;color:grey;}
         .menushadow{box-shadow:#847777 10px 10px 10px;}
+        .modal_call_btn{background-color:#e75457;color:white;}
+        .modal_call_btn{background-color:white;color:#e75457;box-shadow:#bab6b6 2px 2px 18px;}
         
         #over:hover{background-color:#e75457;}
           
@@ -423,17 +425,22 @@ $status=$_SESSION["status"];
   if(isset($_GET['msg'])) {
     echo "<div id='msg_view'>".$_GET['msg']."</div><br>"; 
   }
-  echo "<table class='hoverable centered'><thead><tr><th>Event Name</th><th>Event Date</th><th>Event Time</th><th>Place</th><th>Purpose</th><th>Details</th></tr></thead><tbody>";
+  echo "<table class='hoverable centered'>
+  <thead>
+  	<tr>
+  		<th>Event Name</th>
+  		<th>Event Date</th>
+  		<th>Place</th>
+  	</tr>
+  </thead>
+  <tbody>";
   while($row = mysqli_fetch_array($r1)) {
     echo "<tr>";
-            echo "<td>$row[2]</td>";
-      echo "<td>$row[3]</td>";
-      echo "<td>$row[4]</td>";
-      echo "<td>$row[5]</td>";
-      echo "<td>$row[6]</td>";
-            echo "<td>$row[8]</td>";
-      echo "<td><button value='$row[0]' onclick='modify_ad(this.value)'>MODIFY</button></td>";
-      echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[5]</td>";
+    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' value='$row[0]' onclick='modify_ad(this.value)'>MODIFY</a></td>";
+    /*echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";*/
     echo "</tr>";
   }
   echo "</table>";
@@ -443,6 +450,19 @@ $status=$_SESSION["status"];
     </div>
 </main>
 <!--View Events Admin Section Ends-->
+
+<!--View Events Modal Section Begin-->
+<div id="event_detail_modal" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+    </div>
+  </div>
+<!--View Events Modal Section Ends-->
+
 <!--View Meetings Admin Section -->
 <main ng-show="option===2">
     <div class="container" ng-init="tab=1">
