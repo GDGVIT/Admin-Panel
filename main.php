@@ -530,10 +530,7 @@ session_start();
     <thead>
       <tr>
       	<th>Task Name </th>
-      	<th>Description </th>
       	<th>Assigned Member</th>
-      	<th>Assignment Date</th>
-      	<th>completion Date</th>
       	<th>Task current Status</th>
       </tr>
      </thead>
@@ -582,10 +579,7 @@ session_start();
      
       echo '<tr>';
       echo'<td>';echo"$t_name";echo'</td>';
-      echo'<td>';echo"$desc";echo'</td>';
       echo'<td>';echo"$name";echo'</td>';
-      echo'<td>';echo"$TAD";echo'</td>';
-      echo'<td>';echo"$TAC";echo'</td';
       echo'<td>';
       if($status==1)
         {
@@ -595,7 +589,7 @@ session_start();
         {
         echo'Not Done';
         } 
-        echo '</td></tr>';
+        echo '</td><td><a class="btn modal-trigger" href="#task_detail_modal">Details</a></td></tr>';
       }
 
     ?>
@@ -616,6 +610,17 @@ mysqli_close($mysqli);
     </div>
 </main>
 <!--View Task Admin Section Ends-->
+<!--View Task Modal Section-->
+<div id="task_detail_modal" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+    </div>
+  </div>
+<!--View Task Modal Section Ends-->
 
 <!--Self Profile begins-->
 
