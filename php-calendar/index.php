@@ -34,23 +34,10 @@ $event3 = $calendar->event()
     ->title('Hello All')
     ->output('My Custom Event1')
     ->add_class('custom-event-class');
-$event4 = $calendar->event()
-    ->condition('timestamp', strtotime('3-05-2015'))
-    ->title('Hello All')
-    ->output('My Custom Event2')
-    ->add_class('custom-event-class');
-$event5 = $calendar->event()
-    ->condition('timestamp', strtotime('4-05-2015'))
-    ->title('Hello All')
-    ->output('My Custom Event3')
-    ->add_class('custom-event-class');
-
-
-$calendar->standard('today')
+ $calendar->standard('today')
 	->standard('prev-next')
-	->attach($event3)
-        ->attach($event4)
-        ->attach($event5);
+	->attach($event3);
+       
 
         
 ?>
@@ -61,22 +48,26 @@ $calendar->standard('today')
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>PHP Calendar</title>
 		<link type="text/css" rel="stylesheet" media="all" href="css/style.css" />
+        
+        <link type="text/css" rel="stylesheet" media="all" href="../css/materialize.min.css" />
 	</head>
 	<body>
 			
-		<div style="width:800px; padding:20px; margin:50px auto">
+		<div  class="container">
 			<table class="calendar">
 				<thead>
-					<tr class="navigation">
-						<th class="prev-month"><a href="<?php echo htmlspecialchars($calendar->prev_month_url()) ?>"><?php echo $calendar->prev_month() ?></a></th>
-						<th colspan="5" class="current-month"><?php echo $calendar->month() ?></th>
-						<th class="next-month"><a href="<?php echo htmlspecialchars($calendar->next_month_url()) ?>"><?php echo $calendar->next_month() ?></a></th>
-					</tr>
-					<tr class="weekdays">
+					<div class="row" >
+						<div class="col m4"><a href="<?php echo htmlspecialchars($calendar->prev_month_url()) ?>"><?php echo $calendar->prev_month() ?></a></div>
+						<div class="col m4"><?php echo $calendar->month(); echo "&nbsp"; echo $calendar->year;?></div>
+						<div class="col m4"><a href="<?php echo htmlspecialchars($calendar->next_month_url()) ?>"><?php echo $calendar->next_month() ?></a></div>
+					</div>
+                    <div class="row">
+					
 						<?php foreach ($calendar->days() as $day): ?>
 							<th><?php echo $day ?></th>
 						<?php endforeach ?>
-					</tr>
+                        
+                    </div>        
 				</thead>
 				<tbody>
 					<?php foreach ($calendar->weeks() as $week): ?>

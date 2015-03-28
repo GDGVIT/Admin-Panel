@@ -5,13 +5,6 @@ include 'event_subject.php';
 include 'event_observer.php';
 include 'calendar_event.php';
 
-/**
- * Calendar creation class.
- *
- * @author     Kohana Team, Corey Worrell
- * @copyright  (c) 2007-2008 Kohana Team
- * @version    1.0
- */
 class Calendar extends Event_Subject {
 
 	// Month and year to use for calendaring
@@ -83,7 +76,7 @@ class Calendar extends Event_Subject {
 		$format = ($length === TRUE OR $length > 3) ? '%A' : '%a';
 
 		// Days of the week
-		$days = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+		$days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat');
 		
 		if ($this->config['week_start'] > 0)
 		{
