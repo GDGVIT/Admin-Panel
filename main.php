@@ -416,7 +416,6 @@ $status=$_SESSION["status"];
     <!--  Outer row  -->
         <div class="row card" id="main_content">
           <?php
-  session_start();
   include("db_connect.php");
   $club_id = $_SESSION['cid'];
   $q1 = "select * from events";
@@ -518,7 +517,6 @@ include('sql_con.php');
     <!--  Outer row  -->
         <div class="row card" id="main_content">
            <?php
-session_start();
   if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
   {
   require("sql_con.php");
