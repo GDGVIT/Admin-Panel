@@ -25,7 +25,7 @@ echo '<div class="row" style="margin-top:10px;">
                                                   echo '<div class="tab-content attendance-table" style="width:500px; margin:0 auto;">
 								<table class="hoverable centered" style="margin-top:10px;">
 									<thead class="centered">
-									  <tr>
+									  <tr><th>Name</th>
 										<th>Registration Number</th>
 										 <th>Status</th> 
 										
@@ -34,9 +34,24 @@ echo '<div class="row" style="margin-top:10px;">
 									<tbody>';
                                              
                                               while($row = mysqli_fetch_array($result))
-											  {
+											  {$name="";
+                                        $mysql_tb = 'club_'.$club_id.'_members'; 
+                                        $regno1=$row['regno'];
+      $sql1 = "SELECT `name`  FROM  `$mysql_tb` where `regno`='$regno1'";
+      $res1 = mysqli_query($mysqli,$sql1);
+      while($rows1=mysqli_fetch_array($res1))
+      {
+      
+        $name=$rows1['name'];
+        
+      } 
+      if($name=="")
+      {
+          $name="Not Available";
+        }
                                         
 										       echo '<tr>';
+										       echo '<td><b>'; echo "$name"; echo '</b></td>';
 										       echo '<td><b>'; echo $row['regno']; echo '</b></td>';	
 																		   $status= $row[$meeting_id]; 	
 																		   if($status==1)
