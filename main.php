@@ -475,16 +475,22 @@ include('sql_con.php');
   $q1 = "select * from meetings";
   $r1 = mysqli_query($mysqli,$q1) or die("query error");
   echo "<html><body><div class='paddl'>";
-  echo "<table class='hoverable centered'><thead><tr><th>ID</th><th>Date</th>
-  <th>Time</th><th>Venue</th><th>Purpose</th><th>Date added</th></tr></thead><tbody>";
+  echo "<table class='hoverable centered'>
+  <thead>
+  	<tr>
+  		<th>Purpose</th>
+  		<th>Venue</th>
+  		<th>Date</th>
+  		<th>Time</th>
+  	</tr>
+  </thead>
+  <tbody>";
   while($row = mysqli_fetch_array($r1)) {
     echo "<tr>";
-      echo "<td><b>$row[0]</b></td>";
-      echo "<td>$row[2]</td>";
-      echo "<td>$row[3]</td>";
-      echo "<td>$row[4]</td>";
-      echo "<td>$row[5]</td>";
-      echo "<td>$row[6]</td>";
+    echo "<td>$row[5]</td>";
+    echo "<td>$row[4]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
     echo "</tr>";
   }
   echo "</tbody></table></div></body></html>";
@@ -493,6 +499,18 @@ include('sql_con.php');
     </div>
 </main>
 <!--View Meetings Admin Section End-->
+
+<!--View Meetings Modal Section Begin-->
+<div id="event_detail_modal" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
+    </div>
+  </div>
+<!--View Meetings Modal Section Ends-->
 
 <!--View Task Admin Section-->
 <main ng-show="option===3">
@@ -510,7 +528,16 @@ session_start();
 ?>
   <table class="hoverable">
     <thead>
-      <tr><th>Task Name </th><th>Description </th><th>Assigned Member</th><th>Assignment Date</th><th>completion Date</th><th>Task current Status</th></tr></thead><tbody>
+      <tr>
+      	<th>Task Name </th>
+      	<th>Description </th>
+      	<th>Assigned Member</th>
+      	<th>Assignment Date</th>
+      	<th>completion Date</th>
+      	<th>Task current Status</th>
+      </tr>
+     </thead>
+     <tbody>
 
  <?php   
  $mysql_tb = 'club_'.$club_id.'_members'; 
