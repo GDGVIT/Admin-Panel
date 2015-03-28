@@ -144,6 +144,7 @@ $status=$_SESSION["status"];
                 </ul>
               </div>
           </li>
+         
           <li id="over">
               <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header">
                   Attendance
@@ -304,7 +305,10 @@ $status=$_SESSION["status"];
                     </a>             		
                     </li>";		
           ?>
- <?php
+ 
+        </ul>
+         <ul>
+          <?php
             if($_SESSION['status']==0)
             echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
@@ -313,8 +317,15 @@ $status=$_SESSION["status"];
                             </a>
                         </li>
                         ";
-                    ?>
-        </ul>
+                         if($_SESSION['status']==1)
+            echo"
+                        <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                               view Feedbacks
+                            </a>
+                        </li>
+                        ";
+                    ?></ul>
       </ul>
         <!--Menu Ends-->
     </header>
