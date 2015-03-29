@@ -307,13 +307,13 @@ $status=$_SESSION["status"];
                             Discussion Forum		
                     </a>             		
                     </li>";		
-          ?>  -->
+          ?> 
 
           <?php
             if($_SESSION['status']==0)
             echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                            <a href='' onclick='feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                            <a href='' onclick='feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0' class='collapsible-header'>
                                 Feedback
                             </a>
                         </li>
@@ -321,7 +321,7 @@ $status=$_SESSION["status"];
             if($_SESSION['status']==1)
             echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
-                            <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                            <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0' class='collapsible-header'>
                                view Feedbacks
                             </a>
                         </li>
