@@ -9,16 +9,17 @@
 	$new=$_REQUEST['new'];
    
     $sql = "SELECT * FROM `panel` WHERE `reg_no`='$regno' && `pass`='$old'";
-    $res = mysqli_query($mysqli,$sql);
+    $res = mysqli_query($mysqli,$sql) or die("querr");
     $arr=mysqli_fetch_array($res);
 	if(is_array($arr))
 	{
     $q="UPDATE  panel SET `pass` = '$new'  WHERE reg_no='$regno' && pass='$old'";
 	$up=mysqli_query($mysqli,$q);
     if($up)
-	{
-		
-				$to= $arr["email"]; //Send email to our user
+	{			$tb_name = "club_".$club_id."_members";
+				$arr1 = mysqli_query($mysqli, "select email from $tb_name where regno='$regno'") or die("qer");
+				$row1 = mysqli_fetch_array($arr1);
+				$to= $row1["email"]; //Send email to our user
 				$subject = 'GDG | Password Change'; // Give the email a subject 
 				$message = '
 

@@ -297,6 +297,7 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
+<<<<<<< HEAD
           <?php
             if($_SESSION['status']==1)
                 echo"
@@ -307,6 +308,9 @@ $status=$_SESSION["status"];
                     </li>";
           ?>
           <?php		
+=======
+    <!--     <?php		
+>>>>>>> origin/work
             if($_SESSION['status']==1)		
                 echo"		
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>		
@@ -314,6 +318,25 @@ $status=$_SESSION["status"];
                             Discussion Forum		
                     </a>             		
                     </li>";		
+          ?>  -->
+
+          <?php
+            if($_SESSION['status']==0)
+            echo"
+                        <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                                Feedback
+                            </a>
+                        </li>
+                        ";
+            if($_SESSION['status']==1)
+            echo"
+                        <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;'>
+                               view Feedbacks
+                            </a>
+                        </li>
+                        ";
           ?>
 
         </ul>
@@ -425,8 +448,6 @@ $status=$_SESSION["status"];
     <!--  Outer row  -->
         <div class="row card" id="main_content">
           <?php
-  session_start();
-  include("db_connect.php");
   $club_id = $_SESSION['cid'];
   $q1 = "select * from events";
   $r1 = mysqli_query($mysqli, $q1) or die("query error");
@@ -448,7 +469,7 @@ $status=$_SESSION["status"];
     echo "<td>$row[2]</td>";
     echo "<td>$row[3]</td>";
     echo "<td>$row[5]</td>";
-    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' value='$row[0]' onclick='modify_ad(this.value)'>MODIFY</a></td>";
+    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' style='background-color:#e75457;color:white' value='$row[0]' onclick='modify_ad(this.value)'>Details</a></td>";
     /*echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";*/
     echo "</tr>";
   }
@@ -527,7 +548,6 @@ include('sql_con.php');
     <!--  Outer row  -->
         <div class="row card" id="main_content">
            <?php
-session_start();
   if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
   {
   require("sql_con.php");
@@ -598,7 +618,7 @@ session_start();
         {
         echo'Not Done';
         } 
-        echo '</td><td><a class="btn modal-trigger" href="#task_detail_modal">Details</a></td></tr>';
+        echo '</td><td><a class="btn modal-trigger" style="background-color:#e75457;color:white" href="#task_detail_modal">Details</a></td></tr>';
       }
 
     ?>
