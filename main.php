@@ -297,6 +297,15 @@ $status=$_SESSION["status"];
                     </a>             
                     </li>";
           ?>
+          <?php
+            if($_SESSION['status']==1)
+                echo"
+                    <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                    <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='view_feedback()' ng-click='option=0' class='collapsible-header'>
+                            view feedback
+                    </a>             
+                    </li>";
+          ?>
           <?php		
             if($_SESSION['status']==1)		
                 echo"		
