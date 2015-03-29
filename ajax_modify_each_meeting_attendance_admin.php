@@ -15,17 +15,16 @@ echo 	'<div class="row" style="margin-top:10px;">
 									<h3>Attendance</h3>
 							    </div>							    
 						</div>			   
-						 <div class="tab-content attendance-table">		
-								 <div class="col-lg-12" style="margin-top:10px">
-     <div class="col-lg-5" style="margin-top:10px">
-              <label><strong>Name</strong></label>
-            </div>
-            <div class="col-lg-5" style="margin-top:10px">
-              <label><strong>Registration no.</strong></label>
-            </div>
-            <div class="col-lg-2" style="margin-top:10px">
-              <label><strong>Attendence</strong></label>
-            </div>';                             $count=0;
+						 <table class="hoverable">		
+			<thead>
+				<tr>
+     				<th><strong>Name</strong></th>
+            
+              		<th><strong>Registration no.</strong></th>
+            
+              		<th><strong>Attendence</strong></th>
+              	</tr>
+            </thead>';                           $count=0;
                                                 $reg=array();
                                                 $atten=array();
 					                          $meeting_id=$_GET['id']; 
@@ -46,13 +45,14 @@ $name=$rows1['name'];}
       {
           $name="Not Available";
         }
-          echo '<div class="col-lg-5" style="margin-top:2px">';
-             echo' <label>';echo"$name";echo'</label>';
-            echo'</div>';  
-                                       echo '<div class="col-lg-5" style="margin-top:2px">';
-             echo' <label>';echo"$r_no";echo'</label>';
-            echo'</div>';  
-					  echo '<div class="col-lg-2" style="margin-top:2px">';					
+        echo '<tbody><tr>';
+            echo' <td>';echo"$name";echo'</td>';
+ 
+            echo' <td>';echo"$r_no";echo'</td>';
+ 
+			echo '<td>';
+           
+										
 											
 																		  $status= $row[$meeting_id]; 	
 																		   if($status==1)
@@ -63,7 +63,7 @@ $name=$rows1['name'];}
             <option value="1" selected>Present</option>
             <option value="0" >Absent</option>
             
-            </select></div>';
+            </select></td>';
 																				  
 																				  }
 																				  
@@ -73,7 +73,7 @@ $name=$rows1['name'];}
             
             <option value="1">Present</option>
             <option value="0" selected >Absent</option>
-											        </select></div>';                           
+											        </select></td>';                           
 																			  }
 																			  
 											                               
@@ -86,7 +86,7 @@ $name=$rows1['name'];}
 																			
 											                              
 									';*/
-									echo'<hr ">';
+									
 									array_push($reg, $r_no);
 									
 									//$arr['$count']=$count;
@@ -94,7 +94,7 @@ $name=$rows1['name'];}
 											  }
 										$reg = implode(",", $reg);	
 										
-										echo'<input type="hidden" id="arr" value="'; echo"$reg"; echo'">';
+										echo'</tr></tbody></table><input type="hidden" id="arr" value="'; echo"$reg"; echo'">';
 								 echo '<div class="col-lg-12" style="margin-top:50px;text-align:center"> ';
 								 echo" <input class='btn1' onclick='modify_meeting_att(this.name)'' name='$meeting_id' id='submit' tabindex='5' value='Update!'' type='button'></div>";
 								  mysqli_close($mysqli);
