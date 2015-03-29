@@ -15,7 +15,24 @@
                     </tr>
                   </thead>
                   <tbody>';*/
-            echo "EVENT DETAILS<br>";
+            echo '<div class="row" style="margin-top:10px;">
+      <div class="col-md-1">
+        <i class="fa fa-calendar fa-5x"></i>
+      </div>
+      <div class="col-md-11">
+        <h3 class="paddh">Report</h3>
+      </div>                  
+     </div>  
+     Event details      
+    <table class="hoverable">   
+      <thead>
+        <tr>
+            <th><strong>Event name</strong></th>
+            
+                  <th><strong>Absent/Present</strong></th>
+                </tr>
+            </thead>';
+
             $res1 = mysqli_query($mysqli, "select * from events where club_id=$club_id") or die("q1 error");
             $tab = $club_id."_event_attendance";
             $inres1 = mysqli_query($mysqli, "select * from $tab where regno='$regno1'") or die("in q1 error");
@@ -24,15 +41,25 @@
               $event_name = $row1['name'];
               $event_id = $row1['id'];
               $col = "event_".$event_id;
-              echo $event_name;
+              echo '<tbody><tr>';
+            echo' <td>';echo"$event_name";echo'</td>';
+      echo '<td>';          
               if($inrow1["$col"] == 0)
-                echo "    Absent<br>";
+                echo "    Absent</td></tr>";
               else
-                echo "    Present<br>";
+                echo "    Present</td></tr>";
             }
-            echo "<br><br><br>";
+            echo "</tbody></table><br><br><br>";
 
             echo "MEETING DETAILS<br>";
+           echo' <table class="hoverable">   
+      <thead>
+        <tr>
+            <th><strong>Event name</strong></th>
+            
+                  <th><strong>Absent/Present</strong></th>
+                </tr>
+            </thead>';
             $res2 = mysqli_query($mysqli, "select * from meetings where club_id=$club_id") or die("q2 error");
             $tab = $club_id."_meeting_attendance";
             $inres2 = mysqli_query($mysqli, "select * from $tab where regno='$regno1'") or die("in q2 error");
@@ -41,24 +68,38 @@
               $meeting_name = $row2['details'];
               $meeting_id = $row2['id'];
               $col = "meeting_".$meeting_id;
-              echo $meeting_name;
+                echo '<tbody><tr>';
+            echo' <td>';echo"$meeting_name";echo'</td>';
+      echo '<td>'; 
               if($inrow2["$col"] == 0)
-                echo "    Absent<br>";
+                echo "    Absent</td></tr>";
               else
-                echo "    Present<br>";
+                echo "    Present</td></tr>";
             }
-            echo "<br><br><br>";
+             echo "</tbody></table><br><br><br>";
 
             echo "TASK STATUS<br>";
+            echo' <table class="hoverable">   
+      <thead>
+        <tr>
+            <th><strong>Event name</strong></th>
+            
+                  <th><strong>Absent/Present</strong></th>
+                </tr>
+            </thead>';
             $res3 = mysqli_query($mysqli, "select * from task where club_id=$club_id and regno='$regno1'");
             while($row3=mysqli_fetch_array($res3)) {
-              echo $row3['task'];
+              $tname= $row3['task'];
+               echo '<tbody><tr>';
+            echo' <td>';echo"$tname";echo'</td>';
+      echo '<td>'; 
+             
               if($row3['status'] == 1)
-                echo "   Done<br>";
+                echo "   Done</td></tr>";
               else
-                echo "   Pending";
+                echo "   Pending</td></tr>";
             }
-                        
+              echo "</tbody></table><br>";          
                                                 
   /*                      $mysql_tbl=$club_id.'_event_attendance';
                         $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno1'";
