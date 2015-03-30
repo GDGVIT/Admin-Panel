@@ -477,7 +477,7 @@ function  view_each_meeting_attendance(meeting_id) {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_view_each_meeting_attendance_admin.php?id="+meeting_id,true);
+	xmlhttp.open("GET","ajax_view_each_meeting_attendance_admin.php?id=meeting_"+meeting_id,true);
 	xmlhttp.send();
 }
 

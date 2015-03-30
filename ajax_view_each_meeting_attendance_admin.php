@@ -13,12 +13,8 @@ echo '<div class="row" style="margin-top:10px;">
                                     <h3 class="paddl" style="color:grey">Attendance</h3>
                                 </div>							    
 						  </div>';
-										      $meeting_id1=$_GET['id'];
-						  					 $rs = mysqli_query($mysqli,"select details from meetings where id=$meeting_id1") or die("quer");
-						  					 $row = mysqli_fetch_array($rs);
-						  					 echo $row['details']; 
+										      $meeting_id=$_GET['id']; 
                                               $mysql_tbl=$club_id.'_meeting_attendance';
-                                              $meeting_id="meeting_".$meeting_id1;
                                               $sql = "SELECT  regno,`" . $meeting_id . "` FROM `" . $mysql_tbl . "`";
                                               $result = mysqli_query($mysqli,$sql);
                                               if(!$result)
