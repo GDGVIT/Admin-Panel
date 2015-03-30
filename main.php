@@ -84,12 +84,13 @@ $status=$_SESSION["status"];
                 </a>
                 
                  <ul id='dropdown1' class='dropdown-content'>
-    <li><a class="modal-trigger" href="#self_profile">Profile</a></li>
-    <li><a href="#!">Settings</a></li>
-    <li><a href="logout.php">Logout</a></li>
-  </ul>
+    				<li><a class="modal-trigger" href="#self_profile">Profile</a></li>
+    				<li><a href="#!">Settings</a></li>
+    				<li><a href="logout.php">Logout</a></li>
+  				</ul>
             </span>
-            </nav>   </div>     
+            </nav> 
+        </div>     
         <!--Top NavBar End-->
         <!--Side NavBar Begin-->
         <!--Icon When NavBar is Hidden-->

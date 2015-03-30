@@ -20,7 +20,7 @@
         echo "<option value='$id'>$name</option>";
     }
 
-	echo "</select><br><input type='button' onclick='report()' value='SELECT'>";
+	echo "</select><br><a href='#' class='btn' onclick='report()' value='SELECT' style='margin-left:40%;background-color:#e75457;color:white'>View Report</a>";
 	echo "<div id='reportDiv'></div>";
 
 	mysqli_close($mysqli);
