@@ -6715,7 +6715,7 @@ ul.side-nav {
   height: calc(100% + 60px);
   padding-bottom: 60px;
   background-color: #12131a;
-  z-index: 999;
+  z-index: 9999;
   will-change: left; }
   ul.side-nav.right-aligned {
     will-change: right;
@@ -7993,11 +7993,17 @@ a.button-collapse.top-nav {
   top: 0;
   float: none;
   margin-left: 1.5rem;
-  color: #fff;
+  color: #55555a;
   font-size: 32px;
-  z-index: 2; }
+  z-index: 2000; }
   a.button-collapse.top-nav.full {
-    line-height: 122px; }
+    line-height: 122px;}
+
+
+@media only screen and (min-width : 600px) {
+  a.button-collapse.top-nav {
+    display:none;}
+ }
 
 @media only screen and (max-width : 600px) {
   a.button-collapse.top-nav {
