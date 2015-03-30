@@ -16,6 +16,9 @@ echo '<div class="row" style="margin-top:10px;">
                                 </div>							    
 						  </div>';
 										     $event_id=$_GET['id']; 
+						  					 $rs = mysqli_query($mysqli,"select name from events where 	id=$event_id");
+						  					 $row = mysqli_fetch_array($rs);
+						  					 echo $row['name'];
 										      $mysql_tbl=$club_id.'_event_attendance';
 											  $event_id="event_".$event_id;
                                               $sql = "SELECT  regno,`" . $event_id . "` FROM `" . $mysql_tbl . "`";
