@@ -12,12 +12,6 @@ require("sql_con.php");
 $regno=$_SESSION['name'];
 $status=$_SESSION['status'];
 $club_id=$_SESSION['cid'];
-$mysql_tbl='events';
-$sql = "SELECT * FROM `" . $mysql_tbl . "` where club_id= '$club_id'";
-$result = mysqli_query($mysqli,$sql);
-while($row = mysqli_fetch_array($result))
-{
-$id=$row['id'];
 ?>
 
 
@@ -40,6 +34,12 @@ $id=$row['id'];
 				            </thead>
 				            <tbody>
 				            <?php
+								$mysql_tbl='events';
+								$sql = "SELECT * FROM `" . $mysql_tbl . "` where club_id= '$club_id'";
+								$result = mysqli_query($mysqli,$sql);
+								while($row = mysqli_fetch_array($result))
+								{
+								$id=$row['id'];
                                echo '<tr>';
                                echo '<td>'.$row['name'].'</td>';
                                echo '<td>'.$row['date'].'</td>';
