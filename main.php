@@ -299,7 +299,7 @@ $status=$_SESSION["status"];
           ?>
 
           <?php		
-
+/*
             if($_SESSION['status']==1)		
                 echo"		
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>		
@@ -307,7 +307,7 @@ $status=$_SESSION["status"];
                             Discussion Forum		
                     </a>             		
                     </li>";		
-          ?> 
+  */        ?> 
 
           <?php
             if($_SESSION['status']==0)

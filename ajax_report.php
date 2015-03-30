@@ -20,11 +20,11 @@
         <i class="fa fa-calendar fa-5x"></i>
       </div>
       <div class="col-md-11">
-        <h3 class="paddh">Report</h3>
+        <h3 class="paddh"></h3>
       </div>                  
      </div>  
-     Event details      
-    <table class="hoverable">   
+     <h4 class="paddh">Event details</h4>    
+    <table class="hoverable" style="padding-left:50px;padding-right:50px">   
       <thead>
         <tr>
             <th><strong>Event name</strong></th>
@@ -51,7 +51,7 @@
             }
             echo "</tbody></table><br><br><br>";
 
-            echo "MEETING DETAILS<br>";
+            echo "<h4 class='paddh'>Meeting Details</h4><br>";
            echo' <table class="hoverable">   
       <thead>
         <tr>
@@ -78,7 +78,7 @@
             }
              echo "</tbody></table><br><br><br>";
 
-            echo "TASK STATUS<br>";
+            echo "<h4 class='paddh'>Task Status</h4><br>";
             echo' <table class="hoverable">   
       <thead>
         <tr>
