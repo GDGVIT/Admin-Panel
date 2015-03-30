@@ -300,14 +300,14 @@ $status=$_SESSION["status"];
           ?>
 
           <?php		
-
+/*
             if($_SESSION['status']==1)		
-                echo"		
+                echo"	
                     <li class='waves-effect waves-light' id='over' style='width:240px;'>		
                     <a href='#' style='color:#C6C6C6;font-weight:bold;font-size:13px;' onclick='all_threads();' ng-click='option=0' class='collapsible-header'>		
                             Discussion Forum		
                     </a>             		
-                    </li>";		
+                    </li>";	*/	
           ?> 
 
           <?php
@@ -323,7 +323,7 @@ $status=$_SESSION["status"];
             echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
                             <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0' class='collapsible-header'>
-                               view Feedbacks
+                               View Feedbacks
                             </a>
                         </li>
                         ";
