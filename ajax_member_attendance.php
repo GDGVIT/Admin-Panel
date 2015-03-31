@@ -1,8 +1,8 @@
 <style type="text/css">
-    .hidemeeting{display:block;display:none;}
-    .showmeeting{display:block;}
-    .hideevent{display:block;display:none;}
-    .showevent{display:block;width:100%}
+    .hidemeeting{display:none;}
+    .showmeeting{position:relative;top:0px;}
+    .hideevent{display:none;}
+    .showevent{position:relative;top:0px;}
 </style>
 <?php
 	session_start();
