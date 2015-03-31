@@ -21,9 +21,11 @@
       {
         $t_name=$rows['task'];
         $t_id=$rows['id'];
-      ?> 
-      <?php echo'<option value="'; echo "$t_id"; echo '"   > '; ?><?php echo"$t_name"; ?> <?php echo '</option>'; ?>
-      <?php }?>
+        echo "<option value='".$t_id."'>";
+        echo $t_name;
+        echo "</option>";
+      }
+      ?>
             
     </select>
     </div>
@@ -43,8 +45,6 @@
         <tr>
 
  <?php
-  
-    require("sql_con.php");
     
     $sql = "SELECT * FROM task ";
     $res = mysqli_query($mysqli,$sql);
@@ -98,7 +98,7 @@
           }
         
       echo'  <form>';
-      echo'<input type="hidden"  id="task_id" value="'; echo"$t_id"; echo ' ">';
+      echo'<input type="hidden"  id="task_id" value="'.$t_id.'">';
       echo "<td>";echo"$t_name";echo"</td>";
       echo' <td>';echo"$name";echo'</td>';
       echo' <td>';echo"$TAC";echo'</td>';
@@ -124,8 +124,9 @@
           <button type="button" class="btn btn-s-md btn-info">Modify Task</button>
         </a>
       </td>
-      </tr></tbody></table>';
+      </tr>';
           }
+          echo "</tbody></table>";
 
   ?>
      
