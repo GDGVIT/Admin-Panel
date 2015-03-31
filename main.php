@@ -246,7 +246,8 @@ $status=$_SESSION["status"];
 					      {
                   ?>       
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=2">View Meetings
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="meeting_brief()" ng-click="option=0">
+                        View Meetings
                       </a>
                   </li>
                   <?php
@@ -257,7 +258,8 @@ $status=$_SESSION["status"];
 					      {
 						  ?>  
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=2">View Meetings
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="meeting_brief()" ng-click="option=0">
+                        View Meetings
                       </a>
                   </li>  
                   <?php
@@ -431,58 +433,9 @@ $status=$_SESSION["status"];
     </div>
 </main>  
 
-<!--View Events Admin Section-->
-<main ng-show="option===1">
-    
-</main>
-<!--View Events Admin Section Ends-->
-
-<!--View Events Modal Section Begin-->
-<div id="event_detail_modal" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
-  </div>
-<!--View Events Modal Section Ends-->
-
 <!--View Meetings Admin Section -->
 <main ng-show="option===2">
-    <div class="container" ng-init="tab=1">
-    <!--  Outer row  -->
-        <div class="row card" id="main_content">
-          <?php
-include('sql_con.php');
-//include('db_connect.php');
-
-  $q1 = "select * from meetings";
-  $r1 = mysqli_query($mysqli,$q1) or die("query error");
-  echo "<html><body><div class='paddl'>";
-  echo "<table class='hoverable centered'>
-  <thead>
-  	<tr>
-  		<th>Purpose</th>
-  		<th>Venue</th>
-  		<th>Date</th>
-  		<th>Time</th>
-  	</tr>
-  </thead>
-  <tbody>";
-  while($row = mysqli_fetch_array($r1)) {
-    echo "<tr>";
-    echo "<td>$row[5]</td>";
-    echo "<td>$row[4]</td>";
-    echo "<td>$row[2]</td>";
-    echo "<td>$row[3]</td>";
-    echo "</tr>";
-  }
-  echo "</tbody></table></div></body></html>";
-?>
-        </div>
-    </div>
+    
 </main>
 <!--View Meetings Admin Section End-->
 

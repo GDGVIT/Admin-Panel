@@ -24,7 +24,6 @@
                 echo "<td>$row[3]</td>";
                 echo "<td>$row[5]</td>";
                 echo "<td><button class='btn modal-trigger modal_call_btn' style='background-color:#e75457;color:white' value='$row[0]' onclick='event_details(this.value)'>Details</button></td>";
-    /*echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";*/
                 echo "</tr>";
   }
   echo "</table>";

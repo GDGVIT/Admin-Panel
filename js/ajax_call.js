@@ -670,6 +670,28 @@ function view_meeting_admin() {
 	xmlhttp.send();
 }
 
+function meeting_brief() {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/meeting_brief_details.php",true);
+	xmlhttp.send();
+}
+
+function meeting_details(id) {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/meeting_expanded_details.php?id="+id,true);
+	xmlhttp.send();
+}
+
 function del_meeting_ad(id) {
 	xmlHttp.onreadystatechange = function() {
 		//	document.getElementById("main_content").innerHTML = "";
