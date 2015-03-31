@@ -811,6 +811,28 @@ function filter_update_task_status() {
 	xmlhttp.send();
 }
 
+function task_brief() {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/task_brief_details.php",true);
+	xmlhttp.send();
+}
+
+function task_details(id) {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/task_expanded_details.php?id="+id,true);
+	xmlhttp.send();
+}
+
 function  report_start() {
   xmlhttp.onreadystatechange=function()
     {

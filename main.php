@@ -125,7 +125,7 @@ $status=$_SESSION["status"];
              <div class="collapsible-body" style="background-color:#000000">
                 <ul>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=3">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="task_brief()" ng-click="option=0">
                           View Tasks
                       </a>
                   </li>
@@ -432,133 +432,6 @@ $status=$_SESSION["status"];
         </div>
     </div>
 </main>  
-
-<!--View Meetings Admin Section -->
-<main ng-show="option===2">
-    
-</main>
-<!--View Meetings Admin Section End-->
-
-<!--View Meetings Modal Section Begin-->
-<div id="event_detail_modal" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
-  </div>
-<!--View Meetings Modal Section Ends-->
-
-<!--View Task Admin Section-->
-<main ng-show="option===3">
-    <div class="container" ng-init="tab=1">
-    <!--  Outer row  -->
-        <div class="row card" id="main_content">
-           <?php
-  if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-  {
-  require("sql_con.php");
-  $regno=$_SESSION['name'];
-  $status=$_SESSION['status'];
-  $club_id=$_SESSION['cid'];
-?>
-  <table class="hoverable">
-    <thead>
-      <tr>
-      	<th>Task Name </th>
-      	<th>Assigned Member</th>
-      	<th>Task current Status</th>
-      </tr>
-     </thead>
-     <tbody>
-
- <?php   
- $mysql_tb = 'club_'.$club_id.'_members'; 
-//Selecting the tasks from the database
-    $sql = "SELECT task.task,task.id,task.assignment_date,task.completion_date,task.status,task.description, `$mysql_tb`.name FROM task INNER JOIN  `$mysql_tb` ON task.regno= `$mysql_tb`.regno;";
-    $res = mysqli_query($mysqli,$sql);
-    while($rows=mysqli_fetch_array($res))
-    {
-       
-      $t_name=$rows['task'];
-      $t_id=$rows['id'];
-      $name=$rows['name'];
-      $TAD=$rows['assignment_date'];
-      $TAC=$rows['completion_date'];
-      $status=$rows['status'];
-      $desc =$rows['description'];
-      if(empty($t_name))
-      {
-        $t_name="Not Available";
-      }
-       if(empty($name))
-      {
-        $name="Not Available";
-      }
-      if(empty($TAD))
-      {
-          $TAD="Not Available";
-      }
-      if(empty($TAC))
-      {
-        $TAC="Not Available";
-      }
-      if(empty($status))
-      {
-        $status="Not Available";
-      }
-      if(empty($desc))
-      {
-        $desc="Not Available";
-      }
-      //Selecting the member name from club member table
-     
-      echo '<tr>';
-      echo'<td>';echo"$t_name";echo'</td>';
-      echo'<td>';echo"$name";echo'</td>';
-      echo'<td>';
-      if($status==1)
-        {
-        echo" Done";
-        }
-      else
-        {
-        echo'Not Done';
-        } 
-        echo '</td><td><a class="btn modal-trigger" style="background-color:#e75457;color:white" href="#task_detail_modal">Details</a></td></tr>';
-      }
-
-    ?>
- </tbody></table> 
-<?php
-mysqli_close($mysqli);
-  }
-  else
-  {
-    session_unset();
-    session_destroy();
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-    header("Location:signin.php");
-  }
-?>
-        </div>
-    </div>
-</main>
-<!--View Task Admin Section Ends-->
-<!--View Task Modal Section-->
-<div id="task_detail_modal" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Agree</a>
-    </div>
-  </div>
-<!--View Task Modal Section Ends-->
 
 <!--Self Profile begins-->
 
