@@ -322,7 +322,7 @@ $status=$_SESSION["status"];
             echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
                             <a href='' onclick='view_feedback()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0' class='collapsible-header'>
-                               view Feedbacks
+                               View Feedbacks
                             </a>
                         </li>
                         ";

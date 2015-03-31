@@ -40,6 +40,7 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
 
  <?php
   
@@ -96,7 +97,7 @@
             $name="Not Available";
           }
         
-      echo'  <form >';
+      echo'  <form>';
       echo'<input type="hidden"  id="task_id" value="'; echo"$t_id"; echo ' ">';
       echo "<td>";echo"$t_name";echo"</td>";
       echo' <td>';echo"$name";echo'</td>';
@@ -123,7 +124,7 @@
           <button type="button" class="btn btn-s-md btn-info">Modify Task</button>
         </a>
       </td>
-      </tbody></table>';
+      </tr></tbody></table>';
           }
 
   ?>
