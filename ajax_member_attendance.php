@@ -46,6 +46,7 @@ echo '<div class="row" style="margin-top:10px;">
 												    $eid = $row2['id'];
 													$ename = $row2['name'];
                                                     echo '<td>'; echo $ename; echo '</td>';
+                                                    $eid = "event_".$eid;
 													if($row[$eid] == 0)
 												      echo '<td> Absent</td>';
 													else
@@ -82,6 +83,7 @@ echo '<div class="row" style="margin-top:10px;">
 													$eid = $row2['id'];
 													$ename = $row2['details'];
                                                     echo '<td>'; echo $ename; echo '</td>';
+                                                    $eid = "meeting_".$eid;
 													if($row[$eid] == 0)
 												      echo '<td> Absent</td>';
 													else
