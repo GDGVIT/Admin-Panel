@@ -200,7 +200,7 @@ $status=$_SESSION["status"];
 					  {
 				   ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=1">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="event_brief()" ng-click="option=0">
                           View Events
                       </a>
                   </li>
@@ -212,7 +212,7 @@ $status=$_SESSION["status"];
 					  {
 				  ?>
                   <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="#" style="color:#C6C6C6;font-weight:bold;font-size:13px;" ng-click="option=1">
+                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="event_brief()" ng-click="option=0">
                           View Events
                       </a>
                   </li>
@@ -433,40 +433,7 @@ $status=$_SESSION["status"];
 
 <!--View Events Admin Section-->
 <main ng-show="option===1">
-    <div class="container" ng-init="tab=1">
-    <!--  Outer row  -->
-        <div class="row card" id="main_content">
-          <?php
-  $club_id = $_SESSION['cid'];
-  $q1 = "select * from events";
-  $r1 = mysqli_query($mysqli, $q1) or die("query error");
- 
-  if(isset($_GET['msg'])) {
-    echo "<div id='msg_view'>".$_GET['msg']."</div><br>"; 
-  }
-  echo "<table class='hoverable centered'>
-  <thead>
-  	<tr>
-  		<th>Event Name</th>
-  		<th>Event Date</th>
-  		<th>Place</th>
-  	</tr>
-  </thead>
-  <tbody>";
-  while($row = mysqli_fetch_array($r1)) {
-    echo "<tr>";
-    echo "<td>$row[2]</td>";
-    echo "<td>$row[3]</td>";
-    echo "<td>$row[5]</td>";
-    echo "<td><a class='btn modal-trigger modal_call_btn' href='#event_detail_modal' style='background-color:#e75457;color:white' value='$row[0]' onclick='modify_ad(this.value)'>Details</a></td>";
-    /*echo "<td><button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button></td>";*/
-    echo "</tr>";
-  }
-  echo "</table>";
-?>
-<script type="text/javascript" src="event.js"></script>
-        </div>
-    </div>
+    
 </main>
 <!--View Events Admin Section Ends-->
 
