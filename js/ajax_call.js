@@ -545,6 +545,28 @@ function create_event_ad() {
 	}
 }
 
+function event_brief() {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/event_brief_detail.php",true);
+	xmlhttp.send();
+}
+
+function event_details(id) {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_admin/event_expanded_detail.php?id="+id,true);
+	xmlhttp.send();
+}
+
 function view_event_admin() {
 	xmlhttp.onreadystatechange=function()
 	  {
