@@ -1,8 +1,8 @@
 <style type="text/css">
-    .hidemeeting{display:block;display:none;}
-    .showmeeting{display:block;}
-    .hideevent{display:block;display:none;}
-    .showevent{display:block;}
+    .hidemeeting{display:none;}
+    .showmeeting{position:relative;top:0px;}
+    .hideevent{display:none;}
+    .showevent{position:relative;top:0px;}
 </style>
 
 <?php
@@ -25,7 +25,7 @@ $club_id=$_SESSION['cid'];
 		<button class="waves-effect waves-light btn tabs" onclick="showev();">Events</button>
 		<button class="waves-effect waves-light btn tabs" onclick="showme();">Meetings</button>
 						  
-        <table class="hoverable centered" id="event">
+        <table class="hoverable centered showevent" id="event">
 			<thead class="centered">
                 <tr>
 					<th class="attendance-club">Event</th>
