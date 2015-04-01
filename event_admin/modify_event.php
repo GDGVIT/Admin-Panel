@@ -19,26 +19,26 @@
 <div style="padding-left:30%">
 	<div class="row">
     	<div class="input-field col s6">
-			<input type="text" id="name" value='<?php echo $name;?>' style="min-width:240px;" required>
-			<label for="name" style="min-width:240px;">Name</label>
+			<input type="text" id="name" style="min-width:240px;" required>
+			<label for="name" style="min-width:240px;"><?php echo $name;?></label>
 		</div>
 	</div>
 	<div class="row">
     	<div class="input-field col s6">
-    		<input type="text" id="place" value='<?php echo $place;?>' style="min-width:240px;" required>
-    		<label for="place" style="min-width:240px;">Venue</label>
+    		<input type="text" id="place" style="min-width:240px;" required>
+    		<label for="place" style="min-width:240px;"><?php echo $place;?></label>
     	</div>
     </div>
     <div class="row">
     	<div class="input-field col s6">
-    		<input type="text" id="purpose" value='<?php echo $purpose;?>' style="min-width:240px;" required>
-    		<label for="purpose" style="min-width:240px;">Purpose</label>
+    		<input type="text" id="purpose" style="min-width:240px;" required>
+    		<label for="purpose" style=""><?php echo $purpose;?></label>
     	</div>
     </div>
     <div class="row">
     	<div class="input-field col s6">
-    		<textarea rows="5" class="materialize-textarea" cols="20" id="details" style="min-width:240px;" required><?php echo $details;?></textarea>
-    		<label for="details" style="min-width:240px;">Details</label>
+    		<textarea rows="5" class="materialize-textarea" cols="20" id="details" style="min-width:240px;" required></textarea>
+    		<label for="details" style="min-width:240px;"><?php echo $details;?></label>
     	</div>
     </div>
     <div class="row">
