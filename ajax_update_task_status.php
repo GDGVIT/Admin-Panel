@@ -97,7 +97,6 @@
             $name="Not Available";
           }
         
-      echo'  <form>';
       echo'<input type="hidden"  id="task_id" value="'.$t_id.'">';
       echo "<td>";echo"$t_name";echo"</td>";
       echo' <td>';echo"$name";echo'</td>';
@@ -118,7 +117,6 @@
         </select></td>';
       } 
       echo '
-      </form>
       <td>
         <a href="#" onclick="change_password1('; echo"$t_id";  echo')">
           <button type="button" class="btn btn-s-md btn-info">Modify Task</button>

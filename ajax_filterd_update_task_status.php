@@ -1,11 +1,10 @@
 <?php
-session_start();
-	if((isset($_SESSION["name"]))&&(isset($_SESSION["cid"]))&&(isset($_SESSION["status"])))
-	{
-	require("sql_con.php");
-	$regno=$_SESSION['name'];
-	$status=$_SESSION['status'];
-	$club_id=$_SESSION['cid'];
+  session_start();
+  require("session_check.php");
+  require("sql_con.php");
+  $regno=$_SESSION['name'];
+  $status=$_SESSION['status'];
+  $club_id=$_SESSION['cid'];
  
 ?>
 
@@ -93,7 +92,6 @@ if($name=="")
           $name="Not Available";
         }
         
- echo'  <form >';
  echo'<input type="hidden"  id="task_id" value="'; echo"$t_id"; echo ' ">';
             echo "<td>";echo"$t_name";echo"</td>";
              echo' <td>';echo"$desc";echo'</td>';
@@ -119,25 +117,20 @@ if($status==0)
             
             </select></td>';
           } 
-        echo '</tbody></table></form><br><div align="center"> 
-              <a href="#" onclick="change_password1('; echo"$t_id";  echo')"><button type="button" class="btn btn-s-md btn-info">Modify Task</button></a>
-                    </div></div>';
+              echo '
+              <td> 
+                <a href="#" onclick="change_password1('; echo"$t_id";  echo')">
+                 <button type="button" class="btn btn-s-md btn-info">Modify Task</button>
+                </a>
+              </td>
+            </tr>';
           }
+          echo '</tbody></table>';
 
             ?>
  
-</div>      
 </div>
 
 <?php
 mysqli_close($mysqli);
-	}
-	else
-	{
-		session_unset();
-		session_destroy();
-		header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-		header("Location:signin.php");
-	}
 ?>

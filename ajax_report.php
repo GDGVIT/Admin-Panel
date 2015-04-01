@@ -68,7 +68,7 @@
               else
                 echo "    Present</td></tr>";
             }
-            echo "</tbody></table></div><br><br><br>";
+            echo "</tbody></table></div>";
 
 
             echo "<div class='hidemanage' id='management'><h4 class='paddh'>Meeting Details</h4><br>";
@@ -96,7 +96,7 @@
               else
                 echo "    Present</td></tr>";
             }
-             echo "</tbody></table></div><br><br><br>";
+             echo "</tbody></table></div>";
 
             echo "<div class='hidedes' id='design'><h4 class='paddh'>Task Status</h4><br>";
             echo' <table class="hoverable">   
@@ -119,7 +119,7 @@
               else
                 echo "   Pending</td></tr>";
             }
-              echo "</tbody></table></div></div><br>";          
+              echo "</tbody></table></div></div>";          
                                                 
   /*                      $mysql_tbl=$club_id.'_event_attendance';
                         $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno1'";
