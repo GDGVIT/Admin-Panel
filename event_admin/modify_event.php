@@ -16,20 +16,44 @@
 	}
 ?>
 
-<html>
-<body>
-	<p>Name:</p>
-	<input type="text" id="name" value='<?php echo $name;?>'><br>
-	<p>Venue:</p>
-	<input type="date" id="date" value='<?php echo $date;?>'><br>
-	<input type="time" id="time" value='<?php echo $time;?>'><br>
-	<input type="text" id="place" value='<?php echo $place;?>' placeholder="Enter place"><br>
-	<p>Purpose:</p>
-	<input type="text" id="purpose" value='<?php echo $purpose;?>' placeholder="Enter the Purpose"><br>
-	<p>Details:</p>
-	<textarea rows="5" cols="20" id="details" placeholder="Enter event details"><?php echo $details;?></textarea><br>
+<div style="padding-left:30%">
+	<div class="row">
+    	<div class="input-field col s6">
+			<input type="text" id="name" value='<?php echo $name;?>' style="min-width:240px;" required>
+			<label for="name" style="min-width:240px;">Name</label>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="input-field col s6">
+    		<input type="text" id="place" value='<?php echo $place;?>' style="min-width:240px;" required>
+    		<label for="place" style="min-width:240px;">Venue</label>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="input-field col s6">
+    		<input type="text" id="purpose" value='<?php echo $purpose;?>' style="min-width:240px;" required>
+    		<label for="purpose" style="min-width:240px;">Purpose</label>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="input-field col s6">
+    		<textarea rows="5" class="materialize-textarea" cols="20" id="details" style="min-width:240px;" required><?php echo $details;?></textarea>
+    		<label for="details" style="min-width:240px;">Details</label>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="input-field col s6">
+    		<input type="date" id="date" value='<?php echo $date;?>' style="min-width:240px;">
+    		<!--<label for="date" style="min-width:240px;">Date</label>-->
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="input-field col s6">
+    		<input type="time" id="time" value='<?php echo $time;?>' style="min-width:240px;">
+    		<!--<label for="time" style="min-width:240px;">Time</label>-->
+    	</div>
+    </div>
 	<input type="hidden" value="<?php echo $club_id;?>" id="club_id">
 	<input type="hidden" value="<?php echo $id;?>" id="event_id">
-	<button onclick="modification_update_ad()">MODIFY EVENT</button>
-</body>
-</html>
+	<a href="#" class="btn" style="color:white;background-color:#e75457;" onclick="modification_update_ad()">MODIFY EVENT</a>
+</div>

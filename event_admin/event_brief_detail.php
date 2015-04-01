@@ -5,8 +5,6 @@
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];
   $club_id=$_SESSION['cid'];
-  echo '<div class="container" ng-init="tab=1">
-        <div class="row card" id="main_content">';
             $q1 = "select * from events";
             $r1 = mysqli_query($mysqli, $q1) or die("query error");
             echo "<table  class='hoverable centered'>
@@ -27,6 +25,5 @@
                 echo "</tr>";
   }
   echo "</table>";
-  echo "</div></div>";
 ?>
   

@@ -9,15 +9,15 @@
 	$q1 = "select * from events where id=$id";
 	$r1 = mysqli_query($mysqli, $q1) or die("query error");
 	while($row = mysqli_fetch_array($r1)) {
-            echo "Name:  $row[2]<br>";
-			echo "Date:  $row[3]<br>";
-			echo "Time:  $row[4]<br>";
-			echo "Place:  $row[5]<br>";
-			echo "Purpose:  $row[6]<br>";
-            echo "Details:  $row[8]<br>";
+            echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Name</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[2]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[3]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Time</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[4]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Place</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[5]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Purpose</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[6]</span><br><br>";
+            echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Details</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[8]</span><br><br>";
             if($status == 1) {
-			echo "<button value='$row[0]' onclick='modify_ad(this.value)'>MODIFY</button>";
-			echo "<button value='$row[0]' onclick='del_ad(this.value)'>DELETE</button>";
+			echo "<a class='btn' value='$row[0]' style='background-color:#e75457;color:white;margin-left:30%;' onclick='modify_ad(this.value)'>Modify</a>";
+			echo "<a class='btn' value='$row[0]' style='background-color:#e75457;color:white;' onclick='del_ad(this.value)'>Delete</a>";
 			}
 	}
 	mysqli_close($mysqli);
