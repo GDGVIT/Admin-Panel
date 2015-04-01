@@ -16,14 +16,14 @@
 <div style="padding-left:30%">
 	<div class="row">
     	<div class="input-field col s6">
+    		<label for="place" style="min-width:240px;">Venue</label><br>
 			<input type="text" id="place" value='<?php echo $place;?>' style="min-width:240px;">
-			<label for="place" style="min-width:240px;">Venue</label>
 		</div>
 	</div>
 	<div class="row">
     	<div class="input-field col s6">
+    		<label for="details" style="min-width:240px;">Name</label><br>
 			<textarea rows="5" cols="20" class="materialize-textarea" id="details" style="min-width:240px;"><?php echo $details;?></textarea>
-			<label for="details" style="min-width:240px;">Name</label>
 		</div>
 	</div>
 	<div class="row">
