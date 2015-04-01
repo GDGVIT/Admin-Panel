@@ -46,7 +46,7 @@
     <table class="hoverable" style="padding-left:50px;padding-right:50px">   
       <thead>
         <tr>
-            <th><strong>Event name</strong></th>
+            <th><strong>Event</strong></th>
             
                   <th><strong>Absent/Present</strong></th>
                 </tr>
@@ -75,7 +75,7 @@
            echo' <table class="hoverable">   
       <thead>
         <tr>
-            <th><strong>Event name</strong></th>
+            <th><strong>Meeting</strong></th>
             
                   <th><strong>Absent/Present</strong></th>
                 </tr>
@@ -102,7 +102,7 @@
             echo' <table class="hoverable">   
       <thead>
         <tr>
-            <th><strong>Event name</strong></th>
+            <th><strong>Task</strong></th>
             
                   <th><strong>Absent/Present</strong></th>
                 </tr>
