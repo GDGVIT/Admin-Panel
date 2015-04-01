@@ -31,9 +31,12 @@ $sql1 = "SELECT * FROM  `" . $mysql_tb . "` where regno='$regno' ";
      
 
 	}
-  
-      echo'<h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">';echo"$name";echo'</h5>&nbsp:&nbsp<span style="font-size:20px;font-style:italic">';
-     echo"$feedback"; echo' </span><br><br>';
+
+    echo "<fieldset>";
+      echo'<legend><h5 class="grey-text text-darken-4" style="font-size:20px; display:inline;">';echo"$name";echo'</h5></legend>';
+      echo '<span style="font-size:20px;font-style:italic">';
+      echo"$feedback"; echo' </span>';
+    echo "</fieldset><br>";
            }     
             ?>
  
