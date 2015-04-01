@@ -381,8 +381,7 @@ function modify_event_att(r)
   var m=document.getElementById("arr").value;
   var reg = m.split(",");
   var len=reg.length;
-var atten = [];    
-alert(r);
+var atten = [];
  for(var i=0; i< reg.length ;i++)
  {
   

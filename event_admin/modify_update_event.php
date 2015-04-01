@@ -12,5 +12,5 @@
 	$date_added = $_GET['da'];
 	$q1 = "update events set name='$name', date='$date', time='$time', place='$place', purpose='$purpose', date_added='$date_added', details='$details' where id=$id";
 	mysqli_query($con, $q1) or die('query1 error');
-	echo "event modified successfully";
+	echo "<h4 class='paddl'>Event modified successfully !</h4>";
 ?>

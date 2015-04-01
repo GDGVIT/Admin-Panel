@@ -25,9 +25,9 @@ $mysql_tbl=$_SESSION["cid"].'_event_attendance';
 	$r1=mysqli_query($mysqli,$sql);
 }
 	if($r1)
-		echo "Update Successful";
+		echo "<h4 class='paddl'>Update Successful !</h4>";
 	else
-		echo"Update Failed";
+		echo "<h4 class='paddl'>Update Failed !</h4>";
 	
 
 	}

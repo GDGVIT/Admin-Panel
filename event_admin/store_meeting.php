@@ -15,5 +15,5 @@
 	$row = mysqli_fetch_array($r2);
 	$eid = $row[0];
 	mysqli_query($con, "alter table ".$cid."_meeting_attendance add column meeting_".$eid." int DEFAULT 0") or die('q3 error');
-	echo "meeting arranged successfully";
+	echo "<h4 class='paddl'>Meeting arranged successfully !</h4>";
 ?>

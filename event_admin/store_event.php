@@ -16,5 +16,5 @@
 	$row = mysqli_fetch_array($r2);
 	$eid = $row[0];
 	mysqli_query($con, "alter table ".$cid."_event_attendance add column event_".$eid." int DEFAULT 0") or die('q3 error');
-	echo "event created successfully";
+	echo "<h4 class='paddl'>Event created successfully !</h4>";
 ?>

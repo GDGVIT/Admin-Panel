@@ -10,5 +10,5 @@
 	$date_added = $_GET['da'];
 	$q1 = "update meetings set date='$date', time='$time', place='$place', date_added='$date_added', details='$details' where id=$id";
 	mysqli_query($con, $q1) or die('query1 error');
-	echo "meeting modified successfully";
+	echo "<h4 class='paddl'>Meeting modified successfully !</h4>";
 ?>

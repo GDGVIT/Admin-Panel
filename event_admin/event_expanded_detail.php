@@ -13,11 +13,12 @@
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[3]</span><br><br>";
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Time</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[4]</span><br><br>";
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Place</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[5]</span><br><br>";
+            echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date Added</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[7]</span><br><br>";
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Purpose</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[6]</span><br><br>";
             echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Details</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[8]</span><br><br>";
             if($status == 1) {
-			echo "<a class='btn' value='$row[0]' style='background-color:#e75457;color:white;margin-left:30%;' onclick='modify_ad(this.value)'>Modify</a>";
-			echo "<a class='btn' value='$row[0]' style='background-color:#e75457;color:white;' onclick='del_ad(this.value)'>Delete</a>";
+			echo "<button class='btn' value='$row[0]' style='background-color:#e75457;color:white;margin-left:30%;' onclick='modify_ad(this.value)'>Modify</button>";
+			echo "<button class='btn' value='$row[0]' style='background-color:#e75457;color:white;' onclick='del_ad(this.value)'>Delete</button>";
 			}
 	}
 	mysqli_close($mysqli);

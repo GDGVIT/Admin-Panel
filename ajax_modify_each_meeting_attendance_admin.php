@@ -96,7 +96,10 @@ $name=$rows1['name'];}
 										
 										echo'</tr></tbody></table><input type="hidden" id="arr" value="'; echo"$reg"; echo'">';
 								 echo '<div class="col-lg-12" style="margin-top:50px;text-align:center"> ';
-								 echo" <input class='btn1' onclick='modify_meeting_att(this.name)'' name='$meeting_id' id='submit' tabindex='5' value='Update!'' type='button'></div>";
+				//				 echo" <input class='btn1' onclick='modify_meeting_att(this.name)'' name='$meeting_id' id='submit' tabindex='5' value='Update!'' type='button'></div>";
+								 echo" <a class='btn' onclick='modify_meeting_att(this.name)'' name='$meeting_id' id='submit' tabindex='5' style='background-color:#e75457;color:white;' value='Update!'' href='#'>
+											Update
+				  						</a></div>";
 								  mysqli_close($mysqli);
 	}
 	else
