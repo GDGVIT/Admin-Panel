@@ -16,7 +16,7 @@ echo '<div class="row" style="margin-top:10px;">
 										      $meeting_id1=$_GET['id'];
 						  					 $rs = mysqli_query($mysqli,"select details from meetings where id=$meeting_id1") or die("quer");
 						  					 $row = mysqli_fetch_array($rs);
-						  					 echo $row['details']; 
+						  					// echo $row['details']; 
                                               $mysql_tbl=$club_id.'_meeting_attendance';
                                               $meeting_id="meeting_".$meeting_id1;
                                               $sql = "SELECT  regno,`" . $meeting_id . "` FROM `" . $mysql_tbl . "`";
