@@ -25,14 +25,14 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="reg_no" name="reg_no" type="text" style="min-width:240px;" class="validate">
         <label style="min-width:240px;" for="reg_no">Registration Number</label>
+        <input id="reg_no" name="reg_no" type="text" style="min-width:240px;" class="validate">
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="dob" type="date" style="min-width:240px;" class="validate">
-        <label for="dob" style="min-width:240px;">Birthday</label>
+        <label for="dob" style="min-width:240px;">Birthday</label><br>
+        <input id="dob" type="date" style="min-width:240px;" class="validate" required>
       </div>
     </div>
     <div class="row">
