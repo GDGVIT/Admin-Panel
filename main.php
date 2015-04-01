@@ -499,6 +499,7 @@ $status=$_SESSION["status"];
 		?>
     <div style="width:250px;float:right;">
 		<img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
+     <a onclick="change_photo()" class="waves-effect btn-flat modal-action modal-close profile-button">Change profile picture</a>
     </div>
     <div style="float:left;">
         <span class="card-title">

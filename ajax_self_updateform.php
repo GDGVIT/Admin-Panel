@@ -88,6 +88,7 @@
 		</div>
 	</div>
 </div>	
+
 <?php
 mysqli_close($mysqli);		  
 ?>

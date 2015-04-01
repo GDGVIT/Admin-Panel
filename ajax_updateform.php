@@ -71,12 +71,12 @@
             
           <div class="col-lg-6">
                         <label for="dob"><strong>Date of Birth :</strong></label>
-                <input class="form-control" type="text" name="dob" id="dob" value="<?php echo"$date"; ?>"  style="margin-bottom:10px;margin-right:0px">
+                <input class="form-control" type="date" name="dob" id="dob" value="<?php echo"$date"; ?>"  style="margin-bottom:10px;margin-right:0px">
               </div>
                 <div align="center">
                   <button type="button"  onclick="update_profile()" name="submit" class="btn btn-success" style="margin-top:20px;">Update</button> 
                 </div>
-                       
+             
           </form>
         </div>
       </div>

@@ -31,7 +31,7 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <input id="dob" type="text" style="min-width:240px;" class="validate">
+        <input id="dob" type="date" style="min-width:240px;" class="validate">
         <label for="dob" style="min-width:240px;">Birthday</label>
       </div>
     </div>
@@ -70,11 +70,7 @@
         <label style="min-width:240px;" for="hroom">Room</label>
       </div>
     </div>
-    <div class="row">
-    <div class="input-field col s6">
-        <input type="file" id="profilepic"  />
-      </div>
-    </div>
+   
     <div class="row">
     <div class="input-field col s6">
         <button onclick="change_password2()" tabindex="5" style="height:42px;background-color:rgba(0,0,0,0);border:none;">
