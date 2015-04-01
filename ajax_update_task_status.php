@@ -13,7 +13,7 @@
     </div>
     <div class="col-lg-4 paddl" style="margin-top:10px">
     <select  id="Ultra" onchange="filter_update_task_status()" class="browser-default">  
-      <option value="1" disabled selected>Select Task category</option>
+      <option value="1" disabled selected>Filter Task category</option>
       <?php  
       $sql = "SELECT * FROM task";
       $res = mysqli_query($mysqli,$sql);
