@@ -1,3 +1,15 @@
+<style type="text/css">
+    .hidemeeting{display:none;}
+    .showmeeting{position:relative;top:0px;}
+    .hideevent{display:none;}
+    .showevent{position:relative;top:0px;}
+    .hidetech{display:none;}
+    .hidemanage{display:none;}
+    .hidedes{display:none;}
+    .showtech{position:relative;top:0px;}
+    .showmanage{position:relative;top:0px;}
+    .showdes{position:relative;top:0px;}
+</style>
 <?php
 	session_start();
   require("session_check.php");
@@ -22,7 +34,14 @@
       <div class="col-md-11">
         <h3 class="paddh"></h3>
       </div>                  
-     </div>  
+     </div>
+
+     <div id="materialdesign" class="section paddl">
+                    <button class="waves-effect waves-light btn tab" onclick="show1();">Events</button>
+                    <button class="waves-effect waves-light btn tab" onclick="show2();">Meetings</button>
+                    <button class="waves-effect waves-light btn tab" onclick="show3();">Tasks</button></div>
+
+    <div id="technical" class="showtech">   
      <h4 class="paddh">Event details</h4>    
     <table class="hoverable" style="padding-left:50px;padding-right:50px">   
       <thead>
@@ -49,9 +68,10 @@
               else
                 echo "    Present</td></tr>";
             }
-            echo "</tbody></table><br><br><br>";
+            echo "</tbody></table></div><br><br><br>";
 
-            echo "<h4 class='paddh'>Meeting Details</h4><br>";
+
+            echo "<div class='hidemanage' id='management'><h4 class='paddh'>Meeting Details</h4><br>";
            echo' <table class="hoverable">   
       <thead>
         <tr>
@@ -76,9 +96,9 @@
               else
                 echo "    Present</td></tr>";
             }
-             echo "</tbody></table><br><br><br>";
+             echo "</tbody></table></div><br><br><br>";
 
-            echo "<h4 class='paddh'>Task Status</h4><br>";
+            echo "<div class='hidedes' id='design'><h4 class='paddh'>Task Status</h4><br>";
             echo' <table class="hoverable">   
       <thead>
         <tr>
@@ -99,7 +119,7 @@
               else
                 echo "   Pending</td></tr>";
             }
-              echo "</tbody></table><br>";          
+              echo "</tbody></table></div></div><br>";          
                                                 
   /*                      $mysql_tbl=$club_id.'_event_attendance';
                         $sql = "SELECT * FROM `" . $mysql_tbl . "` where regno= '$regno1'";
