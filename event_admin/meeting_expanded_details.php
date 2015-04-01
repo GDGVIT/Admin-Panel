@@ -9,14 +9,14 @@
 	$q1 = "select * from meetings where id=$id";
 	$r1 = mysqli_query($mysqli, $q1) or die("query error");
 	while($row = mysqli_fetch_array($r1)) {
-			echo "Details:  $row[5]<br>";
-			echo "Place:  $row[4]<br>";
-			echo "Date:  $row[2]<br>";
-			echo "Time:  $row[3]<br>";
-			echo "Date Added:  $row[6]<br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Details</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[5]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Place</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[4]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[2]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Time</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[3]</span><br><br>";
+			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date Added</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[6]</span><br><br>";
 			if ($status == 1) {
-			echo "<button value='$row[0]' onclick='modify_meeting_ad(this.value)'>MODIFY</button>";
-			echo "<button value='$row[0]' onclick='del_meeting_ad(this.value)'>CANCEL</button>";
+			echo "<a value='$row[0]' class='btn' href='#' style='background-color:#e75457;color:white;margin-left:20%;' onclick='modify_meeting_ad(this.value)'>Modify</a>";
+			echo "<a value='$row[0]' class='btn' href='#' style='background-color:#e75457;color:white;' onclick='del_meeting_ad(this.value)'>Cancel Meeting</a>";
 		}
 	}
 	mysqli_close($mysqli);

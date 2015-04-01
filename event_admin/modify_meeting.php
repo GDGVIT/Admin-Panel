@@ -13,17 +13,34 @@
 		$date_added = $row[6];
 	}
 ?>
-
-<html>
-<body>
-	<p>Venue:</p>
-	<input type="date" id="date" value='<?php echo $date;?>'><br>
-	<input type="time" id="time" value='<?php echo $time;?>'><br>
-	<input type="text" id="place" value='<?php echo $place;?>' placeholder="Enter place"><br>
-	<p>Details:</p>
-	<textarea rows="5" cols="20" id="details" placeholder="Enter event details"><?php echo $details;?></textarea><br>
-	<input type="hidden" value="<?php echo $club_id;?>" id="club_id">
-	<input type="hidden" value="<?php echo $id;?>" id="meeting_id">
-	<button onclick="modification_update_meeting_ad()">MODIFY MEETING</button>
-</body>
-</html>
+<div style="padding-left:30%">
+	<div class="row">
+    	<div class="input-field col s6">
+			<input type="text" id="place" value='<?php echo $place;?>' style="min-width:240px;">
+			<label for="place" style="min-width:240px;">Venue</label>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="input-field col s6">
+			<textarea rows="5" cols="20" class="materialize-textarea" id="details" style="min-width:240px;"><?php echo $details;?></textarea>
+			<label for="details" style="min-width:240px;">Name</label>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="input-field col s6">
+			<input type="date" id="date" value='<?php echo $date;?>'>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="input-field col s6">
+			<input type="time" id="time" value='<?php echo $time;?>'>
+		</div>
+	</div>
+	<div class="row">
+    	<div class="input-field col s6">
+			<input type="hidden" value="<?php echo $club_id;?>" id="club_id">
+			<input type="hidden" value="<?php echo $id;?>" id="meeting_id">
+			<a class="btn" style="color:white;background-color:#e75457;" onclick="modification_update_meeting_ad()">Modify Meeting</a>
+		</div>
+	</div>
+</div>
