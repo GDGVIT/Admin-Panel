@@ -42,7 +42,7 @@ $id1=$regno;
         <div class="modal-body"  id="email1">
             <div class="easypiechart" data-percent="75" data-line-width="6" data-bar-color="#fff" data-track-Color="#2796de" data-scale-Color="false" data-size="140" data-line-cap='butt' data-animate="1000">
                                     <div  >
-<img  src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>"  alt="not available"class="dker"  />
+<img  src="<?php echo" $photo "; ?>" style="width:230px;height:220px;"  alt="not available"class="dker"  />
                                       
                                  
                                     </div>
@@ -52,10 +52,10 @@ $id1=$regno;
             
             
                <div class="col-lg-12"  style="margin-top:10px">
-              <label>Choose new pic</label>
+              <label>Choose new pic</label><br>
               
               <input name="MAX_FILE_SIZE" value="102400000" type="hidden">
-               <input name="image" id="image" accept="image" type="file" class="btn btn-default">
+               <input name="file" id="file" accept="image" type="file" class="btn btn-default">
             </div><div id="errorBox"></div>
               
                        <br>

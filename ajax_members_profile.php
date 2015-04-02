@@ -59,7 +59,7 @@ if(empty($gender))
 
     <div class="paddl">
      <div style="width:250px;float:right;">
-    <img src="data:image/jpeg;base64,<?php echo base64_encode( $photo ); ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
+    <img src="<?php echo" $photo "; ?>" class="dker" style="width:230px;height:220px;border-radius:50%;" />
     </div>
     <div style="width:500px;float:left;">
         <span class="card-title">

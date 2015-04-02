@@ -185,9 +185,9 @@ function change_photo() {
 }
 
 function photo_exec() {
-	var image=document.getElementById("image").value;
+	var image=document.getElementById("file").value;
 	var myform=document.getElementById("myform").value;
-	var uploadedFile = document.getElementById('image');
+	var uploadedFile = document.getElementById('file');
 	var fileSize = uploadedFile.files[0].size;
     if(fileSize> 204800)
     {
