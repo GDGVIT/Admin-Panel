@@ -15,8 +15,8 @@
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Time</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[3]</span><br><br>";
 			echo "<h5 class='grey-text text-darken-4' style='font-size:20px; display:inline;'>Date Added</h5>&nbsp:&nbsp<span style='font-size:20px'>$row[6]</span><br><br>";
 			if ($status == 1) {
-			echo "<button value='$row[0]' class='btn' href='#' style='background-color:#e75457;color:white;margin-left:20%;' onclick='modify_meeting_ad(this.value)'>Modify</button>";
-			echo "<button value='$row[0]' class='btn' href='#' style='background-color:#e75457;color:white;' onclick='del_meeting_ad(this.value)'>Cancel Meeting</button>";
+			echo "<a class='btn' href='#' style='background-color:#e75457;color:white;margin-left:20%;' onclick='modify_meeting_ad($row[0])'>Modify</a>";
+			echo "<a class='btn' href='#' style='background-color:#e75457;color:white;' onclick='del_meeting_ad($row[0])'>Cancel Meeting</a>";
 		}
 	}
 	mysqli_close($mysqli);

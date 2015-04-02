@@ -35,7 +35,7 @@ $t_id=$rows['id'];
            </form> 
             </div> 
              <div class="paddl">
-     <table class='hoverable centered'><thead><tr><th>Task Name</th><th>Description</th><th>Assigned Member</th><th>Assignment Date</th><th>Completion Date</th><th>Task Current Status</th></tr></thead><tbody>
+     <table class='hoverable centered'><thead><tr><th>Task Name</th><th>Assigned Member</th><th>Completion Date</th><th>Task Current Status</th></tr></thead><tbody>
 
  <?php
   $t_nam2=$_GET['id'];
@@ -94,9 +94,9 @@ if($name=="")
         
  echo'<input type="hidden"  id="task_id" value="'; echo"$t_id"; echo ' ">';
             echo "<td>";echo"$t_name";echo"</td>";
-             echo' <td>';echo"$desc";echo'</td>';
+        //     echo' <td>';echo"$desc";echo'</td>';
              echo' <td>';echo"$name";echo'</td>';
-             echo' <td>';echo"$TAD";echo'</td>';
+        //     echo' <td>';echo"$TAD";echo'</td>';
              echo' <td>';echo"$TAC";echo'</td>';
 
 if($status==0)
