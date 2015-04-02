@@ -235,7 +235,7 @@ $status=$_SESSION["status"];
                 </ul>
               </div>
           </li>
-          <li>
+          <li id="over">
               <a href="#!" style="color:#C6C6C6;font-weight:bold;font-size:13px;" class="collapsible-header">
                   Meetings
               </a>

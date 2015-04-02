@@ -79,11 +79,11 @@ if(empty($gender))
 if($_SESSION['status']==1)
 {
 echo '<div class="col-lg-2" style="display: inline;">
-      <a onclick="update_forms('.$id1.')" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;">Modify</a>
+      <a onclick="update_forms('.$id1.')" data-target="#modify" class="waves-effect waves-light btn white-text" style="margin-right:5px;color:white;background-color:#e75457;">Modify</a>
       </div>'; 
 
 echo '<div class="col-lg-2" style="display: inline;"> 
-       <a onclick="inactive()" class="waves-effect waves-light btn white-text">Delete</a> 
+       <a onclick="inactive()" class="waves-effect waves-light btn white-text" style="background-color:#e75457;color:white;">Delete</a> 
        </div>'; 
     }  
     ?>
