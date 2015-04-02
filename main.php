@@ -334,8 +334,6 @@ $status=$_SESSION["status"];
       </ul>
         <!--Menu Ends-->
     </header>
-    
-
       
 <main ng-show="option===0">
     <div class="container" ng-init="tab=1">
