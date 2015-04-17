@@ -30,8 +30,8 @@
      $mysql_tb1=$club_id.'_event_attendance';
       $mysql_tb2=$club_id.'_meeting_attendance';
   $up= mysqli_query($mysqli,"insert into $mysql_tb (name, email, gender, mobno, dob, address, regno, department) values ('$name1', '$email', '$gender', '$contact', '$dob', '$add', '$reg', '$department')") or die("error !Please try again");
-$event= mysqli_query($mysqli,"insert into $mysql_tb1 (regno) values ('$reg')") or die("quer");
-$meeting= mysqli_query($mysqli,"insert into $mysql_tb2 (regno) values ('$reg')") or die("quer");
+$event= mysqli_query($mysqli,"insert into $mysql_tb1 (regno) values ('$reg')") or die("queree");
+$meeting= mysqli_query($mysqli,"insert into $mysql_tb2 (regno) values ('$reg')") or die("quermm");
 $second=mysqli_query($mysqli,"INSERT INTO panel (reg_no,club_id, pass) VALUES ('$reg', '$club_id', '$password') ");
 // $insert1=mysql_query("INSERT INTO panel (reg_no,club_id, pass) VALUES ('$reg', '', '$password') ");
   if($up && !$second  &&  $event && $meeting ) 

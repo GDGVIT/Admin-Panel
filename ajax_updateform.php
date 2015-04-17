@@ -58,11 +58,28 @@
                         <label for="phone"><strong>Mobile No. :</strong></label>
                 <input class="form-control" type="text" name="phone" id="phone" value="<?php echo"$phone"; ?>"  style="margin-bottom:10px;margin-right:0px">
               </div>
-              
-            <div class="col-lg-6">
-                        <label for="project"><strong>Sex:</strong></label>
-                <input class="form-control" type="text" name="gender" id="sex" value="<?php echo"$gender"; ?>"  style="margin-bottom:10px;margin-right:0px">
-              </div>
+              <div class="col-lg-3">
+               <label for="project"><strong>Sex:</strong></label>
+              <?php if($gender=="Male")
+{
+             echo'<td><select  class="browser-default" name="gender" id="sex" required>
+            
+            <option value="Male" selected>Male</option>
+            <option value="Female" >Female</option>
+            
+            </select></td>';
+          }
+          else
+           {
+             echo'<td><select   class="browser-default" name="gender" id="sex" required>
+            
+            <option value="Female" selected>Female</option>
+            <option value="Male" >Male</option>
+            
+            </select></td>';
+          } ?>
+          </div>  
+           
                   <div class="col-lg-6">
                         <label for="address"><strong>Address :</strong></label>
                 <input class="form-control" type="text" name="address" id="address" value="<?php echo"$address"; ?>"  style="margin-bottom:10px;margin-right:0px">
