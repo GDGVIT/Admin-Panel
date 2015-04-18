@@ -1,0 +1,6 @@
+DELETE member not working
+gander is text field in profile update
+setting
+top navbar icon should be fixed while scrolling
+Problem with uploading picture its not responsive. Profile pic adjustment should be given , all are getting distorted!!!
+browser back button not working for the sites goes in a loop!!! 
