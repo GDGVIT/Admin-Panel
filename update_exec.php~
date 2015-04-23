@@ -43,7 +43,6 @@ mysqli_close($mysqli);
 if($up)
 {
 	echo "<h4 class='paddl'>Profile updated successfully !</h4>";
-        echo '<meta http-equiv="refresh" content="1">';
 }
 	
 ?>
