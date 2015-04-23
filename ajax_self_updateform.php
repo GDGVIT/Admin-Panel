@@ -58,7 +58,7 @@
                         <label for "phone"><strong>Mobile No. :</strong></label>
 			  				<input class="form-control" type="text" name="phone" id="phone" value="<?php echo"$phone"; ?>"  style="margin-bottom:10px;margin-right:0px">
 			  		</div>
-			  			
+			  	
 			  		<div class="col-lg-6">
                         <label for "project"><strong>Sex:</strong></label>
 			  				<input class="form-control" type="text" name="gender" id="sex" value="<?php echo"$gender"; ?>"  style="margin-bottom:10px;margin-right:0px">
