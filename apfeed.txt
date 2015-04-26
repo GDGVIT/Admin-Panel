@@ -1,8 +1,9 @@
 DELETE member not working
-gander is text field in profile update
+gander is text field in profile update (done)
 setting
 top navbar icon should be fixed while scrolling
 Problem with uploading picture its not responsive. Profile pic adjustment should be given , all are getting distorted!!!
 browser back button not working for the sites goes in a loop!!!
-profile should get updated without reload
-date option in feedback 
+profile should get updated without reload (done)
+date option in feedback
+ 

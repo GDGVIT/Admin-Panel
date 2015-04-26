@@ -83,7 +83,7 @@ echo '<div class="col-lg-2" style="display: inline;">
       </div>'; 
 
 echo '<div class="col-lg-2" style="display: inline;"> 
-       <a onclick="inactive()" class="waves-effect waves-light btn white-text" style="background-color:#e75457;color:white;">Delete</a> 
+       <a onclick="inactive('.$id1.')" class="waves-effect waves-light btn white-text" style="background-color:#e75457;color:white;">Delete</a> 
        </div>'; 
     }  
     ?>

@@ -7,9 +7,9 @@
   $club_id=$_SESSION['cid'];
   echo '<div class="container" ng-init="tab=1">
           <div class="row card" id="main_content">';
-          echo' <select  id="Ultra" onchange="filter_view_task()" class="browser-default">  
-              <option value="0" selected>Show Pending Task</option>
-           <option value="1" selected>Show Completed Task</option>';?>
+          echo' <select  id="Ultra" onchange="filter_view_task1()" class="browser-default">  
+              <option value="1" selected>Show My Task</option>
+           <option value="0" selected>Show All Task</option>';?>
             </select>
  <?php echo '<table class="hoverable">
       <thead>

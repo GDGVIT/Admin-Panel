@@ -5,11 +5,12 @@
   $regno=$_SESSION['name'];
   $status=$_SESSION['status'];
   $club_id=$_SESSION['cid'];
+  $fil=$_GET['id'];
   echo '<div class="container" ng-init="tab=1">
           <div class="row card" id="main_content">';
-          echo' <select  id="Ultra" onchange="filter_view_task()" class="browser-default">  
-              <option value="0" selected>Show Pending Task</option>
-           <option value="1" selected>Show Completed Task</option>';?>
+           echo' <select  id="Ultra" onchange="filter_view_task1()" class="browser-default">  
+              <option value="1" selected>Show My Task</option>
+           <option value="0" selected>Show All Task</option>';?>
             </select>
  <?php echo '<table class="hoverable">
       <thead>
@@ -21,9 +22,10 @@
        </thead>
        <tbody>';  
   $mysql_tb = 'club_'.$club_id.'_members';
-  $sql = "SELECT task.task,task.id,task.assignment_date,task.completion_date,task.status,task.description, `$mysql_tb`.name FROM task INNER JOIN  `$mysql_tb` ON task.regno= `$mysql_tb`.regno;";
+  $sql = "SELECT task.task,task.id,task.assignment_date,task.completion_date,task.status,task.description, `$mysql_tb`.name,`$mysql_tb`.regno FROM task INNER JOIN  `$mysql_tb` ON task.regno= `$mysql_tb`.regno; ";
   $res = mysqli_query($mysqli,$sql);
   while($rows=mysqli_fetch_array($res)) { 
+      $reg=$rows['regno'];
       $t_name=$rows['task'];
       $t_id=$rows['id'];
       $name=$rows['name'];
@@ -31,7 +33,12 @@
       $TAC=$rows['completion_date'];
       $status=$rows['status'];
       $desc =$rows['description'];
-      if(empty($t_name))
+      if($fil==1)
+
+         {
+          if($reg==$regno)
+          {
+          if(empty($t_name))
       {
         $t_name="Not Available";
       }
@@ -70,7 +77,52 @@
         echo'Not Done';
         } 
         echo '</td><td><button class="btn modal-trigger" style="background-color:#e75457;color:white" value="'.$rows[1].'" onclick="task_details(this.value)">Details</button></td></tr>';
-  }
+ } }
+ else
+ {
+    
+          if(empty($t_name))
+      {
+        $t_name="Not Available";
+      }
+       if(empty($name))
+      {
+        $name="Not Available";
+      }
+      if(empty($TAD))
+      {
+          $TAD="Not Available";
+      }
+      if(empty($TAC))
+      {
+        $TAC="Not Available";
+      }
+      if(empty($status))
+      {
+        $status="Not Available";
+      }
+      if(empty($desc))
+      {
+        $desc="Not Available";
+      }
+      //Selecting the member name from club member table
+     
+      echo '<tr>';
+      echo'<td>';echo"$t_name";echo'</td>';
+      echo'<td>';echo"$name";echo'</td>';
+      echo'<td>';
+      if($status==1)
+        {
+        echo" Done";
+        }
+      else
+        {
+        echo'Not Done';
+        } 
+        echo '</td><td><button class="btn modal-trigger" style="background-color:#e75457;color:white" value="'.$rows[1].'" onclick="task_details(this.value)">Details</button></td></tr>';
+ }
+
+}
   echo "</tbody></table></div></div>";
   mysqli_close($mysqli); 
 ?>
