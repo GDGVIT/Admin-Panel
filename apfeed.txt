@@ -6,3 +6,4 @@ Problem with uploading picture its not responsive. Profile pic adjustment should
 browser back button not working for the sites goes in a loop!!!
 profile should get updated without reload
 date option in feedback 
+The navbar should go left automatically after selection of menu. It has to be manually swiped.
