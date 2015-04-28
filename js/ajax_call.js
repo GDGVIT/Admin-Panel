@@ -225,8 +225,9 @@ function photo_exec() {
 	xmlhttp.send();*/
 }
 
-function inactive() {
-   var id=document.getElementById("id").value;
+function inactive(id) {
+   //var id=document.getElementById("id").value;
+  
 	xmlhttp.onreadystatechange=function()
 	  {
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -781,10 +782,22 @@ function filter_view_task() {
 		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
 		}
 	  }
-	xmlhttp.open("GET","ajax_filterd_view_task.php?id="+x,true);
+	xmlhttp.open("GET","event_admin/ajax_filterd_view_task_admin.php?id="+x,true);
 	xmlhttp.send();
 }
 
+function filter_view_task1() {
+   	var x = document.getElementById("Ultra").value;
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_user/ajax_filterd_view_task_admin.php?id="+x,true);
+	xmlhttp.send();
+}
 function update_task_status() {
 	xmlhttp.onreadystatechange=function()
 	  {
@@ -820,7 +833,16 @@ function task_brief() {
 	xmlhttp.open("GET","event_admin/task_brief_details.php",true);
 	xmlhttp.send();
 }
-
+function task_brief1() {
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("main_content").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	xmlhttp.open("GET","event_user/task_brief_details.php",true);
+	xmlhttp.send();
+}
 function task_details(id) {
 	xmlhttp.onreadystatechange=function()
 	  {

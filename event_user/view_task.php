@@ -7,6 +7,31 @@ session_start();
 	$status=$_SESSION['status'];
 	$club_id=$_SESSION['cid'];
 ?>
+  <div class="col-lg-4" style="margin-top:10px">
+              <form   method="post" enctype="multipart/form-data" onsubmit="filter_view_task()">
+             <select  id="Ultra" onchange="filter_view_task()" class="default-broweser">  
+              <option value="1" selected>Select Task category</option>
+            <?php
+  
+    $sql = "SELECT * FROM task";
+    $res = mysqli_query($mysqli,$sql);
+
+    while($rows=mysqli_fetch_array($res))//selecting the events
+    {
+
+$t_name=$rows['task'];
+$t_id=$rows['id'];
+
+           ?> 
+            <?php echo'<option value="'; echo "$t_id"; echo '"   > '; ?><?php echo"$t_name"; ?> <?php echo '</option>'; ?>
+
+           <?php }
+          
+            ?>
+            </select>
+
+            
+           </form>   </div> 
   <table class="hoverable">
     <thead>
       <tr><th>Task Name </th><th>Description </th><th>Assigned Member</th><th>Assignment Date</th><th>completion Date</th><th>Task current Status</th></tr></thead><tbody>

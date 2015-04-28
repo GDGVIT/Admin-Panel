@@ -124,16 +124,23 @@ $status=$_SESSION["status"];
               </a>
              <div class="collapsible-body" style="background-color:#000000">
                 <ul>
-                  <li class="waves-effect waves-light" id="over" style="width:240px;">
-                      <a href="" style="color:#C6C6C6;font-weight:bold;font-size:13px;" onclick="task_brief()" ng-click="option=0">
-                          View Tasks
-                      </a>
-                  </li>
+                 
                    <?php
+                    if($_SESSION['status']==0)
+            echo"<li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='task_brief1()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0'>
+                                View Task
+                            </a>
+                        </li>";
 					  if($_SESSION['status']==1)
 					  echo"
                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
                             <a href='' onclick='add_task()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0'>
+                                Assign Task
+                            </a>
+                        </li>
+                         <li class='waves-effect waves-light' id='over' style='width:240px;'>
+                            <a href='' onclick='task_brief()' style='color:#C6C6C6;font-weight:bold;font-size:13px;' ng-click='option=0'>
                                 Assign Task
                             </a>
                         </li>
